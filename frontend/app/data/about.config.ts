@@ -1,0 +1,382 @@
+export interface Physician {
+  id: string;
+  name: string;
+  specialty: string;
+  image: string;
+  rating: number;
+  reviews: number;
+
+  name_am?: string;
+  specialty_am?: string;
+  available?: boolean;
+  availabilityText?: string;
+  bio?: string;
+  experience?: string;
+  languages?: string[];
+  education?: string[];
+  certifications?: string[];
+  specialties?: string[];
+  procedures?: string[];
+  experience_years?: number;
+  patients_count?: string;
+}
+
+export const physicians: Physician[] = [
+  {
+    id: "1",
+    name: "Dr. Melkamu Adamu",
+    name_am: "ዶ/ር መልካሙ አዳሙ",
+    specialty: "Orthopedic",
+    specialty_am: "የአጥንት እና መገጣጠሚያ ቀዶ ህክምና ስፔሻሊስት ሀኪም",
+    image: "/images/physicians/dr-melkamu-adamu.jpg",
+    rating: 4.7,
+    reviews: 120,
+    available: true,
+    availabilityText: "Available Today",
+    experience: "12 Years Experience",
+    experience_years: 12,
+    patients_count: "5,000+",
+    languages: ["English", "Amharic"],
+    bio: "Specialist in cardiovascular diseases and preventive cardiology with extensive experience in diagnosing and treating heart conditions using modern evidence-based medicine.",
+    education: [
+      "MD – Addis Ababa University, College of Health Sciences",
+      "Specialty in Cardiology – Black Lion Hospital, Addis Ababa",
+      "Fellowship in Interventional Cardiology – University of Nairobi",
+    ],
+    certifications: [
+      "Board Certified in Cardiology – Ethiopian Medical Association",
+      "Advanced Cardiac Life Support (ACLS)",
+      "Echocardiography Certification – American Society of Echocardiography",
+    ],
+    specialties: [
+      "General Cardiology",
+      "Interventional Cardiology",
+      "Preventive Cardiology",
+      "Heart Failure Management",
+    ],
+    procedures: [
+      "Echocardiography (Transthoracic & Transesophageal)",
+      "Stress Testing & Holter Monitoring",
+      "Coronary Angiography",
+      "Pacemaker Implantation",
+    ],
+  },
+  {
+    id: "2",
+    name: "Dr. Juhar Mohamed",
+    name_am: "ዶ/ር ጅዋር ሞሐመድ",
+    specialty: "GYNECOLOGY",
+    specialty_am: "የሴቶች ህክምና ስፔሻሊስት",
+    image: "/images/physicians/dr-juhar-muhammed.jpg",
+    rating: 4.9,
+    reviews: 98,
+    available: true,
+    availabilityText: "Available Tomorrow",
+    experience: "9 Years Experience",
+    experience_years: 9,
+    patients_count: "3,500+",
+    languages: ["English", "Amharic"],
+    bio: "Dedicated pediatrician providing compassionate and comprehensive child healthcare from infancy through adolescence.",
+    education: [
+      "MD – Jimma University, Institute of Health",
+      "Specialty in Pediatrics – Tikur Anbessa Hospital, Addis Ababa",
+    ],
+    certifications: [
+      "Board Certified in Pediatrics – Ethiopian Medical Association",
+      "Pediatric Advanced Life Support (PALS)",
+      "Neonatal Resuscitation Program (NRP)",
+    ],
+    specialties: [
+      "General Pediatrics",
+      "Neonatal Care",
+      "Child Nutrition & Growth Monitoring",
+      "Adolescent Medicine",
+    ],
+    procedures: [
+      "Newborn Assessment & Resuscitation",
+      "Pediatric Vaccination & Immunization",
+      "Growth & Development Screening",
+      "Pediatric Emergency Care",
+    ],
+  },
+  {
+    id: "3",
+    name: "Dr. Aragaw Tesfaye",
+    name_am: "ዶ/ር አራጋዉ ተስፋየ",
+    specialty: "Internal medicine",
+    specialty_am: "የውስጥ ደዌ ስፔሻሊስት",
+    image: "/images/physicians/doctor-2.jpg",
+    rating: 4.6,
+    reviews: 110,
+    available: false,
+    availabilityText: "Available Next Week",
+    experience: "10 Years Experience",
+    experience_years: 10,
+    patients_count: "4,200+",
+    languages: ["English", "Amharic"],
+    bio: "Expert in neurological disorders and brain health with a focus on stroke management and neurodegenerative diseases.",
+    education: [
+      "MD – Addis Ababa University, College of Health Sciences",
+      "Specialty in Neurology – Black Lion Hospital, Addis Ababa",
+    ],
+    certifications: [
+      "Board Certified in Neurology – Ethiopian Medical Association",
+    ],
+    specialties: [
+      "General Neurology",
+      "Stroke Medicine",
+      "Epilepsy Management",
+      "Headache Disorders",
+    ],
+    procedures: [
+      "Electroencephalography (EEG)",
+      "Nerve Conduction Studies (NCS)",
+      "Lumbar Puncture",
+      "Botulinum Toxin Injection for Dystonia",
+    ],
+  },
+  {
+    id: "4",
+    name: "Dr. Abnet Dilie",
+    name_am: "ዶ/ር አብነት ድሌ",
+    specialty: "Surgical Specialist",
+    specialty_am: "የቀዶ ጥገና ህክምና ስፔሻሊስት",
+    image: "/images/physicians/doctor-3.jpg",
+    rating: 4.6,
+    reviews: 110,
+    available: true,
+    availabilityText: "Available Today",
+    experience: "8 Years Experience",
+    experience_years: 8,
+    patients_count: "3,800+",
+    languages: ["English", "Amharic"],
+    bio: "Neurologist specializing in headache medicine, movement disorders, and neurodegenerative conditions.",
+    education: [
+      "MD – Gondar University, College of Medicine and Health Sciences",
+      "Specialty in Neurology – Tikur Anbessa Hospital, Addis Ababa",
+    ],
+    certifications: [
+      "Board Certified in Neurology – Ethiopian Medical Association",
+      "Headache Medicine Certification",
+    ],
+    specialties: [
+      "Headache Medicine",
+      "Movement Disorders",
+      "Dementia Care",
+    ],
+    procedures: [
+      "Electroencephalography (EEG)",
+      "Botulinum Toxin Therapy",
+    ],
+  },
+  {
+    id: "5",
+    name: "Dr. Abebe Kebede",
+    name_am: "ዶ/ር አበበ ከበደ",
+    specialty: "Neurology",
+    specialty_am: "የነርቭ ሕክምና",
+    image: "/images/physicians/dr-abebe-kebede.jpg",
+    rating: 4.6,
+    reviews: 110,
+    available: true,
+    availabilityText: "Available Today",
+    experience: "15 Years Experience",
+    experience_years: 15,
+    patients_count: "6,500+",
+    languages: ["English", "Amharic", "Oromiffa"],
+    bio: "Senior neurologist with extensive experience in cerebrovascular diseases, epilepsy, and neurocritical care.",
+    education: [
+      "MD – Addis Ababa University, College of Health Sciences",
+      "Specialty in Neurology – Black Lion Hospital, Addis Ababa",
+      "Fellowship in Neurocritical Care – University of Cape Town",
+    ],
+    certifications: [
+      "Board Certified in Neurology – Ethiopian Medical Association",
+      "Neurocritical Care Certification",
+      "Stroke Medicine Certification",
+    ],
+    specialties: [
+      "Cerebrovascular Diseases",
+      "Neurocritical Care",
+      "Epilepsy",
+      "Peripheral Neuropathy",
+    ],
+    procedures: [
+      "Continuous EEG Monitoring",
+      "Intracranial Pressure Monitoring",
+      "Electromyography (EMG)",
+    ],
+  },
+  {
+    id: "6",
+    name: "Dr. Alelign Dessie",
+    name_am: "ዶ/ር ጅዋር ሞሐመድ",
+   specialty: "Internal medicine",
+    specialty_am: "የውስጥ ደዌ ስፔሻሊስት",
+    image: "/images/physicians/dr-alelign-dessie.jpg",
+    rating: 4.6,
+    reviews: 110,
+    available: false,
+    availabilityText: "Fully Booked",
+    experience: "7 Years Experience",
+    experience_years: 7,
+    patients_count: "2,900+",
+    languages: ["English", "Amharic"],
+    bio: "Neurologist dedicated to diagnosing and treating sleep disorders, neuromuscular conditions, and spinal cord diseases.",
+    education: [
+      "MD – Mekelle University, College of Health Sciences",
+      "Specialty in Neurology – Tikur Anbessa Hospital, Addis Ababa",
+    ],
+    certifications: [
+      "Board Certified in Neurology – Ethiopian Medical Association",
+      "Sleep Medicine Certification",
+    ],
+    specialties: [
+      "Sleep Medicine",
+      "Neuromuscular Disorders",
+      "Spinal Cord Diseases",
+    ],
+    procedures: [
+      "Polysomnography (Sleep Study)",
+      "Electromyography (EMG)",
+      "Nerve Biopsy",
+    ],
+  },
+  {
+    id: "7",
+    name: "Dr. Asrese Mamo",
+    name_am: "ዶ/ር አስረሴ ማሞ",
+    specialty: "Dermatology",
+    specialty_am: "የቆዳና አባለዘር ስፔሻሊስት ሀኪም",
+    image: "/images/physicians/dr-asrese-mamo.jpg",
+    rating: 4.8,
+    reviews: 85,
+    available: true,
+    availabilityText: "Available Today",
+    experience: "10 Years Experience",
+    experience_years: 10,
+    patients_count: "4,000+",
+    languages: ["English", "Amharic"],
+    bio: "Specialist in dermatology and venereology with expertise in diagnosing and treating skin, hair, nail, and sexually transmitted diseases.",
+    education: [
+      "MD – Addis Ababa University, College of Health Sciences",
+      "Specialty in Dermatology – Black Lion Hospital, Addis Ababa",
+    ],
+    certifications: [
+      "Board Certified in Dermatology – Ethiopian Medical Association",
+    ],
+    specialties: [
+      "General Dermatology",
+      "Venereology",
+      "Pediatric Dermatology",
+    ],
+    procedures: [
+      "Skin Biopsy",
+      "Cryotherapy",
+      "Dermoscopy",
+    ],
+  },
+  {
+    id: "8",
+    name: "Dr. Samuel Addis",
+    name_am: "ዶ/ር ሳሙኤል አድስ",
+    specialty: "Radiology",
+    specialty_am: "የራዲዮሎጂ ስፔሻሊስት",
+    image: "/images/physicians/dr-samuel-addis.jpg",
+    rating: 4.7,
+    reviews: 92,
+    available: true,
+    availabilityText: "Available Today",
+    experience: "8 Years Experience",
+    experience_years: 8,
+    patients_count: "3,500+",
+    languages: ["English", "Amharic"],
+    bio: "Radiology specialist with expertise in medical imaging interpretation including X-ray, CT, MRI, and ultrasound diagnostics.",
+    education: [
+      "MD – Jimma University, Institute of Health",
+      "Specialty in Radiology – Tikur Anbessa Hospital, Addis Ababa",
+    ],
+    certifications: [
+      "Board Certified in Radiology – Ethiopian Medical Association",
+    ],
+    specialties: [
+      "Diagnostic Radiology",
+      "CT Imaging",
+      "MRI Interpretation",
+    ],
+    procedures: [
+      "X-Ray Interpretation",
+      "CT Scan Reporting",
+      "Ultrasound Imaging",
+    ],
+  },
+  {
+    id: "9",
+    name: "Dr. Aderajew Getahun",
+    name_am: "ዶ/ር አደራጀው ጌታሁን",
+    specialty: "Pediatrics",
+    specialty_am: "የሕፃናት ስፔሻሊስት ሀኪም",
+    image: "/images/physicians/dr-aderajew-getahun.jpg",
+    rating: 4.8,
+    reviews: 105,
+    available: true,
+    availabilityText: "Available Today",
+    experience: "9 Years Experience",
+    experience_years: 9,
+    patients_count: "4,200+",
+    languages: ["English", "Amharic"],
+    bio: "Pediatric specialist dedicated to providing comprehensive healthcare for children from infancy through adolescence.",
+    education: [
+      "MD – Gondar University, College of Medicine and Health Sciences",
+      "Specialty in Pediatrics – Black Lion Hospital, Addis Ababa",
+    ],
+    certifications: [
+      "Board Certified in Pediatrics – Ethiopian Medical Association",
+      "Pediatric Advanced Life Support (PALS)",
+    ],
+    specialties: [
+      "General Pediatrics",
+      "Neonatal Care",
+      "Child Nutrition",
+    ],
+    procedures: [
+      "Newborn Assessment",
+      "Pediatric Vaccination",
+      "Growth Monitoring",
+    ],
+  },
+  {
+    id: "10",
+    name: "Dr. Anley Aragaw",
+    name_am: "ዶ/ር አንለይ አራጋው",
+    specialty: "GYNECOLOGY",
+    specialty_am: "የማህጸንና ጽንስ ስፔሻሊስት ሀኪም",
+    image: "/images/physicians/dr-anley-aragaw.jpg",
+    rating: 4.9,
+    reviews: 115,
+    available: true,
+    availabilityText: "Available Today",
+    experience: "11 Years Experience",
+    experience_years: 11,
+    patients_count: "5,000+",
+    languages: ["English", "Amharic"],
+    bio: "Obstetrics and gynecology specialist providing comprehensive care for women's health, pregnancy, and childbirth.",
+    education: [
+      "MD – Addis Ababa University, College of Health Sciences",
+      "Specialty in OB/GYN – Tikur Anbessa Hospital, Addis Ababa",
+    ],
+    certifications: [
+      "Board Certified in OB/GYN – Ethiopian Medical Association",
+    ],
+    specialties: [
+      "Obstetrics",
+      "Gynecology",
+      "Maternal-Fetal Medicine",
+    ],
+    procedures: [
+      "Antenatal Care",
+      "Cesarean Section",
+      "Gynecologic Surgery",
+    ],
+  },
+];
