@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(features)/layout,_N_T_/(features)/appointment/layout,_N_T_/(features)/appointment/page,_N_T_/appointment"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGZlYXR1cmVzKQ/appointment/__PAGE__",
+    "/!KGZlYXR1cmVzKQ/appointment",
+    "/!KGZlYXR1cmVzKQ",
+    "/_index",
+    "/_head"
+  ]
+}

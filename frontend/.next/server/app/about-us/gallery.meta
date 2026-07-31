@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(features)/layout,_N_T_/(features)/about-us/layout,_N_T_/(features)/about-us/gallery/layout,_N_T_/(features)/about-us/gallery/page,_N_T_/about-us/gallery"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGZlYXR1cmVzKQ/about-us/gallery/__PAGE__",
+    "/!KGZlYXR1cmVzKQ/about-us/gallery",
+    "/!KGZlYXR1cmVzKQ/about-us",
+    "/!KGZlYXR1cmVzKQ",
+    "/_index",
+    "/_head"
+  ]
+}

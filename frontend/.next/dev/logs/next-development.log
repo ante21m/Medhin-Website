@@ -1,0 +1,45 @@
+[00:00:08.243] Server  LOG      ✓ Ready in 7.2s
+[00:00:18.258] Server  LOG      ○ Compiling / ...
+[00:01:21.893] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:15.894] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-abebe-kebede.jpg?v=0d6258dd" "received" null
+[00:08:15.908] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-asrese-mamo.jpg?v=0d6258dd" "received" null
+[00:08:15.912] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-samuel-addis.jpg?v=0d6258dd" "received" null
+[00:08:15.922] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-aderajew-getahun.jpg?v=0d6258dd" "received" null
+[00:08:15.929] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-anley-aragaw.jpg?v=0d6258dd" "received" null
+[00:09:48.325] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:09:48.728] Browser WARN    Image with src "/images/physicians/dr-alelign-dessie.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:10:12.946] Browser WARN    Image with src "/images/physicians/dr-juhar-muhammed.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:10:13.505] Browser WARN    Image with src "/images/physicians/doctor-2.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:10:13.505] Browser WARN    Image with src "/images/physicians/doctor-3.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:10:13.505] Browser WARN    Image with src "/images/physicians/dr-melkamu-adamu.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:10:16.934] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-abebe-kebede.jpg?v=0d6258dd" "received" null
+[00:10:16.948] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-asrese-mamo.jpg?v=0d6258dd" "received" null
+[00:10:16.966] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-samuel-addis.jpg?v=0d6258dd" "received" null
+[00:10:16.974] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-aderajew-getahun.jpg?v=0d6258dd" "received" null
+[00:10:16.985] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-anley-aragaw.jpg?v=0d6258dd" "received" null
+[00:10:45.597] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-abebe-kebede.jpg?v=0d6258dd" "received" null
+[00:10:45.883] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-asrese-mamo.jpg?v=0d6258dd" "received" null
+[00:10:45.911] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-samuel-addis.jpg?v=0d6258dd" "received" null
+[00:10:45.913] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-aderajew-getahun.jpg?v=0d6258dd" "received" null
+[00:10:45.915] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-anley-aragaw.jpg?v=0d6258dd" "received" null
+[00:10:55.934] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-abebe-kebede.jpg?v=0d6258dd" "received" null
+[00:10:55.954] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-asrese-mamo.jpg?v=0d6258dd" "received" null
+[00:10:56.176] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-samuel-addis.jpg?v=0d6258dd" "received" null
+[00:10:56.179] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-aderajew-getahun.jpg?v=0d6258dd" "received" null
+[00:10:59.848] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-anley-aragaw.jpg?v=0d6258dd" "received" null
+[08:36:35.565] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:39:13.082] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-abebe-kebede.jpg?v=0d6258dd" "received" null
+[08:39:13.084] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-asrese-mamo.jpg?v=0d6258dd" "received" null
+[08:39:13.089] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-samuel-addis.jpg?v=0d6258dd" "received" null
+[08:39:13.145] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-aderajew-getahun.jpg?v=0d6258dd" "received" null
+[08:39:13.230] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-anley-aragaw.jpg?v=0d6258dd" "received" null
+[08:39:26.391] Server  LOG      ○ Compiling /admin ...
+[08:39:37.345] Server  WARN     ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[08:39:38.795] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[08:41:40.646] Browser ERROR   uncaughtError: ChunkLoadError: Loading chunk app/layout failed.
+(timeout: http://localhost:3002/_next/static/chunks/app/layout.js)
+[08:51:32.294] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[10:20:18.614] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[10:20:22.031] Server  LOG      ○ Compiling /admin/login ...
+[31:59:35.941] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[31:59:38.649] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior

@@ -1,0 +1,231 @@
+{
+  "app": {
+    "[project]/app/(features)/about-us/annual-report/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/about-us/company/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/about-us/faqs/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/about-us/gallery/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/about-us/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/about-us/physicians/[id]/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/about-us/physicians/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/about-us/vision-mission/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/appointment/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/contact/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/departments/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/news/[id]/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/news/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/services/[id]/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/services/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/(features)/vacancy/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/_not-found/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/admin/departments/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/admin/gallery/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/admin/login/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/admin/news/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/admin/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/admin/physicians/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/admin/reports/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/admin/services/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/admin/social/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/admin/vacancies/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ],
+    "[project]/app/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

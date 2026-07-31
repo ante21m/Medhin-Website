@@ -1,0 +1,15 @@
+{
+  "pages": {},
+  "app": {
+    "[project]/app/(features)/services/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
+      "static/media/276ff8de80749a43-s.p.4d1156d7.woff2",
+      "static/media/3c7c6164b2587822-s.p.7f689f7d.woff2",
+      "static/media/03bda585a99c6450-s.p.ad37b9d9.woff2",
+      "static/media/99e609270109b47d-s.p.64b9304e.woff2",
+      "static/media/effe91970fc4db64-s.p.19510058.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pagesUsingSizeAdjust": false
+}

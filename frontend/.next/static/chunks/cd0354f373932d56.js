@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,36805,e=>{"use strict";var t=e.i(43476),i=e.i(68031);e.s(["default",0,()=>{let{t:e}=(0,i.useLocale)();return(0,t.jsx)("div",{children:e("annualReportPage.title")})}])}]);

@@ -1,0 +1,678 @@
+/* =========================
+   WRAPPER
+========================= */
+.physicians-wrapper {
+  max-width: 1280px;
+  margin: auto;
+  padding: 4rem 1.5rem;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lang-toggle {
+  border: 1px solid #2563eb;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #fff;
+  color: #2563eb;
+}
+
+/* =========================
+   DEPARTMENT TABS
+========================= */
+.department-tabs {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.department-tabs button {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: none;
+  background: #e5e7eb;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.department-tabs button.active {
+  background: #2563eb;
+  color: white;
+}
+
+
+/* =========================
+   CAROUSEL
+========================= */
+/* ===============================
+   PHYSICIAN CAROUSEL
+================================ */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 2rem;
+  width: 100%;
+  padding: 1.5rem 0;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.slide {
+  flex: 0 0 calc(25% - 1.5rem); /* ✅ EXACTLY 4 */
+}
+
+
+
+/* =========================
+   PHYSICIAN CARD
+========================= */
+/* ===============================
+   PHYSICIAN CARD
+================================ */
+.physician-card {
+  width: 100%;
+  background: #fff;
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+
+.physician-card:hover {
+  transform: translateY(-6px);
+}
+
+/* IMAGE CONTAINER */
+.physician-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.physician-image img {
+  object-fit: contain;
+}
+
+/* =========================
+   VIEW PROFILE
+========================= */
+.view-profile-btn {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e3a8a;
+  text-decoration: none;
+}
+
+.view-profile-btn:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   STARS
+========================= */
+.phys-rat {
+  font-size: 13px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.stars {
+  color: #f59e0b;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+/* =========================
+   BOOK APPOINTMENT
+========================= */
+.book-btn {
+  display: block;
+  margin: 0.75rem auto 0;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background: #e0f2fe;
+  color: #2563eb;
+  font-size: .84rem;
+  font-weight: 600;
+  transition: .2s;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.book-btn:hover {
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* =========================
+   GLOBAL LINK SAFETY
+========================= */
+/* =========================
+   ABOUT COMPANY – HERO SECTION
+========================= */
+.about-company {
+  padding: 100px 24px;
+  background: #f8fafc;
+}
+
+.about-company-container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1.25fr; /* 🔥 image bigger */
+  gap: 70px;
+  align-items: center;
+}
+
+/* =========================
+   TEXT
+========================= */
+.about-company-text h1 {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+.about-company-text p {
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.about-company-image {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .slide {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .slide {
+    flex: 0 0 85%;
+  }
+}
+
+
+
+/* IMAGE FILLS CONTAINER */
+.about-company-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+}
+
+/* SUBTLE PREMIUM OVERLAY */
+.about-company-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.18)
+  );
+  pointer-events: none;
+}
+
+/* =========================
+   FADE ANIMATIONS
+========================= */
+.fade-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: fadeLeft 0.9s ease forwards;
+}
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(40px);
+  animation: fadeRight 0.9s ease forwards;
+}
+
+@keyframes fadeLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+  .about-company-image {
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-company-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .about-company-text h1 {
+    font-size: 34px;
+  }
+
+  .about-company-image {
+    min-height: 300px;
+  }
+}
+
+/* =========================
+   LEADERSHIP
+========================= */
+.leadership {
+  padding: 90px 24px;
+  background: #f8fafc;
+}
+
+.leadership h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 52px;
+  color: #0f172a;
+}
+
+/* GRID */
+.leadership-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+/* CARD */
+.leader-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.leader-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.18);
+}
+
+/* IMAGE */
+.leader-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  background: #f1f5f9;
+}
+
+/* TEXT */
+.leader-card h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.leader-card p {
+  margin-top: 6px;
+  margin-bottom: 18px;
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* VIEW BIO BUTTON */
+.leader-card .view-profile-btn {
+  display: inline-block;
+  margin-bottom: 22px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+  position: relative;
+}
+
+.leader-card .view-profile-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #2563eb;
+  transition: width 0.25s ease;
+}
+
+.leader-card .view-profile-btn:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .leadership h2 {
+    font-size: 28px;
+  }
+
+  .leader-card img {
+    height: 280px;
+  }
+}
+/* =========================
+   LEADER IMAGE (FIX)
+========================= */
+.leader-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4; /* 🔥 PERFECT portrait */
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+/* ZOOM ON HOVER */
+.leader-card:hover .leader-image img {
+  transform: scale(1.08);
+}
+
+.leader-image img {
+  transition: transform 0.5s ease;
+}/* ===== MODAL OVERLAY ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  background: #fff;
+  width: 92%;
+  max-width: 820px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+}
+
+/* ===== ANIMATION ===== */
+.modal-animate {
+  animation: modalFade 0.35s ease;
+}
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ===== CLOSE BUTTON ===== */
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===== MODAL IMAGE ===== */
+.modal-image {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+/* =========================
+   LEADERSHIP CAROUSEL
+========================= */
+.leadership-carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 16px;
+}
+
+.leadership-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.leader-card {
+  min-width: 260px;
+  scroll-snap-align: center;
+}
+.lang-toggle {
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.lang-toggle:active {
+  transform: scale(0.9) rotate(-3deg);
+}
+.lang-toggle:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+/* =========================
+   SKELETON LOADER
+========================= */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #f3f4f6 37%,
+    #e5e7eb 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+/* =========================
+   AUTOPLAY CAROUSEL FIX
+========================= */
+.carousel-wrapper {
+  overflow: hidden;
+  max-width: 100%;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.6s ease;
+}
+
+.carousel-slide {
+  min-width: 300px;
+  cursor: pointer;
+}
+
+/* IMAGE ZOOM */
+.leader-card img {
+  transition: transform 0.6s ease;
+}
+.leader-card:hover img {
+  transform: scale(1.08);
+}
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .carousel-wrapper {
+    padding: 0 16px;
+  }
+
+  .carousel-track {
+    gap: 16px;
+  }
+
+  .carousel-slide {
+    min-width: 280px;
+  }
+}
+/* =========================
+   MODAL CLOSE BUTTON
+========================= */
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.85);
+  transform: scale(1.05);
+}
+
+/* Mobile friendly */
+@media (max-width: 600px) {
+  .modal-close {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
+}
+/* =========================
+   VISION & MISSION
+========================= */
+.vision-mission {
+  padding: 4rem 1rem;
+  background: #f9fafb;
+}
+
+.vision-mission-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.vision-mission-text {
+  flex: 1;
+}
+
+.vm-block {
+  margin-top: 1.5rem;
+}
+
+.vm-block h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #2563eb;
+}
+
+.vm-block p {
+  line-height: 1.7;
+  color: #374151;
+}
+
+.vision-mission-image {
+  flex: 1;
+  position: relative;
+  min-height: 360px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .vision-mission-container {
+    flex-direction: column;
+  }
+
+  .vision-mission-image {
+    min-height: 260px;
+  }
+}
+.vision-mission-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
