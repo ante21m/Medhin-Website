@@ -3,18 +3,18 @@
 import { useLocale } from "@/app/locale-provider";
 import {
   Paper, Group, Stack, Text, Title, Box, Container, Grid,
-  ThemeIcon, TextInput, Textarea, Button, Badge, SimpleGrid, Flex
+  TextInput, Textarea, SimpleGrid, Flex
 } from "@mantine/core";
 import {
-  MapPin, Phone, Mail, Clock, Send, ArrowRight, Navigation,
+  MapPin, Phone, Mail, Clock, Send, ArrowRight,
   MessageSquare, Headphones, Building2, Globe
 } from "lucide-react";
 
 const contactInfo = [
-  { icon: MapPin, labelKey: "contactPage.office", descKey: "contactPage.address", color: "blue", isHours: false as const, phone: null as string | null, email: null as string | null },
-  { icon: Clock, labelKey: "contactPage.hours", descKey: null, color: "violet", isHours: true as const, phone: null, email: null },
-  { icon: Phone, labelKey: "footer.phoneLabel", descKey: null, color: "orange", isHours: false, phone: "+251 9XX XXX XXX", email: null },
-  { icon: Mail, labelKey: "footer.emailLabel", descKey: null, color: "blue", isHours: false, phone: null, email: "info@medhinprimaryhospital.com" },
+  { icon: MapPin, labelKey: "contactPage.office", descKey: "contactPage.address", isHours: false as const, phone: null as string | null, email: null as string | null },
+  { icon: Clock, labelKey: "contactPage.hours", descKey: null, isHours: true as const, phone: null, email: null },
+  { icon: Phone, labelKey: "footer.phoneLabel", descKey: null, isHours: false, phone: "+251 9XX XXX XXX", email: null },
+  { icon: Mail, labelKey: "footer.emailLabel", descKey: null, isHours: false, phone: null, email: "info@medhinprimaryhospital.com" },
 ];
 
 export default function ContactClient() {
@@ -41,31 +41,28 @@ export default function ContactClient() {
           pos="absolute"
           style={{
             inset: 0,
-            background: "radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(255,255,255,0.04) 0%, transparent 50%)",
+            background:
+              "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
           }}
         />
-        <Box pos="absolute" style={{ top: -80, right: -80, width: 300, height: 300, borderRadius: "50%", background: "rgba(255,255,255,0.03)" }} />
-        <Box pos="absolute" style={{ bottom: -120, left: -60, width: 240, height: 240, borderRadius: "50%", background: "rgba(255,255,255,0.02)" }} />
+        <Box className="bykm-grid-overlay" />
+        <Box className="bykm-geo" style={{ top: -80, right: -80, width: 340, height: 340, transform: "rotate(12deg)" }} />
+        <Box className="bykm-geo" style={{ bottom: -120, left: -60, width: 240, height: 240, transform: "rotate(-10deg)", opacity: 0.6 }} />
 
         <Container size={1300} pos="relative">
           <Stack align="center" gap={6} mb={48}>
-            <Badge
-              variant="white"
-              size="lg"
-              radius="xl"
-              style={{ background: "rgba(255,255,255,0.1)", color: "#fff", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.12)", fontWeight: 600, textTransform: "none" }}
-            >
-              <Group gap={6}>
-                <Mail size={14} />
-                {t("nav.contact")}
-              </Group>
-            </Badge>
+            <div className="bykm-kicker-line">
+              <span className="bykm-kicker-dash" />
+              <span className="bykm-kicker">{t("nav.contact")}</span>
+            </div>
 
-            <Title order={1} c="white" ta="center" lh={1.15} fw={800} style={{ fontSize: "clamp(28px, 5vw, 42px)" }}>
+            <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(30px, 4.5vw, 46px)", marginTop: 14 }}>
               {t("nav.contact")}
             </Title>
 
-            <Text c="blue.2" size="md" ta="center" maw={520} lh={1.65}>
+            <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 16 }} />
+
+            <Text size="md" ta="center" maw={520} lh={1.65} style={{ color: "rgba(255,255,255,0.62)" }}>
               {t("footer.description")}
             </Text>
           </Stack>
@@ -77,8 +74,8 @@ export default function ContactClient() {
               { icon: <Building2 size={18} />, label: locale === "am" ? "ቀላል ተደራሽ" : "Easy Access", sub: locale === "am" ? "በወልድያ ከተማ" : "In Woldia city" },
               { icon: <Globe size={18} />, label: locale === "am" ? "ሁለገብ አገልግሎት" : "Multilingual", sub: locale === "am" ? "እንግሊዝኛ እና አማርኛ" : "English & Amharic" },
             ].map((s) => (
-              <Flex key={s.label} gap="md" align="center" p="sm" px="md" style={{ background: "rgba(255,255,255,0.06)", borderRadius: 12, border: "1px solid rgba(255,255,255,0.08)", backdropFilter: "blur(8px)" }}>
-                <Box c="white" style={{ opacity: 0.7 }}>{s.icon}</Box>
+              <Flex key={s.label} gap="md" align="center" p="sm" px="md" className="bykm-stat-chip">
+                <Box c="#7FD9C4" style={{ flexShrink: 0 }}>{s.icon}</Box>
                 <Box>
                   <Text c="white" fw={700} size="sm" lh={1.2}>{s.label}</Text>
                   <Text c="white" size="xs" style={{ opacity: 0.5 }}>{s.sub}</Text>
@@ -97,15 +94,15 @@ export default function ContactClient() {
                 const Icon = info.icon;
                 if (info.isHours) {
                   return (
-                    <Paper key={i} shadow="sm" radius="lg" withBorder p="xl" style={{ transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }} className="group">
+                    <Paper key={i} shadow="sm" radius={3} withBorder p="xl" style={{ borderTop: "3px solid var(--primary)" }}>
                       <Group gap="sm" mb="md">
-                        <Box style={{ width: 44, height: 44, borderRadius: 14, background: `linear-gradient(135deg, ${info.color === "violet" ? "#8b5cf6" : "var(--primary)"}22, ${info.color === "violet" ? "#7c3aed" : "#1d4ed8"}11)`, display: "flex", alignItems: "center", justifyContent: "center", transition: "transform 0.3s ease" }} className="group-hover:scale-110">
-                          <Icon size={18} color={info.color === "violet" ? "#8b5cf6" : "var(--primary)"} />
+                        <Box style={{ width: 44, height: 44, borderRadius: 8, background: "var(--primary-50)", color: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <Icon size={18} />
                         </Box>
                         <Text fw={700} size="md">{t(info.labelKey)}</Text>
                       </Group>
-                      <Box p="lg" ta="center" style={{ background: "var(--primary-50)", border: "1px solid var(--primary-100)", borderRadius: 12 }}>
-                        <Text fw={800} size="xl" c="blue.7" style={{ fontSize: 28, letterSpacing: 1 }}>
+                      <Box p="lg" ta="center" style={{ background: "var(--primary-50)", border: "1px solid var(--primary-100)", borderRadius: 3 }}>
+                        <Text fw={800} size="xl" c="blue.7" className="bykm-display" style={{ fontSize: 28, letterSpacing: 1 }}>
                           24/7
                         </Text>
                         <Text size="sm" fw={600} c="blue.7" mt={2}>
@@ -120,10 +117,10 @@ export default function ContactClient() {
                 }
                 if (info.phone || info.email) {
                   return (
-                    <Paper key={i} shadow="sm" radius="lg" withBorder p="xl" style={{ transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }} className="group">
+                    <Paper key={i} shadow="sm" radius={3} withBorder p="xl">
                       <Group gap="md">
-                        <Box style={{ width: 48, height: 48, borderRadius: 14, background: `linear-gradient(135deg, ${info.color === "orange" ? "#f97316" : "var(--primary)"}22, ${info.color === "orange" ? "#ea580c" : "#1d4ed8"}11)`, display: "flex", alignItems: "center", justifyContent: "center", transition: "transform 0.3s ease" }} className="group-hover:scale-110">
-                          <Icon size={20} color={info.color === "orange" ? "#f97316" : "var(--primary)"} />
+                        <Box style={{ width: 48, height: 48, borderRadius: 8, background: "var(--primary-50)", color: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                          <Icon size={20} />
                         </Box>
                         <Box>
                           <Text size="xs" c="gray.5" fw={600} tt="uppercase" lts="0.05em">{t(info.labelKey)}</Text>
@@ -134,10 +131,10 @@ export default function ContactClient() {
                   );
                 }
                 return (
-                  <Paper key={i} shadow="sm" radius="lg" withBorder p="xl" style={{ transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }} className="group">
+                  <Paper key={i} shadow="sm" radius={3} withBorder p="xl">
                     <Group gap="sm" mb="md">
-                      <Box style={{ width: 44, height: 44, borderRadius: 14, background: "linear-gradient(135deg, var(--primary)22, #1d4ed811)", display: "flex", alignItems: "center", justifyContent: "center", transition: "transform 0.3s ease" }} className="group-hover:scale-110">
-                        <Icon size={18} color="var(--primary)" />
+                      <Box style={{ width: 44, height: 44, borderRadius: 8, background: "var(--primary-50)", color: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <Icon size={18} />
                       </Box>
                       <Text fw={700} size="md">{t(info.labelKey)}</Text>
                     </Group>
@@ -148,15 +145,15 @@ export default function ContactClient() {
                 );
               })}
 
-              <Paper shadow="sm" radius="lg" withBorder p="xl" style={{ transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }} className="group">
+              <Paper shadow="sm" radius={3} withBorder p="xl" style={{ borderTop: "3px solid var(--primary)" }}>
                 <Group gap="sm" mb="md">
-                  <Box style={{ width: 44, height: 44, borderRadius: 14, background: "linear-gradient(135deg, #f9731622, #ea580c11)", display: "flex", alignItems: "center", justifyContent: "center", transition: "transform 0.3s ease" }} className="group-hover:scale-110">
-                    <MapPin size={18} color="#f97316" />
+                  <Box style={{ width: 44, height: 44, borderRadius: 8, background: "var(--primary-50)", color: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <MapPin size={18} />
                   </Box>
                   <Text fw={700} size="md">{t("contactPage.mapTitle")}</Text>
                 </Group>
 
-                <Box style={{ borderRadius: 10, overflow: "hidden", height: 200, border: "1px solid #f3f4f6" }} mb="md">
+                <Box style={{ borderRadius: 3, overflow: "hidden", height: 200, border: "1px solid #f3f4f6" }} mb="md">
                   <iframe
                     title={locale === "am" ? "ምድህን ፕራይማሪ ሆስፒታል አድራሻ" : "Medhin Primary Hospital Location"}
                     src={embedMapUrl}
@@ -166,28 +163,26 @@ export default function ContactClient() {
                   />
                 </Box>
 
-                <Button
+                <Box
+                  component="button"
                   onClick={handleGetDirections}
-                  fullWidth
-                  variant="light"
-                  color="orange"
-                  radius="md"
-                  leftSection={<Navigation size={16} />}
-                  rightSection={<ArrowRight size={14} />}
+                  w="100%"
+                  className="bykm-outline-btn"
                 >
                   {t("contactPage.directions")}
-                </Button>
+                  <ArrowRight size={14} />
+                </Box>
               </Paper>
             </Stack>
           </Grid.Col>
 
           <Grid.Col span={{ base: 12, lg: 7 }}>
-            <Paper shadow="sm" radius="lg" withBorder p="xl" style={{ transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }} className="group">
+            <Paper shadow="sm" radius={3} withBorder p="xl" style={{ borderTop: "3px solid var(--primary)" }}>
               <Group gap="sm" mb="lg">
-                <Box style={{ width: 44, height: 44, borderRadius: 14, background: "linear-gradient(135deg, var(--primary)22, #1d4ed811)", display: "flex", alignItems: "center", justifyContent: "center", transition: "transform 0.3s ease" }} className="group-hover:scale-110">
-                  <Send size={18} color="var(--primary)" />
+                <Box style={{ width: 44, height: 44, borderRadius: 8, background: "var(--primary-50)", color: "var(--primary)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Send size={18} />
                 </Box>
-                <Title order={3} fw={700} size="h4" c="gray.9">
+                <Title order={3} fw={600} size="h4" c="gray.9" className="bykm-display">
                   {t("contactPage.formTitle")}
                 </Title>
               </Group>
@@ -217,18 +212,15 @@ export default function ContactClient() {
                   />
                 </Grid.Col>
                 <Grid.Col span={12}>
-                  <Button
+                  <Box
+                    component="button"
                     type="submit"
-                    fullWidth
-                    size="md"
-                    radius="md"
-                    variant="gradient"
-                    gradient={{ from: "blue", to: "cyan" }}
-                    rightSection={<Send size={16} />}
-                    style={{ boxShadow: "0 4px 14px rgba(37,99,235,0.25)" }}
+                    w="100%"
+                    className="bykm-btn"
                   >
-                    {t("contactPage.formSubmit")}
-                  </Button>
+                    <span>{t("contactPage.formSubmit")}</span>
+                    <Send size={14} />
+                  </Box>
                 </Grid.Col>
               </Grid>
             </Paper>
@@ -237,39 +229,33 @@ export default function ContactClient() {
       </Container>
 
       <Box py={56} style={{ background: "var(--bg-deep)", position: "relative", overflow: "hidden" }}>
-        <Box pos="absolute" style={{ top: -100, left: -100, width: 300, height: 300, borderRadius: "50%", background: "rgba(255,255,255,0.03)" }} />
-        <Box pos="absolute" style={{ bottom: -60, right: -60, width: 200, height: 200, borderRadius: "50%", background: "rgba(255,255,255,0.02)" }} />
+        <Box pos="absolute" className="bykm-geo" style={{ top: -100, left: -100, width: 300, height: 300, transform: "rotate(12deg)" }} />
+        <Box pos="absolute" className="bykm-geo" style={{ bottom: -60, right: -60, width: 200, height: 200, transform: "rotate(-8deg)", opacity: 0.7 }} />
+        <Box className="bykm-grid-overlay" />
 
         <Container size="sm" ta="center" pos="relative">
-          <Badge
-            variant="white"
-            size="lg"
-            radius="xl"
-            mb="sm"
-            style={{ background: "rgba(255,255,255,0.08)", color: "#fff", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.1)", textTransform: "none" }}
-          >
-            {locale === "am" ? "ጉብኝት ያድርጉ" : "Visit Us"}
-          </Badge>
+          <div className="bykm-kicker-line">
+            <span className="bykm-kicker-dash" />
+            <span className="bykm-kicker">{locale === "am" ? "ጉብኝት ያድርጉ" : "Visit Us"}</span>
+            <span className="bykm-kicker-dash" />
+          </div>
 
-          <Title order={3} c="white" fw={800} mb={8}>
+          <Title order={3} c="white" fw={600} mt={14} mb={10} className="bykm-display" style={{ fontSize: "clamp(24px, 3vw, 32px)" }}>
             {locale === "am" ? "ወደ ሆስፒታላችን ይምጡ" : "Visit Our Hospital"}
           </Title>
 
-          <Text c="blue.2" size="sm" mb="xl" maw={460} mx="auto" lh={1.6}>
+          <Text size="sm" mb="xl" maw={460} mx="auto" lh={1.6} style={{ color: "rgba(255,255,255,0.62)" }}>
             {locale === "am" ? "በወልድያ ከተማ በሚገኘው የምድህን ፕራይማሪ ሆስፒታል እንጠብቅዎታለን" : "We look forward to welcoming you at Medhin Primary Hospital in Woldia"}
           </Text>
 
-          <Button
+          <Box
+            component="button"
             onClick={handleGetDirections}
-            size="lg"
-            radius="md"
-            variant="gradient"
-            gradient={{ from: "blue", to: "cyan" }}
-            rightSection={<ArrowRight size={18} />}
-            style={{ boxShadow: "0 6px 24px rgba(37,99,235,0.3)" }}
+            className="bykm-btn"
           >
-            {locale === "am" ? "አቅጣጫ ይመልከቱ" : "Get Directions"}
-          </Button>
+            <span>{locale === "am" ? "አቅጣጫ ይመልከቱ" : "Get Directions"}</span>
+            <ArrowRight size={15} />
+          </Box>
         </Container>
       </Box>
     </Box>

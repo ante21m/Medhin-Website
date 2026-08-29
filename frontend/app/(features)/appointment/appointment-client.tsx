@@ -7,7 +7,7 @@ import {
   Paper, Badge, Group, Stack, Text, Title, Grid,
   SimpleGrid, ThemeIcon, Anchor,
   Flex, Box, Center, TextInput,
-  Button, Container
+  Container
 } from "@mantine/core";
 import {
   Check, Clock, Star, User, Calendar, ArrowRight, MapPin
@@ -56,7 +56,7 @@ export default function AppointmentClient() {
   }, [selectedDoctor]);
 
   const filtered = specialty === "All" ? physicians : physicians.filter((p) => p.specialty === specialty);
-  const timeSlots = useMemo(generateTimeSlots, []);
+  const timeSlots = useMemo(() => generateTimeSlots(), []);
 
   const doctorName = locale === "am"
     ? selectedDoctor?.name_am || selectedDoctor?.name
@@ -94,7 +94,7 @@ export default function AppointmentClient() {
   };
 
   const doctorSidebar = selectedDoctor ? (
-    <Paper radius="lg" withBorder p="lg" style={{ position: "sticky", top: 100, borderColor: "var(--primary-100)", background: "linear-gradient(180deg, var(--primary-50) 0%, #fff 40%)" }}>
+    <Paper radius={3} withBorder p="lg" style={{ position: "sticky", top: 100, borderTop: "4px solid var(--primary)", borderColor: "var(--primary-100)", background: "linear-gradient(180deg, var(--primary-50) 0%, #fff 40%)" }}>
       <Stack align="center" gap="xs" mb="md">
         <Box pos="relative" style={{ width: 100, height: 100, borderRadius: "50%", overflow: "hidden", border: "3px solid #fff", boxShadow: "0 4px 20px rgba(37,99,235,0.15)" }}>
           <Image src={selectedDoctor.image + imgVer} alt={selectedDoctor.name} fill style={{ objectFit: "cover" }} />
@@ -133,7 +133,7 @@ export default function AppointmentClient() {
       </Anchor>
     </Paper>
   ) : (
-    <Paper radius="lg" withBorder p="lg" style={{ position: "sticky", top: 100 }}>
+    <Paper radius={3} withBorder p="lg" style={{ position: "sticky", top: 100 }}>
       <Stack align="center" gap="md" py="lg">
         <ThemeIcon variant="light" color="gray" size={60} radius={100}><User size={28} /></ThemeIcon>
         <Text ta="center" size="sm" c="gray.5" fw={500}>
@@ -146,11 +146,30 @@ export default function AppointmentClient() {
   if (submitted) {
     return (
       <Box bg="gray.0" mih="100vh">
-        <Box h={6} style={{ background: "linear-gradient(90deg, var(--primary), #1d4ed8, var(--primary))" }} />
-        <Container size="sm" py={80}>
-          <Paper shadow="sm" radius="lg" withBorder p="xl" ta="center">
-            <div className="success-icon"><Check size={36} /></div>
-            <Title order={2} mt="lg" mb={4}>{t("appointment.successTitle")}</Title>
+        <Box className="bykm-hero" py={40}>
+          <Box
+            pos="absolute"
+            style={{
+              inset: 0,
+              background: "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+            }}
+          />
+          <Box className="bykm-grid-overlay" />
+          <Container size="sm" pos="relative">
+            <Stack align="center" gap={6}>
+              <div className="bykm-kicker-line">
+                <span className="bykm-kicker-dash" />
+                <span className="bykm-kicker">{locale === "am" ? "ተጠናቅቋል" : "Confirmed"}</span>
+              </div>
+              <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(26px, 4vw, 38px)", marginTop: 12 }}>
+                {t("appointment.successTitle")}
+              </Title>
+              <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 14 }} />
+            </Stack>
+          </Container>
+        </Box>
+        <Container size="sm" py={64}>
+          <Paper shadow="sm" radius={3} withBorder p="xl" ta="center">
             <Text c="gray.5" mb="lg">{t("appointment.successDesc")}</Text>
             {selectedDoctor && (
               <Paper bg="gray.0" radius="md" p="md" mb="lg" style={{ textAlign: "left" }}>
@@ -163,12 +182,12 @@ export default function AppointmentClient() {
               </Paper>
             )}
             <Group gap="sm" mt="lg" justify="center">
-              <Button onClick={() => setSubmitted(false)} size="md" radius="md" variant="outline" color="gray">
+              <Box component="button" type="button" className="bykm-outline-btn" onClick={() => setSubmitted(false)}>
                 {locale === "am" ? "ተመለስ" : "Back"}
-              </Button>
-              <Button onClick={reset} size="md" radius="md" variant="gradient" gradient={{ from: "blue", to: "cyan" }}>
-                {t("appointment.bookAnother")}
-              </Button>
+              </Box>
+              <Box component="button" type="button" className="bykm-btn" onClick={reset}>
+                <span>{t("appointment.bookAnother")}</span>
+              </Box>
             </Group>
           </Paper>
         </Container>
@@ -178,38 +197,76 @@ export default function AppointmentClient() {
 
   return (
     <Box bg="gray.0" mih="100vh">
-      <Box h={6} style={{ background: "linear-gradient(90deg, var(--primary), #1d4ed8, var(--primary))" }} />
+      <Box className="bykm-hero" py={{ base: 48, md: 64 }}>
+        <Box
+          pos="absolute"
+          style={{
+            inset: 0,
+            background:
+              "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+          }}
+        />
+        <Box className="bykm-grid-overlay" />
+        <Box className="bykm-geo" style={{ top: -80, right: -80, width: 340, height: 340, transform: "rotate(12deg)" }} />
+        <Box className="bykm-geo" style={{ bottom: -120, left: -60, width: 240, height: 240, transform: "rotate(-10deg)", opacity: 0.6 }} />
+
+        <Container size={1300} pos="relative">
+          <Stack align="center" gap={6}>
+            <div className="bykm-kicker-line">
+              <span className="bykm-kicker-dash" />
+              <span className="bykm-kicker">{locale === "am" ? "ቀጠሮ" : "Appointment"}</span>
+            </div>
+
+            <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(30px, 4.5vw, 44px)", marginTop: 14 }}>
+              {locale === "am" ? "ቀጠሮ ያስይዙ" : "Book an Appointment"}
+            </Title>
+
+            <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 16 }} />
+
+            <Text size="md" ta="center" maw={520} lh={1.65} style={{ color: "rgba(255,255,255,0.62)" }}>
+              {locale === "am" ? "ሐኪም ይምረጡ፣ ቀን እና ሰዓት ይምረጡ፣ ስምዎን ያስገቡ" : "Pick a doctor, choose date & time, enter your details"}
+            </Text>
+          </Stack>
+
+          <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="md" mt={40}>
+            {[
+              { n: "01", label: t("appointment.chooseDoctor") },
+              { n: "02", label: t("appointment.chooseDateTime") },
+              { n: "03", label: t("appointment.yourDetails") },
+            ].map((s) => (
+              <Flex key={s.n} gap="md" align="center" p="sm" px="md" className="bykm-stat-chip">
+                <Text ff="var(--font-mono), monospace" fw={700} size="lg" c="#7FD9C4">{s.n}</Text>
+                <Text c="white" fw={600} size="sm">{s.label}</Text>
+              </Flex>
+            ))}
+          </SimpleGrid>
+        </Container>
+      </Box>
+
       <Container size="xl" py="xl">
-        <Box ta="center" mb={32}>
-          <Title order={1} style={{ fontSize: 32, fontWeight: 800, color: "var(--bg-deep)" }} lh={1.2}>
-            {locale === "am" ? "ቀጠሮ ያስይዙ" : "Book an Appointment"}
-          </Title>
-          <Text c="gray.5" size="md" mt={4} maw={480} mx="auto">
-            {locale === "am" ? "ሐኪም ይምረጡ፣ ቀን እና ሰዓት ይምረጡ፣ ስምዎን ያስገቡ" : "Pick a doctor, choose date & time, enter your details"}
-          </Text>
-        </Box>
 
         <Grid gutter="lg" justify="center">
           <Grid.Col span={{ base: 12, lg: 7 }}>
-            <Paper shadow="sm" radius="lg" withBorder p="xl">
+            <Paper shadow="sm" radius={3} withBorder p="xl" style={{ borderTop: "4px solid var(--primary)" }}>
               {/* DOCTOR */}
               <Title order={3} size="h4" fw={700} mb="lg">
                 {t("appointment.chooseDoctor")}
               </Title>
               <Group gap={8} mb="lg">
                 {ALL_SPECIALTIES.map((s) => (
-                  <Badge key={s} variant={specialty === s ? "filled" : "outline"} color="blue" size="lg" radius="xl"
-                    style={{ cursor: "pointer", textTransform: "none" }} onClick={() => setSpecialty(s)}
+                  <button key={s} type="button"
+                    className={"bykm-chip" + (specialty === s ? " active" : "")}
+                    onClick={() => setSpecialty(s)}
                   >
                     {s === "All" ? t("appointment.all") : t(`departments.${s.toLowerCase()}`)}
-                  </Badge>
+                  </button>
                 ))}
               </Group>
               <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md" mb="xl">
                 {filtered.map((doc) => {
                   const sel = selectedDoctor?.id === doc.id;
                   return (
-                    <Paper key={doc.id} radius="md" withBorder p="md"
+                    <Paper key={doc.id} radius={3} withBorder p="md"
                       style={{ cursor: "pointer", borderColor: sel ? "var(--primary)" : "var(--line)", background: sel ? "var(--primary-50)" : "#fff", transition: "all 0.2s ease", position: "relative" }}
                       onClick={() => setSelectedDoctor(doc)}
                     >
@@ -271,9 +328,11 @@ export default function AppointmentClient() {
                       </Text>
                       <Flex wrap="wrap" gap={6}>
                         {timeSlots.map((slot) => (
-                          <Badge key={slot} variant={selectedTime === slot ? "filled" : "outline"} color="blue" size="lg" radius="md"
-                            style={{ cursor: "pointer", padding: "8px 14px", textTransform: "none" }} onClick={() => setSelectedTime(slot)}
-                          >{slot}</Badge>
+                          <button key={slot} type="button"
+                            className={"bykm-chip" + (selectedTime === slot ? " active" : "")}
+                            style={{ padding: "8px 14px" }}
+                            onClick={() => setSelectedTime(slot)}
+                          >{slot}</button>
                         ))}
                       </Flex>
                     </Grid.Col>
@@ -302,16 +361,17 @@ export default function AppointmentClient() {
                     </Grid.Col>
                   </Grid>
 
-                  <Button
-                    fullWidth size="lg" radius="md"
-                    variant="gradient" gradient={{ from: "blue", to: "cyan" }}
-                    rightSection={<Check size={18} />}
-                    onClick={handleSubmit}
+                  <Box
+                    component="button"
+                    type="button"
+                    w="100%"
+                    className="bykm-btn"
                     disabled={!form.name.trim() || !form.phone.trim() || !selectedDate || !selectedTime || isSubmitting}
-                    style={{ boxShadow: "0 4px 14px rgba(37,99,235,0.25)" }}
+                    onClick={handleSubmit}
                   >
-                    {isSubmitting ? (locale === "am" ? "በመመዝገብ ላይ..." : "Submitting...") : t("appointment.book")}
-                  </Button>
+                    <span>{isSubmitting ? (locale === "am" ? "በመመዝገብ ላይ..." : "Submitting...") : t("appointment.book")}</span>
+                    <Check size={15} />
+                  </Box>
                 </>
               )}
             </Paper>

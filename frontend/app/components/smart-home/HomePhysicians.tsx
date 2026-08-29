@@ -62,17 +62,21 @@ export default function HomePhysicians() {
                     onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-8px)"; e.currentTarget.style.boxShadow = "0 28px 65px rgba(0,0,0,0.16)"; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}
                   >
-                    <div style={{ position: "relative", width: "100%", aspectRatio: "3/4", overflow: "hidden", background: "var(--line-soft)" }}>
+                    <div style={{ position: "relative", width: "100%", aspectRatio: "3/4", overflow: "hidden", background: "var(--line-soft)", cursor: "pointer" }}
+                      onClick={(e) => { e.stopPropagation(); router.push(`/about-us/physicians/${doc.id}`); }}
+                    >
                       <Image src={doc.image + imgVer} alt={name} fill sizes="260px" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} />
                     </div>
                     <div style={{ padding: "22px 18px 20px", textAlign: "center" }}>
                       <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--bg-deep)", marginBottom: 4 }}>{name}</h3>
                       <p style={{ color: "var(--primary)", fontWeight: 600, fontSize: "0.84rem", marginBottom: 14 }}>{specialty}</p>
-                      <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: "0.82rem", fontWeight: 600, color: "var(--primary)", borderBottom: "2px solid transparent", transition: "border-color 0.2s", paddingBottom: 2 }}
+                      <Link href={`/about-us/physicians/${doc.id}`}
+                        style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: "0.82rem", fontWeight: 600, color: "var(--primary)", borderBottom: "2px solid transparent", transition: "border-color 0.2s", paddingBottom: 2, textDecoration: "none" }}
                         onMouseEnter={e => e.currentTarget.style.borderColor = "var(--primary)"}
-                        onMouseLeave={e => e.currentTarget.style.borderColor = "transparent"}>
+                        onMouseLeave={e => e.currentTarget.style.borderColor = "transparent"}
+                        onClick={(e) => e.stopPropagation()}>
                         {t("leadership.viewProfile")} <FaArrowRight size={10} />
-                      </span>
+                      </Link>
                     </div>
                   </div>
                 </div>

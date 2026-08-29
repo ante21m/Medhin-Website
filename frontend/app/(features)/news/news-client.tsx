@@ -5,12 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "@/app/locale-provider";
 import { useGetNewsQuery } from "@/app/store/api/newsApi";
-import type { NewsItem } from "@/app/store/api/newsApi";
 import {
-  Box, Container, Title, Text, Stack, Badge, Group,
+  Box, Container, Title, Text, Stack, Group,
   SimpleGrid, Card, Center, Loader, Modal, CloseButton
 } from "@mantine/core";
-import { Calendar, ArrowRight, User, Newspaper } from "lucide-react";
+import { Calendar, ArrowRight, User } from "lucide-react";
 
 function formatDate(dateStr: string, locale: string) {
   const d = new Date(dateStr);
@@ -47,29 +46,25 @@ export default function NewsClient() {
           pos="absolute"
           style={{
             inset: 0,
-            background: "radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(255,255,255,0.04) 0%, transparent 50%)",
+            background:
+              "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
           }}
         />
-        <Box pos="absolute" style={{ top: -80, right: -80, width: 300, height: 300, borderRadius: "50%", background: "rgba(255,255,255,0.03)" }} />
-        <Box pos="absolute" style={{ bottom: -120, left: -60, width: 240, height: 240, borderRadius: "50%", background: "rgba(255,255,255,0.02)" }} />
+        <Box className="bykm-grid-overlay" />
+        <Box className="bykm-geo" style={{ top: -80, right: -80, width: 340, height: 340, transform: "rotate(12deg)" }} />
+        <Box className="bykm-geo" style={{ bottom: -120, left: -60, width: 240, height: 240, transform: "rotate(-10deg)", opacity: 0.6 }} />
 
         <Container size={1300} pos="relative">
           <Stack align="center" gap={6}>
-            <Badge
-              variant="white"
-              size="lg"
-              radius="xl"
-              style={{ background: "rgba(255,255,255,0.1)", color: "#fff", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.12)", textTransform: "none" }}
-            >
-              <Group gap={6}>
-                <Newspaper size={14} />
-                {t("nav.news")}
-              </Group>
-            </Badge>
-            <Title order={1} c="white" ta="center" fw={800} style={{ fontSize: "clamp(28px, 4vw, 38px)" }}>
+            <div className="bykm-kicker-line">
+              <span className="bykm-kicker-dash" />
+              <span className="bykm-kicker">{t("nav.news")}</span>
+            </div>
+            <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(30px, 4.5vw, 44px)", marginTop: 14 }}>
               {t("newsPage.title")}
             </Title>
-            <Text c="blue.2" size="md" ta="center" maw={560} lh={1.6}>
+            <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 16 }} />
+            <Text size="md" ta="center" maw={560} lh={1.65} style={{ color: "rgba(255,255,255,0.62)" }}>
               {t("newsPage.subtitle")}
             </Text>
           </Stack>
@@ -82,7 +77,7 @@ export default function NewsClient() {
           {visible.map((article) => (
             <Card
               key={article.id}
-              radius="lg"
+              radius={3}
               withBorder
               padding={0}
               shadow="sm"
@@ -91,6 +86,7 @@ export default function NewsClient() {
                 overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
+                borderTop: "3px solid var(--primary)",
               }}
               className="group"
             >
@@ -136,13 +132,15 @@ export default function NewsClient() {
                     component={Link}
                     href={`/news/${article.id}`}
                     style={{
-                      display: "inline-flex", alignItems: "center", gap: 6,
-                      fontSize: 13, fontWeight: 700, color: "var(--primary)",
+                      display: "inline-flex", alignItems: "center", gap: 8,
+                      fontFamily: "var(--font-mono), monospace",
+                      fontSize: 11, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase",
+                      color: "var(--primary)",
                       textDecoration: "none", transition: "gap 0.2s ease",
                     }}
                     className="group/link"
                   >
-                    <Text size="sm" fw={700} component="span">{t("newsPage.readMore")}</Text>
+                    <Text size="sm" fw={700} component="span" style={{ fontFamily: "inherit", fontSize: "inherit", letterSpacing: "inherit", textTransform: "inherit" }}>{t("newsPage.readMore")}</Text>
                     <ArrowRight size={14} style={{ transition: "transform 0.2s ease" }} className="group-hover/link:translate-x-1" />
                   </Box>
                 </Box>

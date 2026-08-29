@@ -6,8 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "@/app/locale-provider";
 import { useGetNewsQuery } from "@/app/store/api/newsApi";
-import type { NewsItem } from "@/app/store/api/newsApi";
-import { Box, Container, Title, Text, Stack, Badge, Group, Divider, ActionIcon, Tooltip, Popover, Center, Loader } from "@mantine/core";
+import { Box, Container, Title, Text, Stack, Group, Divider, ActionIcon, Tooltip, Popover, Center, Loader } from "@mantine/core";
 import { Calendar, User, ArrowLeft, ArrowRight, Share2, Clock, Check, Link2 } from "lucide-react";
 
 function formatDate(dateStr: string, locale: string) {
@@ -119,7 +118,7 @@ export default function NewsDetailClient() {
                 <Text size="xs" c="white" opacity={0.7}>{readingTime}</Text>
               </Group>
             </Group>
-            <Title order={1} c="white" fw={800} style={{ fontSize: "clamp(24px, 3.5vw, 36px)", maxWidth: 720, lineHeight: 1.3 }}>
+            <Title order={1} c="white" fw={600} className="bykm-display" style={{ fontSize: "clamp(24px, 3.5vw, 36px)", maxWidth: 720, lineHeight: 1.3 }}>
               {article.title}
             </Title>
           </Stack>
