@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useLocale } from "@/app/locale-provider";
 import {
-  Group, Stack, Text, Title, SimpleGrid,
-  Badge, Box, Container, Button, Flex
+  Stack, Text, Title, SimpleGrid,
+  Box, Container, Flex
 } from "@mantine/core";
 import {
   ArrowRight, Heart, Brain, Bone, Baby,
@@ -53,37 +53,27 @@ export default function DepartmentsClient() {
           style={{
             inset: 0,
             background:
-              "radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(255,255,255,0.04) 0%, transparent 50%)",
+              "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
           }}
         />
-        <Box
-          pos="absolute"
-          style={{ top: -80, right: -80, width: 300, height: 300, borderRadius: "50%", background: "rgba(255,255,255,0.03)" }}
-        />
-        <Box
-          pos="absolute"
-          style={{ bottom: -120, left: -60, width: 240, height: 240, borderRadius: "50%", background: "rgba(255,255,255,0.02)" }}
-        />
+        <Box className="bykm-grid-overlay" />
+        <Box className="bykm-geo" style={{ top: -80, right: -80, width: 340, height: 340, transform: "rotate(12deg)" }} />
+        <Box className="bykm-geo" style={{ bottom: -120, left: -60, width: 240, height: 240, transform: "rotate(-10deg)", opacity: 0.6 }} />
 
         <Container size={1300} pos="relative">
           <Stack align="center" gap={6} mb={48}>
-            <Badge
-              variant="white"
-              size="lg"
-              radius="xl"
-              style={{ background: "rgba(255,255,255,0.1)", color: "#fff", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.12)", fontWeight: 600, textTransform: "none" }}
-            >
-              <Group gap={6}>
-                <Building2 size={14} />
-                {t("nav.departments")}
-              </Group>
-            </Badge>
+            <div className="bykm-kicker-line">
+              <span className="bykm-kicker-dash" />
+              <span className="bykm-kicker">{t("nav.departments")}</span>
+            </div>
 
-            <Title order={1} c="white" ta="center" lh={1.15} fw={800} style={{ fontSize: "clamp(28px, 5vw, 42px)" }}>
+            <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(30px, 4.5vw, 46px)", marginTop: 14 }}>
               {t("departments.pageTitle")}
             </Title>
 
-            <Text c="blue.2" size="md" ta="center" maw={560} lh={1.65}>
+            <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 16 }} />
+
+            <Text size="md" ta="center" maw={560} lh={1.65} style={{ color: "rgba(255,255,255,0.62)" }}>
               {t("departments.heroSubtitle")}
             </Text>
           </Stack>
@@ -95,8 +85,8 @@ export default function DepartmentsClient() {
               { icon: <UserCheck size={18} />, label: t("departments.statPatients"), sub: t("departments.statPatientsSub") },
               { icon: <CalendarCheck size={18} />, label: t("departments.statYears"), sub: t("departments.statYearsSub") },
             ].map((s) => (
-              <Flex key={s.label} gap="md" align="center" p="sm" px="md" style={{ background: "rgba(255,255,255,0.06)", borderRadius: 12, border: "1px solid rgba(255,255,255,0.08)", backdropFilter: "blur(8px)" }}>
-                <Box c="white" style={{ opacity: 0.7 }}>{s.icon}</Box>
+              <Flex key={s.label} gap="md" align="center" p="sm" px="md" className="bykm-stat-chip">
+                <Box c="#7FD9C4" style={{ flexShrink: 0 }}>{s.icon}</Box>
                 <Box>
                   <Text c="white" fw={700} size="sm" lh={1.2}>{s.label}</Text>
                   <Text c="white" size="xs" style={{ opacity: 0.5 }}>{s.sub}</Text>
@@ -161,44 +151,35 @@ export default function DepartmentsClient() {
       >
         <Box
           pos="absolute"
-          style={{ top: -100, left: -100, width: 300, height: 300, borderRadius: "50%", background: "rgba(255,255,255,0.03)" }}
+          className="bykm-geo"
+          style={{ top: -100, left: -100, width: 300, height: 300, transform: "rotate(12deg)" }}
         />
         <Box
           pos="absolute"
-          style={{ bottom: -60, right: -60, width: 200, height: 200, borderRadius: "50%", background: "rgba(255,255,255,0.02)" }}
+          className="bykm-geo"
+          style={{ bottom: -60, right: -60, width: 200, height: 200, transform: "rotate(-8deg)", opacity: 0.7 }}
         />
+        <Box className="bykm-grid-overlay" />
 
         <Container size="sm" ta="center" pos="relative">
-          <Badge
-            variant="white"
-            size="lg"
-            radius="xl"
-            mb="sm"
-            style={{ background: "rgba(255,255,255,0.08)", color: "#fff", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.1)", textTransform: "none" }}
-          >
-            {t("departments.ctaBadge")}
-          </Badge>
+          <div className="bykm-kicker-line">
+            <span className="bykm-kicker-dash" />
+            <span className="bykm-kicker">{t("departments.ctaBadge")}</span>
+            <span className="bykm-kicker-dash" />
+          </div>
 
-          <Title order={3} c="white" fw={800} mb={8}>
+          <Title order={3} c="white" fw={600} mt={14} mb={10} className="bykm-display" style={{ fontSize: "clamp(24px, 3vw, 32px)" }}>
             {t("departments.ctaTitle")}
           </Title>
 
-          <Text c="blue.2" size="sm" mb="xl" maw={460} mx="auto" lh={1.6}>
+          <Text size="sm" mb="xl" maw={460} mx="auto" lh={1.6} style={{ color: "rgba(255,255,255,0.62)" }}>
             {t("departments.ctaSubtitle")}
           </Text>
 
-          <Button
-            component={Link}
-            href="/appointment"
-                    size="lg"
-                    radius="md"
-            variant="gradient"
-            gradient={{ from: "blue", to: "cyan" }}
-            rightSection={<ArrowRight size={18} />}
-            style={{ boxShadow: "0 6px 24px rgba(37,99,235,0.3)" }}
-          >
-            {t("departments.ctaButton")}
-          </Button>
+          <Link href="/appointment" className="bykm-btn">
+            <span>{t("departments.ctaButton")}</span>
+            <ArrowRight size={15} />
+          </Link>
         </Container>
       </Box>
     </Box>

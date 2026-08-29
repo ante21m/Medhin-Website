@@ -3,8 +3,8 @@
 import { useGetVacanciesQuery, type Vacancy } from '@/app/store/api/vacancyApi';
 import { useLocale } from '@/app/locale-provider';
 import {
-  Box, Container, Title, Text, Stack, Badge, Group,
-  SimpleGrid, Card, Center, Loader, Alert, Anchor,
+  Box, Container, Title, Text, Stack, Group,
+  SimpleGrid, Center, Loader, Alert, Anchor,
 } from '@mantine/core';
 import { Briefcase, MapPin, Calendar, Clock, AlertCircle } from 'lucide-react';
 
@@ -18,13 +18,14 @@ export default function VacancyPage() {
   const { data: vacancies, isLoading, error } = useGetVacanciesQuery();
   const { t } = useLocale();
 
-  function VacancyCard({ vacancy }: { vacancy: Vacancy }) {
+  function VacancyCard({ vacancy, num }: { vacancy: Vacancy; num: string }) {
     return (
-      <Card radius="lg" withBorder padding="lg" shadow="sm">
+      <div className="bykm-card">
+        <div className="bykm-badge"><span>{num}</span></div>
         <Stack gap="sm">
-          <Group gap={8}>
-            <Box style={{ width: 40, height: 40, borderRadius: 12, background: 'var(--primary-50)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Briefcase size={20} color="var(--primary)" />
+          <Group gap={8} wrap="nowrap">
+            <Box style={{ width: 40, height: 40, borderRadius: 8, background: 'var(--primary-50)', color: 'var(--primary)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Briefcase size={20} />
             </Box>
             <Box style={{ flex: 1 }}>
               <Text fw={700} size="md" lh={1.3}>{vacancy.title}</Text>
@@ -66,7 +67,7 @@ export default function VacancyPage() {
             </Group>
           </Group>
         </Stack>
-      </Card>
+      </div>
     );
   }
 
@@ -80,23 +81,29 @@ export default function VacancyPage() {
           overflow: 'hidden',
         }}
       >
+        <Box
+          pos="absolute"
+          style={{
+            inset: 0,
+            background:
+              'radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)',
+          }}
+        />
+        <Box className="bykm-grid-overlay" />
+        <Box className="bykm-geo" style={{ top: -80, right: -80, width: 340, height: 340, transform: 'rotate(12deg)' }} />
+        <Box className="bykm-geo" style={{ bottom: -120, left: -60, width: 240, height: 240, transform: 'rotate(-10deg)', opacity: 0.6 }} />
+
         <Container size={1300} pos="relative">
           <Stack align="center" gap={6}>
-            <Badge
-              variant="white"
-              size="lg"
-              radius="xl"
-              style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.12)', textTransform: 'none' }}
-            >
-              <Group gap={6}>
-                <Briefcase size={14} />
-                {t("vacancyPage.badge")}
-              </Group>
-            </Badge>
-            <Title order={1} c="white" ta="center" fw={800} style={{ fontSize: 'clamp(28px, 4vw, 38px)' }}>
+            <div className="bykm-kicker-line">
+              <span className="bykm-kicker-dash" />
+              <span className="bykm-kicker">{t("vacancyPage.badge")}</span>
+            </div>
+            <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: 'clamp(30px, 4.5vw, 44px)', marginTop: 14 }}>
               {t("vacancyPage.title")}
             </Title>
-            <Text c="blue.2" size="md" ta="center" maw={560} lh={1.6}>
+            <div style={{ width: 64, height: 3, background: '#7FD9C4', marginTop: 16 }} />
+            <Text size="md" ta="center" maw={560} lh={1.65} style={{ color: 'rgba(255,255,255,0.62)' }}>
               {t("vacancyPage.subtitle")}
             </Text>
           </Stack>
@@ -139,8 +146,8 @@ export default function VacancyPage() {
 
         {vacancies && vacancies.length > 0 && (
           <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg">
-            {vacancies.map((vacancy) => (
-              <VacancyCard key={vacancy.id} vacancy={vacancy} />
+            {vacancies.map((vacancy, i) => (
+              <VacancyCard key={vacancy.id} vacancy={vacancy} num={String(i + 1).padStart(2, '0')} />
             ))}
           </SimpleGrid>
         )}

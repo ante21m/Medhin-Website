@@ -6,23 +6,14 @@ import { services } from "../services.data";
 import { iconMap } from "@/app/components/icon-map";
 import { useLocale } from "@/app/locale-provider";
 import {
-  Paper, Group, Stack, Text, Title, Box, Container, Button,
-  SimpleGrid, ThemeIcon, Badge, Anchor, Divider
+  Paper, Group, Stack, Text, Title, Box, Container,
+  SimpleGrid, ThemeIcon, Anchor, Divider
 } from "@mantine/core";
 import {
   ArrowLeft, ArrowRight, CheckCircle, Clock, ShieldCheck
 } from "lucide-react";
 
-const palette: Record<string, { c: string; from: string; to: string }> = {
-  emergency:    { c: "red",    from: "#ef4444", to: "#dc2626" },
-  delivery:     { c: "pink",   from: "#ec4899", to: "#db2777" },
-  laboratory:   { c: "violet", from: "#8b5cf6", to: "#7c3aed" },
-  surgical:     { c: "orange", from: "#f97316", to: "#ea580c" },
-  xray:         { c: "cyan",   from: "#06b6d4", to: "#0891b2" },
-  ultrasound:   { c: "cyan",   from: "#06b6d4", to: "#0891b2" },
-  "ct-scan":    { c: "blue",   from: "var(--primary)", to: "#1d4ed8" },
-  ecg:          { c: "blue",   from: "var(--primary)", to: "var(--primary)" },
-};
+const unified = { c: "blue" as const, from: "var(--primary)", to: "#1d4ed8" };
 
 export default function ServiceDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -31,8 +22,6 @@ export default function ServiceDetailPage() {
   const service = services.find((s) => s.id === id);
   if (!service) return null;
 
-  const p = palette[service.id] || palette["ct-scan"];
-  const unified = { c: "blue" as const, from: "var(--primary)", to: "#1d4ed8" };
   const raw = t(`services.${id}.items`);
   const items = Array.isArray(raw) ? (raw as string[]) : undefined;
 
@@ -54,22 +43,21 @@ export default function ServiceDetailPage() {
         </Anchor>
 
         {/* Hero card */}
-        <Paper shadow="sm" radius="lg" withBorder mb="lg" style={{ overflow: "hidden", position: "relative" }}>
-          <Box style={{ position: "absolute", top: 0, left: 0, right: 0, height: 4, background: `linear-gradient(90deg, ${unified.from}, ${unified.to})` }} />
+        <Paper shadow="sm" mb="lg" withBorder p={0} style={{ overflow: "hidden", position: "relative", borderRadius: 3, borderTop: "4px solid var(--primary)" }}>
           <Box p="xl">
             <Group align="flex-start" gap="xl" wrap="nowrap">
               <ThemeIcon
                 variant="light"
                 color={unified.c}
                 size={72}
-                radius={18}
+                radius={8}
                 style={{ boxShadow: `0 8px 24px ${unified.from}33` }}
               >
                 {iconMap[service.icon]}
               </ThemeIcon>
 
               <Box style={{ flex: 1 }}>
-                <Title order={1} fw={800} c="gray.9" style={{ fontSize: "clamp(24px, 4vw, 34px)" }}>
+                <Title order={1} fw={600} c="gray.9" className="bykm-display" style={{ fontSize: "clamp(24px, 4vw, 34px)" }}>
                   {t(`services.${id}.title`)}
                 </Title>
                 <Text c="gray.6" size="md" mt={6} maw={600} lh={1.6}>
@@ -85,7 +73,7 @@ export default function ServiceDetailPage() {
           {/* LEFT — Items */}
           <Box style={{ gridColumn: "span 2" }}>
             {items && items.length > 0 && (
-              <Paper shadow="sm" radius="lg" withBorder p="xl">
+              <Paper shadow="sm" radius={3} withBorder p="xl">
                 <Group gap="sm" mb="lg">
                   <ThemeIcon variant="light" color={unified.c} size="md" radius="md">
                     <CheckCircle size={16} />
@@ -129,12 +117,12 @@ export default function ServiceDetailPage() {
             )}
 
             {/* Extra info section */}
-            <Paper shadow="sm" radius="lg" withBorder p="xl" mt="lg">
+            <Paper shadow="sm" radius={3} withBorder p="xl" mt="lg">
               <Group gap="sm" mb="md">
                 <ThemeIcon variant="light" color="gray" size="md" radius="md">
                   <ShieldCheck size={16} />
                 </ThemeIcon>
-                <Title order={3} fw={700} size="h4" c="gray.9">
+                <Title order={3} fw={600} size="h4" c="gray.9" className="bykm-display">
                   {t("profile.about")}
                 </Title>
               </Group>
@@ -146,7 +134,7 @@ export default function ServiceDetailPage() {
 
           {/* RIGHT — Sidebar */}
           <Box>
-            <Paper shadow="sm" radius="lg" withBorder p="xl" style={{ position: "sticky", top: 100 }}>
+            <Paper shadow="sm" radius={3} withBorder p="xl" style={{ position: "sticky", top: 100 }}>
               <Group gap="sm" mb="md">
                 <ThemeIcon variant="light" color={unified.c} size="md" radius="md">
                   <Clock size={16} />
@@ -183,19 +171,10 @@ export default function ServiceDetailPage() {
 
               <Divider my="md" />
 
-              <Button
-                component={Link}
-                href="/appointment"
-                fullWidth
-                size="md"
-                radius="md"
-                variant="gradient"
-                gradient={{ from: unified.from, to: unified.to }}
-                rightSection={<ArrowRight size={16} />}
-                style={{ boxShadow: `0 4px 14px ${unified.from}44` }}
-              >
-                {t("servicesPage.ctaButton")}
-              </Button>
+              <Link href="/appointment" className="bykm-btn" style={{ width: "100%" }}>
+                <span>{t("servicesPage.ctaButton")}</span>
+                <ArrowRight size={15} />
+              </Link>
 
               <Anchor
                 component={Link}
