@@ -18,6 +18,7 @@ function mapPhysician(p: ApiPhysician): Physician {
     available: p.available,
     availabilityText: p.availabilityText,
     bio: p.bio,
+    bio_am: p.bioAm,
     experience: p.experience,
     languages: p.languages || [],
     education: p.education || [],

@@ -3,7 +3,9 @@ import { baseApi } from './baseApi';
 export interface Department {
   id: number;
   name: string;
+  nameAm?: string;
   description?: string;
+  descriptionAm?: string;
   image?: string;
   headOfDepartment?: string;
   email?: string;
@@ -14,7 +16,9 @@ export interface Department {
 
 export interface CreateDepartmentRequest {
   name: string;
+  nameAm?: string;
   description?: string;
+  descriptionAm?: string;
   image?: string;
   headOfDepartment?: string;
   email?: string;

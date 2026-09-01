@@ -16,9 +16,13 @@ function formatDate(dateStr: string) {
 
 export default function VacancyPage() {
   const { data: vacancies, isLoading, error } = useGetVacanciesQuery();
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
 
   function VacancyCard({ vacancy, num }: { vacancy: Vacancy; num: string }) {
+    const title = locale === 'am' && vacancy.titleAm ? vacancy.titleAm : vacancy.title;
+    const description = locale === 'am' && vacancy.descriptionAm ? vacancy.descriptionAm : vacancy.description;
+    const requirements = locale === 'am' && vacancy.requirementsAm ? vacancy.requirementsAm : vacancy.requirements;
+
     return (
       <div className="bykm-card">
         <div className="bykm-badge"><span>{num}</span></div>
@@ -28,7 +32,7 @@ export default function VacancyPage() {
               <Briefcase size={20} />
             </Box>
             <Box style={{ flex: 1 }}>
-              <Text fw={700} size="md" lh={1.3}>{vacancy.title}</Text>
+              <Text fw={700} size="md" lh={1.3}>{title}</Text>
               {vacancy.location && (
                 <Group gap={4} mt={2}>
                   <MapPin size={12} color="var(--ink-faint)" />
@@ -38,15 +42,15 @@ export default function VacancyPage() {
             </Box>
           </Group>
 
-          {vacancy.description && (
+          {description && (
             <Text size="sm" c="gray.6" lineClamp={3} lh={1.6}>
-              {vacancy.description}
+              {description}
             </Text>
           )}
 
-          {vacancy.requirements && (
+          {requirements && (
             <Text size="xs" c="gray.5" style={{ whiteSpace: 'pre-line' }}>
-              {vacancy.requirements}
+              {requirements}
             </Text>
           )}
 

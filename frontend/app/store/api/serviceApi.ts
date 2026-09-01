@@ -3,8 +3,10 @@ import { baseApi } from './baseApi';
 export interface ServiceItem {
   id: number;
   name: string;
+  nameAm?: string;
   icon?: string;
   description?: string;
+  descriptionAm?: string;
   image?: string;
   order: number;
   isActive: boolean;
@@ -13,8 +15,10 @@ export interface ServiceItem {
 
 export interface CreateServiceRequest {
   name: string;
+  nameAm?: string;
   icon?: string;
   description?: string;
+  descriptionAm?: string;
   image?: string;
   order?: number;
 }

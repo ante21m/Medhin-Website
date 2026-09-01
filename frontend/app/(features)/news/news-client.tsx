@@ -11,6 +11,14 @@ import {
 } from "@mantine/core";
 import { Calendar, ArrowRight, User } from "lucide-react";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3003";
+
+function resolveAsset(path?: string) {
+  if (!path) return "";
+  if (path.startsWith("http") || path.startsWith("/images/")) return path;
+  return `${API_URL}/${path}`;
+}
+
 function formatDate(dateStr: string, locale: string) {
   const d = new Date(dateStr);
   return d.toLocaleDateString(locale === "am" ? "am-ET" : "en-US", {
@@ -93,7 +101,7 @@ export default function NewsClient() {
               {/* Image */}
               <Box style={{ position: "relative", height: 200, overflow: "hidden" }}>
                 <Image
-                  src={article.image || "/images/hospital-hero.jpg"}
+                  src={resolveAsset(article.image) || "/images/hospital-hero.jpg"}
                   alt={article.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -117,13 +125,13 @@ export default function NewsClient() {
                 </Group>
 
                 {/* Title */}
-                <Text fw={700} size="md" lh={1.4} c="gray.9" mb={8} lineClamp={2}>
-                  {article.title}
+                <Text fw={700} size="md" c="gray.9" mb={8} lineClamp={2}>
+                  {locale === "am" && article.titleAm ? article.titleAm : article.title}
                 </Text>
 
                 {/* Description */}
                 <Text size="sm" c="gray.6" lh={1.6} style={{ flex: 1 }} lineClamp={3}>
-                  {article.summary || article.content}
+                  {(locale === "am" ? article.summaryAm || article.contentAm : null) || article.summary || article.content}
                 </Text>
 
                 {/* Read More */}

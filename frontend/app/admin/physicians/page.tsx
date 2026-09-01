@@ -9,7 +9,7 @@ import {
 import type { Physician } from '@/app/store/api/physicianApi';
 import {
   Container, Title, Text, Button, Group, Badge, Loader, Center, Alert, ActionIcon, Table,
-  Stack, TextInput, Textarea, NumberInput, Paper, Collapse,
+  Stack, TextInput, Textarea, NumberInput, Paper, Collapse, SimpleGrid,
 } from '@mantine/core';
 import { Plus, Trash2, Edit, AlertCircle, X, Check, Eye } from 'lucide-react';
 import { FileUpload } from '@/app/components/admin/FileUpload';
@@ -36,6 +36,7 @@ export default function AdminPhysiciansPage() {
   const [specialty, setSpecialty] = useState('');
   const [specialtyAm, setSpecialtyAm] = useState('');
   const [bio, setBio] = useState('');
+  const [bioAm, setBioAm] = useState('');
   const [experience, setExperience] = useState('');
   const [image, setImage] = useState<string | undefined>();
   const [rating, setRating] = useState<number>(0);
@@ -45,11 +46,11 @@ export default function AdminPhysiciansPage() {
   const isEditing = editId !== null;
 
   const resetForm = () => {
-    setEditId(null); setName(''); setNameAm(''); setSpecialty(''); setSpecialtyAm(''); setBio(''); setExperience(''); setImage(undefined); setRating(0); setReviews(0); setFormError(null); setShowForm(false);
+    setEditId(null); setName(''); setNameAm(''); setSpecialty(''); setSpecialtyAm(''); setBio(''); setBioAm(''); setExperience(''); setImage(undefined); setRating(0); setReviews(0); setFormError(null); setShowForm(false);
   };
 
   const startEdit = (item: Physician) => {
-    setEditId(item.id); setName(item.name); setNameAm(item.nameAm || ''); setSpecialty(item.specialty); setSpecialtyAm(item.specialtyAm || ''); setBio(item.bio || ''); setExperience(item.experience || ''); setImage(item.image); setRating(item.rating ?? 0); setReviews(item.reviews ?? 0); setFormError(null); setShowForm(true);
+    setEditId(item.id); setName(item.name); setNameAm(item.nameAm || ''); setSpecialty(item.specialty); setSpecialtyAm(item.specialtyAm || ''); setBio(item.bio || ''); setBioAm(item.bioAm || ''); setExperience(item.experience || ''); setImage(item.image); setRating(item.rating ?? 0); setReviews(item.reviews ?? 0); setFormError(null); setShowForm(true);
   };
 
   const handleSubmit = async () => {
@@ -57,7 +58,7 @@ export default function AdminPhysiciansPage() {
     if (!name.trim()) { setFormError('Name is required'); return; }
     if (!specialty.trim()) { setFormError('Specialty is required'); return; }
     try {
-      const payload = { name: name.trim(), nameAm: nameAm.trim() || undefined, specialty: specialty.trim(), specialtyAm: specialtyAm.trim() || undefined, image: image || undefined, bio: bio.trim() || undefined, experience: experience.trim() || undefined, rating: rating || undefined, reviews: reviews || undefined };
+      const payload = { name: name.trim(), nameAm: nameAm.trim() || undefined, specialty: specialty.trim(), specialtyAm: specialtyAm.trim() || undefined, bio: bio.trim() || undefined, bioAm: bioAm.trim() || undefined, experience: experience.trim() || undefined, image: image || undefined, rating: rating || undefined, reviews: reviews || undefined };
       if (isEditing) {
         await updatePhysician({ id: editId, data: payload as any }).unwrap();
       } else {
@@ -109,21 +110,34 @@ export default function AdminPhysiciansPage() {
             <Button variant="subtle" color="gray" size="xs" leftSection={<X size={14} />} onClick={resetForm}>Cancel</Button>
           </Group>
         <Stack gap="sm">
-          <Group grow>
-            <TextInput label="Name" value={name} onChange={(e) => setName(e.target.value)} required placeholder="Dr. Full Name" />
-            <TextInput label="Name (Amharic)" value={nameAm} onChange={(e) => setNameAm(e.target.value)} placeholder="ዶ/ር ሙሉ ስም" />
-          </Group>
-          <Group grow>
-            <TextInput label="Specialty" value={specialty} onChange={(e) => setSpecialty(e.target.value)} required placeholder="e.g. Cardiology" />
-            <TextInput label="Specialty (Amharic)" value={specialtyAm} onChange={(e) => setSpecialtyAm(e.target.value)} placeholder="የልብ ህክምና" />
-          </Group>
+          <SimpleGrid cols={{ base: 1, md: 2 }} spacing="lg">
+            {/* English */}
+            <Paper withBorder radius="md" p="sm" style={{ background: '#fbfbfd' }}>
+              <Text size="xs" fw={700} mb="xs" tt="uppercase" c="gray.6" style={{ letterSpacing: '0.06em' }}>English</Text>
+              <Stack gap="sm">
+                <TextInput label="Name" value={name} onChange={(e) => setName(e.target.value)} required placeholder="Dr. Full Name" />
+                <TextInput label="Specialty" value={specialty} onChange={(e) => setSpecialty(e.target.value)} required placeholder="e.g. Cardiology" />
+                <Textarea label="Bio" value={bio} onChange={(e) => setBio(e.target.value)} placeholder="Short biography..." rows={5} />
+              </Stack>
+            </Paper>
+
+            {/* Amharic */}
+            <Paper withBorder radius="md" p="sm" style={{ background: '#fbfbfd' }}>
+              <Text size="xs" fw={700} mb="xs" tt="uppercase" c="gray.6" style={{ letterSpacing: '0.06em' }}>አማርኛ (Amharic)</Text>
+              <Stack gap="sm">
+                <TextInput label="ስም (Name)" value={nameAm} onChange={(e) => setNameAm(e.target.value)} placeholder="ዶ/ር ሙሉ ስም" />
+                <TextInput label="ስፔሻሊቲ (Specialty)" value={specialtyAm} onChange={(e) => setSpecialtyAm(e.target.value)} placeholder="የልብ ህክምና" />
+                <Textarea label="ባዮ (Bio)" value={bioAm} onChange={(e) => setBioAm(e.target.value)} placeholder="አጭር የሕይወት ታሪክ..." rows={5} />
+              </Stack>
+            </Paper>
+          </SimpleGrid>
+
+          <TextInput label="Experience" value={experience} onChange={(e) => setExperience(e.target.value)} placeholder="e.g. 15+ years" />
+          <FileUpload value={image} onChange={setImage} label="Upload Image" />
           <Group grow>
             <NumberInput label="Rating" value={rating} onChange={(v) => setRating(Number(v) || 0)} min={0} max={5} step={0.1} />
             <NumberInput label="Reviews" value={reviews} onChange={(v) => setReviews(Number(v) || 0)} min={0} />
           </Group>
-          <TextInput label="Experience" value={experience} onChange={(e) => setExperience(e.target.value)} placeholder="e.g. 15+ years" />
-          <FileUpload value={image} onChange={setImage} label="Upload Image" />
-          <Textarea label="Bio" value={bio} onChange={(e) => setBio(e.target.value)} placeholder="Short biography..." rows={3} />
           {formError && <Alert icon={<AlertCircle size={14} />} color="red" variant="light" p="xs">{formError}</Alert>}
           <Group justify="flex-end">
             <Button leftSection={isEditing ? <Check size={14} /> : <Plus size={14} />} onClick={handleSubmit} loading={isCreating || isUpdating}>
@@ -159,7 +173,7 @@ export default function AdminPhysiciansPage() {
                   <Table.Td>
                     {item.image ? <img src={item.image.startsWith('/images/') ? item.image : `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003'}/${item.image}`} alt="" style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }} /> : '—'}
                   </Table.Td>
-                  <Table.Td><Text lineClamp={1} maw={180}>{item.name}</Text></Table.Td>
+                  <Table.Td><Text lineClamp={1} maw={180}>{item.name}{item.nameAm ? ` · ${item.nameAm}` : ''}</Text></Table.Td>
                   <Table.Td><Text lineClamp={1} maw={150}>{item.specialty}</Text></Table.Td>
                   <Table.Td>
                     {item.rating > 0 ? <Badge variant="light" color="yellow" size="sm">{item.rating}</Badge> : '—'}

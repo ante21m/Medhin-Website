@@ -74,12 +74,12 @@ export default function ServicesClient() {
         </Container>
       </Box>
 
-      <section style={{ padding: "80px 24px", background: "#f5f4ef" }}>
+      <section style={{ padding: "80px 24px", background: "var(--bg-tint)" }}>
         <div style={{ maxWidth: 1300, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <h2 className="m-h2">{t("servicesPage.whatWeOffer")}</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+          <div className="hgrid grid-3">
             {services.map((svc, i) => {
               const num = String(i + 1).padStart(2, "0");
               return (

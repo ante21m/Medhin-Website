@@ -8,8 +8,11 @@ import { imgVer } from "@/lib/imgver";
 import AppointmentModal from "@/app/components/AppointmentModal";
 
 export default function PhysicianCard({ physician }: { physician: Physician }) {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const [open, setOpen] = useState(false);
+
+  const name = locale === "am" && physician.name_am ? physician.name_am : physician.name;
+  const specialty = locale === "am" && physician.specialty_am ? physician.specialty_am : physician.specialty;
 
   return (
     <div className="relative" style={{ background: "#fff", borderRadius: 16, border: "1px solid var(--primary-100)", overflow: "hidden", transition: "border-color .35s ease, box-shadow .35s ease" }}
@@ -30,12 +33,12 @@ export default function PhysicianCard({ physician }: { physician: Physician }) {
 
       {/* NAME */}
       <h3 className="mt-4 font-bold" style={{ fontSize: "1rem", color: "var(--bg-deep)" }}>
-        {physician.name}
+        {name}
       </h3>
 
       {/* SPECIALTY */}
       <p style={{ fontSize: ".84rem", color: "var(--primary)", fontWeight: 600, marginBottom: 9 }}>
-        {physician.specialty}
+        {specialty}
       </p>
 
       {/* RATING */}

@@ -7,7 +7,15 @@ import Link from "next/link";
 import { useLocale } from "@/app/locale-provider";
 import { useGetNewsQuery } from "@/app/store/api/newsApi";
 import { Box, Container, Title, Text, Stack, Group, Divider, ActionIcon, Tooltip, Popover, Center, Loader } from "@mantine/core";
-import { Calendar, User, ArrowLeft, ArrowRight, Share2, Clock, Check, Link2 } from "lucide-react";
+import { Calendar, User, ArrowLeft, ArrowRight, Share2, Clock, Check, Link2, Paperclip } from "lucide-react";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3003";
+
+function resolveAsset(path?: string) {
+  if (!path) return "";
+  if (path.startsWith("http") || path.startsWith("/images/")) return path;
+  return `${API_URL}/${path}`;
+}
 
 function formatDate(dateStr: string, locale: string) {
   const d = new Date(dateStr);
@@ -99,11 +107,15 @@ export default function NewsDetailClient() {
 
   const readingTime = "3 min read";
 
+  const isAm = locale === "am";
+  const artTitle = isAm && article.titleAm ? article.titleAm : article.title;
+  const artContent = isAm && article.contentAm ? article.contentAm : article.content;
+
   return (
     <Box bg="gray.0" mih="100vh">
       {/* Hero Banner */}
       <Box style={{ position: "relative", height: 280, overflow: "hidden" }}>
-        <Image src={article.image || "/images/hospital-hero.jpg"} alt={article.title} fill style={{ objectFit: "cover" }} priority />
+        <Image src={resolveAsset(article.image) || "/images/hospital-hero.jpg"} alt={article.title} fill style={{ objectFit: "cover" }} priority />
         <Box
           style={{
             position: "absolute", inset: 0,
@@ -119,7 +131,7 @@ export default function NewsDetailClient() {
               </Group>
             </Group>
             <Title order={1} c="white" fw={600} className="bykm-display" style={{ fontSize: "clamp(24px, 3.5vw, 36px)", maxWidth: 720, lineHeight: 1.3 }}>
-              {article.title}
+              {artTitle}
             </Title>
           </Stack>
         </Container>
@@ -199,8 +211,36 @@ export default function NewsDetailClient() {
 
             {/* Article Body */}
             <Text size="md" c="gray.8" lh={1.8} style={{ whiteSpace: "pre-line" }}>
-              {article.content}
+              {artContent}
             </Text>
+
+            {/* Attachment */}
+            {article.attachment && (
+              <>
+                <Divider my="lg" />
+                <Box
+                  component="a"
+                  href={resolveAsset(article.attachment)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: 10,
+                    padding: "14px 18px", borderRadius: 3,
+                    background: "var(--bg-tint)", border: "1px solid var(--line)",
+                    textDecoration: "none", color: "var(--ink)",
+                    transition: "all 0.2s ease",
+                  }}
+                >
+                  <Box style={{ width: 40, height: 40, borderRadius: 8, background: "var(--primary)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <Paperclip size={18} />
+                  </Box>
+                  <Box>
+                    <Text size="sm" fw={700} style={{ color: "var(--primary)" }}>{t("newsPage.downloadAttachment")}</Text>
+                    <Text size="xs" c="gray.6">{article.attachment.split("/").pop()}</Text>
+                  </Box>
+                </Box>
+              </>
+            )}
 
             <Divider my="lg" />
 

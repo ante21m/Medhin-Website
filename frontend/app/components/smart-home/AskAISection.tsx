@@ -519,7 +519,7 @@ export default function AskAISection() {
 
           {/* ASK TAB */}
           {activeTab === "ask" && (
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+            <div className="hgrid grid-2-split">
               <div>
                 <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.82rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 16 }}>
                   {t("askAI.popularQuestions")}
@@ -598,7 +598,7 @@ export default function AskAISection() {
 
           {/* SYMPTOM TAB */}
           {activeTab === "symptom" && (
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+            <div className="hgrid grid-2-split">
               <div>
                 <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.82rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 16 }}>
                   {t("askAI.describeSymptoms")}
@@ -664,7 +664,7 @@ export default function AskAISection() {
 
           {/* TIPS TAB */}
           {activeTab === "tips" && (
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+            <div className="hgrid grid-2-split">
               <div>
                 <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.82rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 16 }}>
                   {t("askAI.pickTopic")}

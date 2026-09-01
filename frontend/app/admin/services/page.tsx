@@ -8,7 +8,7 @@ import {
 import type { ServiceItem } from '@/app/store/api/serviceApi';
 import {
   Container, Title, Text, Button, Group, Badge, Loader, Center, Alert, ActionIcon, Table,
-  Stack, TextInput, Textarea, NumberInput, Paper, Collapse,
+  Stack, TextInput, Textarea, NumberInput, Paper, Collapse, SimpleGrid,
 } from '@mantine/core';
 import { Plus, Trash2, Edit, AlertCircle, X, Check } from 'lucide-react';
 
@@ -31,8 +31,10 @@ export default function AdminServicesPage() {
   const [editId, setEditId] = useState<number | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState('');
+  const [nameAm, setNameAm] = useState('');
   const [icon, setIcon] = useState('');
   const [description, setDescription] = useState('');
+  const [descriptionAm, setDescriptionAm] = useState('');
   const [order, setOrder] = useState<number>(0);
   const [formError, setFormError] = useState<string | null>(null);
 
@@ -41,8 +43,10 @@ export default function AdminServicesPage() {
   const resetForm = () => {
     setEditId(null);
     setName('');
+    setNameAm('');
     setIcon('');
     setDescription('');
+    setDescriptionAm('');
     setOrder(0);
     setFormError(null);
     setShowForm(false);
@@ -51,8 +55,10 @@ export default function AdminServicesPage() {
   const startEdit = (item: ServiceItem) => {
     setEditId(item.id);
     setName(item.name);
+    setNameAm(item.nameAm || '');
     setIcon(item.icon || '');
     setDescription(item.description || '');
+    setDescriptionAm(item.descriptionAm || '');
     setOrder(item.order ?? 0);
     setFormError(null);
     setShowForm(true);
@@ -62,7 +68,7 @@ export default function AdminServicesPage() {
     setFormError(null);
     if (!name.trim()) { setFormError('Name is required'); return; }
     try {
-      const payload = { name: name.trim(), icon: icon.trim() || undefined, description: description.trim() || undefined, order: order || undefined };
+      const payload = { name: name.trim(), nameAm: nameAm.trim() || undefined, icon: icon.trim() || undefined, description: description.trim() || undefined, descriptionAm: descriptionAm.trim() || undefined, order: order || undefined };
       if (isEditing) {
         await updateItem({ id: editId, data: payload as any }).unwrap();
       } else {
@@ -124,11 +130,28 @@ export default function AdminServicesPage() {
           </Group>
         <Stack gap="sm">
           <Group grow>
-            <TextInput label="Name" value={name} onChange={(e) => setName(e.target.value)} required placeholder="e.g. Emergency Care" />
             <TextInput label="Icon" value={icon} onChange={(e) => setIcon(e.target.value)} placeholder="e.g. ambulance, baby, flask" />
             <NumberInput label="Display Order" value={order} onChange={(v) => setOrder(Number(v) || 0)} min={0} />
           </Group>
-          <Textarea label="Description" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Service description..." rows={3} />
+          <SimpleGrid cols={{ base: 1, md: 2 }} spacing="lg">
+            {/* English */}
+            <Paper withBorder radius="md" p="sm" style={{ background: '#fbfbfd' }}>
+              <Text size="xs" fw={700} mb="xs" tt="uppercase" c="gray.6" style={{ letterSpacing: '0.06em' }}>English</Text>
+              <Stack gap="sm">
+                <TextInput label="Name" value={name} onChange={(e) => setName(e.target.value)} required placeholder="e.g. Emergency Care" />
+                <Textarea label="Description" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Service description..." rows={5} />
+              </Stack>
+            </Paper>
+
+            {/* Amharic */}
+            <Paper withBorder radius="md" p="sm" style={{ background: '#fbfbfd' }}>
+              <Text size="xs" fw={700} mb="xs" tt="uppercase" c="gray.6" style={{ letterSpacing: '0.06em' }}>አማርኛ (Amharic)</Text>
+              <Stack gap="sm">
+                <TextInput label="ስም (Name)" value={nameAm} onChange={(e) => setNameAm(e.target.value)} placeholder="e.g. የድንገተኛ እንክብካቤ" />
+                <Textarea label="መግለጫ (Description)" value={descriptionAm} onChange={(e) => setDescriptionAm(e.target.value)} placeholder="የአገልግሎት መግለጫ..." rows={5} />
+              </Stack>
+            </Paper>
+          </SimpleGrid>
           {formError && <Alert icon={<AlertCircle size={14} />} color="red" variant="light" p="xs">{formError}</Alert>}
           <Group justify="flex-end">
             <Button leftSection={isEditing ? <Check size={14} /> : <Plus size={14} />} onClick={handleSubmit} loading={isCreating || isUpdating}>
@@ -162,7 +185,7 @@ export default function AdminServicesPage() {
               {items.map((item) => (
                 <Table.Tr key={item.id}>
                   <Table.Td>{item.id}</Table.Td>
-                  <Table.Td><Text lineClamp={1} maw={200}>{item.name}</Text></Table.Td>
+                  <Table.Td><Text lineClamp={1} maw={200}>{item.name}{item.nameAm ? ` · ${item.nameAm}` : ''}</Text></Table.Td>
                   <Table.Td>{item.icon || '—'}</Table.Td>
                   <Table.Td>{item.order}</Table.Td>
                   <Table.Td><Badge color={item.isActive ? 'green' : 'gray'} size="sm">{item.isActive ? 'Active' : 'Inactive'}</Badge></Table.Td>

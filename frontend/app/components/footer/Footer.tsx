@@ -54,7 +54,7 @@ export default function Footer() {
 
       {/* Main */}
       <div style={{ maxWidth: "var(--container)", margin: "0 auto", padding: "72px 24px 0", position: "relative", zIndex: 1 }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1.2fr", gap: 48 }}>
+        <div className="hgrid footergrid">
 
           {/* Brand */}
           <div>
