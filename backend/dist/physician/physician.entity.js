@@ -23,6 +23,7 @@ let Physician = class Physician {
     available;
     availabilityText;
     bio;
+    bioAm;
     experience;
     languages;
     education;
@@ -80,6 +81,10 @@ __decorate([
     (0, typeorm_1.Column)('text', { nullable: true }),
     __metadata("design:type", String)
 ], Physician.prototype, "bio", void 0);
+__decorate([
+    (0, typeorm_1.Column)('text', { nullable: true }),
+    __metadata("design:type", String)
+], Physician.prototype, "bioAm", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)

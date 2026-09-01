@@ -1,6 +1,8 @@
 export declare class CreateDepartmentDto {
     name: string;
+    nameAm?: string;
     description?: string;
+    descriptionAm?: string;
     image?: string;
     headOfDepartment?: string;
     email?: string;
@@ -9,7 +11,9 @@ export declare class CreateDepartmentDto {
 }
 export declare class UpdateDepartmentDto {
     name?: string;
+    nameAm?: string;
     description?: string;
+    descriptionAm?: string;
     image?: string;
     headOfDepartment?: string;
     email?: string;

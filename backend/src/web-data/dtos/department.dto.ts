@@ -7,10 +7,20 @@ export class CreateDepartmentDto {
   @IsString()
   name: string;
 
+  @ApiPropertyOptional({ example: 'ማርኬቲንግ', description: 'Amharic department name' })
+  @IsOptional()
+  @IsString()
+  nameAm?: string;
+
   @ApiPropertyOptional({ description: 'Department description' })
   @IsOptional()
   @IsString()
   description?: string;
+
+  @ApiPropertyOptional({ description: 'Amharic department description' })
+  @IsOptional()
+  @IsString()
+  descriptionAm?: string;
 
   @ApiPropertyOptional({ description: 'Department image path' })
   @IsOptional()
@@ -54,10 +64,20 @@ export class UpdateDepartmentDto {
   @IsString()
   name?: string;
 
+  @ApiPropertyOptional({ description: 'Amharic department name' })
+  @IsOptional()
+  @IsString()
+  nameAm?: string;
+
   @ApiPropertyOptional({ description: 'Department description' })
   @IsOptional()
   @IsString()
   description?: string;
+
+  @ApiPropertyOptional({ description: 'Amharic department description' })
+  @IsOptional()
+  @IsString()
+  descriptionAm?: string;
 
   @ApiPropertyOptional({ description: 'Department image path' })
   @IsOptional()

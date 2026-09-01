@@ -14,14 +14,26 @@ export class News {
   @Column()
   title: string;
 
-  @Column('text')
+  @Column({ nullable: true })
+  titleAm: string;
+
+  @Column('text', { nullable: true })
   content: string;
+
+  @Column('text', { nullable: true })
+  contentAm: string;
 
   @Column({ nullable: true })
   summary: string;
 
   @Column({ nullable: true })
+  summaryAm: string;
+
+  @Column({ nullable: true })
   image: string;
+
+  @Column({ nullable: true })
+  attachment: string;
 
   @Column({ default: 'admin' })
   author: string;

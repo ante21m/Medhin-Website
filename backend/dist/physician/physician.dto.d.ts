@@ -9,6 +9,7 @@ export declare class CreatePhysicianDto {
     available?: boolean;
     availabilityText?: string;
     bio?: string;
+    bioAm?: string;
     experience?: string;
     languages?: string[];
     education?: string[];
@@ -29,6 +30,7 @@ export declare class UpdatePhysicianDto {
     available?: boolean;
     availabilityText?: string;
     bio?: string;
+    bioAm?: string;
     experience?: string;
     languages?: string[];
     education?: string[];

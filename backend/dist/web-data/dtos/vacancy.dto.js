@@ -15,8 +15,11 @@ const class_transformer_1 = require("class-transformer");
 const swagger_1 = require("@nestjs/swagger");
 class CreateVacancyDto {
     title;
+    titleAm;
     description;
+    descriptionAm;
     requirements;
+    requirementsAm;
     location;
     deadline;
 }
@@ -27,6 +30,12 @@ __decorate([
     __metadata("design:type", String)
 ], CreateVacancyDto.prototype, "title", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({ example: 'ሶፍትዌር መሀንዲስ', description: 'Amharic job title' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateVacancyDto.prototype, "titleAm", void 0);
+__decorate([
     (0, swagger_1.ApiProperty)({
         example: 'We are looking for...',
         description: 'Job description',
@@ -34,6 +43,12 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateVacancyDto.prototype, "description", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ example: 'እየፈለግን ነው...', description: 'Amharic job description' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateVacancyDto.prototype, "descriptionAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
         example: '- 3+ years experience\n- TypeScript',
@@ -43,6 +58,12 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateVacancyDto.prototype, "requirements", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ example: '- የ3+ ዓመት ልምድ\n- ታይፕስክሪፕት', description: 'Amharic job requirements' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateVacancyDto.prototype, "requirementsAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ example: 'New York, NY', description: 'Job location' }),
     (0, class_validator_1.IsOptional)(),
@@ -59,8 +80,11 @@ __decorate([
 ], CreateVacancyDto.prototype, "deadline", void 0);
 class UpdateVacancyDto {
     title;
+    titleAm;
     description;
+    descriptionAm;
     requirements;
+    requirementsAm;
     location;
     deadline;
     isActive;
@@ -73,17 +97,35 @@ __decorate([
     __metadata("design:type", String)
 ], UpdateVacancyDto.prototype, "title", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Amharic job title' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateVacancyDto.prototype, "titleAm", void 0);
+__decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Job description' }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateVacancyDto.prototype, "description", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Amharic job description' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateVacancyDto.prototype, "descriptionAm", void 0);
+__decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Job requirements' }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateVacancyDto.prototype, "requirements", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Amharic job requirements' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateVacancyDto.prototype, "requirementsAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Job location' }),
     (0, class_validator_1.IsOptional)(),

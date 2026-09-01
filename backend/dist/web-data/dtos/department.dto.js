@@ -15,7 +15,9 @@ const class_transformer_1 = require("class-transformer");
 const swagger_1 = require("@nestjs/swagger");
 class CreateDepartmentDto {
     name;
+    nameAm;
     description;
+    descriptionAm;
     image;
     headOfDepartment;
     email;
@@ -29,11 +31,23 @@ __decorate([
     __metadata("design:type", String)
 ], CreateDepartmentDto.prototype, "name", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({ example: 'ማርኬቲንግ', description: 'Amharic department name' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateDepartmentDto.prototype, "nameAm", void 0);
+__decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Department description' }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateDepartmentDto.prototype, "description", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Amharic department description' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateDepartmentDto.prototype, "descriptionAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Department image path' }),
     (0, class_validator_1.IsOptional)(),
@@ -76,7 +90,9 @@ __decorate([
 ], CreateDepartmentDto.prototype, "order", void 0);
 class UpdateDepartmentDto {
     name;
+    nameAm;
     description;
+    descriptionAm;
     image;
     headOfDepartment;
     email;
@@ -92,11 +108,23 @@ __decorate([
     __metadata("design:type", String)
 ], UpdateDepartmentDto.prototype, "name", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Amharic department name' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateDepartmentDto.prototype, "nameAm", void 0);
+__decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Department description' }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateDepartmentDto.prototype, "description", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Amharic department description' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateDepartmentDto.prototype, "descriptionAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Department image path' }),
     (0, class_validator_1.IsOptional)(),

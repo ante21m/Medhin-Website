@@ -14,11 +14,20 @@ export class Vacancy {
   @Column()
   title: string;
 
+  @Column({ nullable: true })
+  titleAm: string;
+
   @Column('text')
   description: string;
 
   @Column('text', { nullable: true })
+  descriptionAm: string;
+
+  @Column('text', { nullable: true })
   requirements: string;
+
+  @Column('text', { nullable: true })
+  requirementsAm: string;
 
   @Column({ nullable: true })
   location: string;

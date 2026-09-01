@@ -24,6 +24,7 @@ class CreatePhysicianDto {
     available;
     availabilityText;
     bio;
+    bioAm;
     experience;
     languages;
     education;
@@ -96,6 +97,12 @@ __decorate([
     __metadata("design:type", String)
 ], CreatePhysicianDto.prototype, "bio", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({ example: 'ልምድ ያለው የልብ ሐኪም...', description: 'Amharic bio' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreatePhysicianDto.prototype, "bioAm", void 0);
+__decorate([
     (0, swagger_1.ApiPropertyOptional)({ example: '15+ years', description: 'Experience summary' }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
@@ -155,6 +162,7 @@ class UpdatePhysicianDto {
     available;
     availabilityText;
     bio;
+    bioAm;
     experience;
     languages;
     education;
@@ -229,6 +237,12 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdatePhysicianDto.prototype, "bio", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Amharic bio' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdatePhysicianDto.prototype, "bioAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Experience summary' }),
     (0, class_validator_1.IsOptional)(),

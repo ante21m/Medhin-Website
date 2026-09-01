@@ -9,10 +9,16 @@ export class Service {
   name: string;
 
   @Column({ nullable: true })
+  nameAm: string;
+
+  @Column({ nullable: true })
   icon: string;
 
   @Column('text', { nullable: true })
   description: string;
+
+  @Column('text', { nullable: true })
+  descriptionAm: string;
 
   @Column({ nullable: true })
   image: string;

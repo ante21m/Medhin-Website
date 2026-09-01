@@ -3,9 +3,15 @@ import { Transform } from 'class-transformer';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class CreateGalleryDto {
-  @ApiProperty({ example: 'Office Opening', description: 'Gallery item title' })
+  @ApiPropertyOptional({ example: 'Office Opening', description: 'Gallery item title' })
+  @IsOptional()
   @IsString()
-  title: string;
+  title?: string;
+
+  @ApiPropertyOptional({ example: 'የቢሮ ምርቃት', description: 'Amharic gallery item title' })
+  @IsOptional()
+  @IsString()
+  titleAm?: string;
 
   @ApiProperty({
     example: 'uploads/gallery/photo.jpg',
@@ -18,6 +24,11 @@ export class CreateGalleryDto {
   @IsOptional()
   @IsString()
   description?: string;
+
+  @ApiPropertyOptional({ description: 'Amharic image description' })
+  @IsOptional()
+  @IsString()
+  descriptionAm?: string;
 
   @ApiPropertyOptional({ description: 'Display order' })
   @IsOptional()
@@ -32,6 +43,11 @@ export class UpdateGalleryDto {
   @IsString()
   title?: string;
 
+  @ApiPropertyOptional({ description: 'Amharic gallery item title' })
+  @IsOptional()
+  @IsString()
+  titleAm?: string;
+
   @ApiPropertyOptional({ description: 'Image path' })
   @IsOptional()
   @IsString()
@@ -41,6 +57,11 @@ export class UpdateGalleryDto {
   @IsOptional()
   @IsString()
   description?: string;
+
+  @ApiPropertyOptional({ description: 'Amharic image description' })
+  @IsOptional()
+  @IsString()
+  descriptionAm?: string;
 
   @ApiPropertyOptional({ description: 'Display order' })
   @IsOptional()

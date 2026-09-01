@@ -7,6 +7,10 @@ export class CreateServiceDto {
   @IsString()
   name: string;
 
+  @ApiPropertyOptional({ example: 'የድንገተኛ እንክብካቤ', description: 'Amharic service name' })
+  @IsOptional() @IsString()
+  nameAm?: string;
+
   @ApiPropertyOptional({ example: 'ambulance', description: 'Icon identifier' })
   @IsOptional() @IsString()
   icon?: string;
@@ -14,6 +18,10 @@ export class CreateServiceDto {
   @ApiPropertyOptional({ example: '24/7 emergency medical services...', description: 'Service description' })
   @IsOptional() @IsString()
   description?: string;
+
+  @ApiPropertyOptional({ example: 'የ24/7 የድንገተኛ ሕክምና አገልግሎት...', description: 'Amharic service description' })
+  @IsOptional() @IsString()
+  descriptionAm?: string;
 
   @ApiPropertyOptional({ example: 'uploads/services/emergency.jpg', description: 'Image path' })
   @IsOptional() @IsString()
@@ -30,6 +38,10 @@ export class UpdateServiceDto {
   @IsOptional() @IsString()
   name?: string;
 
+  @ApiPropertyOptional({ description: 'Amharic service name' })
+  @IsOptional() @IsString()
+  nameAm?: string;
+
   @ApiPropertyOptional({ description: 'Icon identifier' })
   @IsOptional() @IsString()
   icon?: string;
@@ -37,6 +49,10 @@ export class UpdateServiceDto {
   @ApiPropertyOptional({ description: 'Service description' })
   @IsOptional() @IsString()
   description?: string;
+
+  @ApiPropertyOptional({ description: 'Amharic service description' })
+  @IsOptional() @IsString()
+  descriptionAm?: string;
 
   @ApiPropertyOptional({ description: 'Image path' })
   @IsOptional() @IsString()

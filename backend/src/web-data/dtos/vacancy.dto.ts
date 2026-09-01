@@ -7,12 +7,22 @@ export class CreateVacancyDto {
   @IsString()
   title: string;
 
+  @ApiPropertyOptional({ example: 'ሶፍትዌር መሀንዲስ', description: 'Amharic job title' })
+  @IsOptional()
+  @IsString()
+  titleAm?: string;
+
   @ApiProperty({
     example: 'We are looking for...',
     description: 'Job description',
   })
   @IsString()
   description: string;
+
+  @ApiPropertyOptional({ example: 'እየፈለግን ነው...', description: 'Amharic job description' })
+  @IsOptional()
+  @IsString()
+  descriptionAm?: string;
 
   @ApiPropertyOptional({
     example: '- 3+ years experience\n- TypeScript',
@@ -21,6 +31,11 @@ export class CreateVacancyDto {
   @IsOptional()
   @IsString()
   requirements?: string;
+
+  @ApiPropertyOptional({ example: '- የ3+ ዓመት ልምድ\n- ታይፕስክሪፕት', description: 'Amharic job requirements' })
+  @IsOptional()
+  @IsString()
+  requirementsAm?: string;
 
   @ApiPropertyOptional({ example: 'New York, NY', description: 'Job location' })
   @IsOptional()
@@ -41,15 +56,30 @@ export class UpdateVacancyDto {
   @IsString()
   title?: string;
 
+  @ApiPropertyOptional({ description: 'Amharic job title' })
+  @IsOptional()
+  @IsString()
+  titleAm?: string;
+
   @ApiPropertyOptional({ description: 'Job description' })
   @IsOptional()
   @IsString()
   description?: string;
 
+  @ApiPropertyOptional({ description: 'Amharic job description' })
+  @IsOptional()
+  @IsString()
+  descriptionAm?: string;
+
   @ApiPropertyOptional({ description: 'Job requirements' })
   @IsOptional()
   @IsString()
   requirements?: string;
+
+  @ApiPropertyOptional({ description: 'Amharic job requirements' })
+  @IsOptional()
+  @IsString()
+  requirementsAm?: string;
 
   @ApiPropertyOptional({ description: 'Job location' })
   @IsOptional()
