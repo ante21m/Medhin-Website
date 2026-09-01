@@ -143,12 +143,6 @@
       "namedRegex": "^/admin/physicians(?:/)?$"
     },
     {
-      "page": "/admin/reports",
-      "regex": "^/admin/reports(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/admin/reports(?:/)?$"
-    },
-    {
       "page": "/admin/services",
       "regex": "^/admin/services(?:/)?$",
       "routeKeys": {},

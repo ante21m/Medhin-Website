@@ -16,12 +16,12 @@ export default function WhyChooseUs() {
     { key: "i9" },
   ];
   return (
-    <section style={{ padding: "80px 0", background: "#f5f4ef" }}>
+    <section style={{ padding: "80px 0", background: "var(--bg-tint)" }}>
       <div style={{ maxWidth: 1300, margin: "0 auto", padding: "0 24px" }}>
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <h2 className="m-h2">{t("whyChooseUs.title")}</h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+        <div className="hgrid grid-3">
           {items.map((item, i) => {
             const num = String(i + 1).padStart(2, "0");
             return (

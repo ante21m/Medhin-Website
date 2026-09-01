@@ -11,6 +11,7 @@ export interface Physician {
   available?: boolean;
   availabilityText?: string;
   bio?: string;
+  bio_am?: string;
   experience?: string;
   languages?: string[];
   education?: string[];

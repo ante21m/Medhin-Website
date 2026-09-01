@@ -3,8 +3,11 @@ import { baseApi } from './baseApi';
 export interface Vacancy {
   id: number;
   title: string;
+  titleAm?: string;
   description: string;
+  descriptionAm?: string;
   requirements?: string;
+  requirementsAm?: string;
   location?: string;
   deadline?: string;
   isActive: boolean;
@@ -13,8 +16,11 @@ export interface Vacancy {
 
 export interface CreateVacancyRequest {
   title: string;
+  titleAm?: string;
   description: string;
+  descriptionAm?: string;
   requirements?: string;
+  requirementsAm?: string;
   location?: string;
   deadline?: string;
 }

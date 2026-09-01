@@ -9,7 +9,7 @@ import {
 import type { Department } from '@/app/store/api/departmentApi';
 import {
   Container, Title, Text, Button, Group, Badge, Loader, Center, Alert, ActionIcon, Table,
-  Stack, TextInput, Textarea, Paper, Collapse,
+  Stack, TextInput, Textarea, Paper, Collapse, SimpleGrid,
 } from '@mantine/core';
 import { Plus, Trash2, Edit, AlertCircle, X, Check, Database } from 'lucide-react';
 
@@ -32,7 +32,9 @@ export default function AdminDepartmentsPage() {
   const [editId, setEditId] = useState<number | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState('');
+  const [nameAm, setNameAm] = useState('');
   const [description, setDescription] = useState('');
+  const [descriptionAm, setDescriptionAm] = useState('');
   const [head, setHead] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -41,18 +43,18 @@ export default function AdminDepartmentsPage() {
   const isEditing = editId !== null;
 
   const resetForm = () => {
-    setEditId(null); setShowForm(false); setName(''); setDescription(''); setHead(''); setEmail(''); setPhone(''); setFormError(null);
+    setEditId(null); setShowForm(false); setName(''); setNameAm(''); setDescription(''); setDescriptionAm(''); setHead(''); setEmail(''); setPhone(''); setFormError(null);
   };
 
   const startEdit = (item: Department) => {
-    setEditId(item.id); setName(item.name); setDescription(item.description || ''); setHead(item.headOfDepartment || ''); setEmail(item.email || ''); setPhone(item.phone || ''); setFormError(null); setShowForm(true);
+    setEditId(item.id); setName(item.name); setNameAm(item.nameAm || ''); setDescription(item.description || ''); setDescriptionAm(item.descriptionAm || ''); setHead(item.headOfDepartment || ''); setEmail(item.email || ''); setPhone(item.phone || ''); setFormError(null); setShowForm(true);
   };
 
   const handleSubmit = async () => {
     setFormError(null);
     if (!name.trim()) { setFormError('Name is required'); return; }
     try {
-      const payload = { name: name.trim(), description: description.trim() || undefined, headOfDepartment: head.trim() || undefined, email: email.trim() || undefined, phone: phone.trim() || undefined };
+      const payload = { name: name.trim(), nameAm: nameAm.trim() || undefined, description: description.trim() || undefined, descriptionAm: descriptionAm.trim() || undefined, headOfDepartment: head.trim() || undefined, email: email.trim() || undefined, phone: phone.trim() || undefined };
       if (isEditing) {
         await updateItem({ id: editId, data: payload as any }).unwrap();
       } else {
@@ -116,14 +118,33 @@ export default function AdminDepartmentsPage() {
           </Group>
           <Stack gap="sm">
             <Group grow>
-              <TextInput label="Name" value={name} onChange={(e) => setName(e.target.value)} required placeholder="Department name" />
               <TextInput label="Head of Department" value={head} onChange={(e) => setHead(e.target.value)} placeholder="e.g. Dr. John Doe" />
+              <TextInput label="Email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="dept@company.com" />
             </Group>
             <Group grow>
-              <TextInput label="Email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="dept@company.com" />
               <TextInput label="Phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+1 234 567 890" />
             </Group>
-            <Textarea label="Description" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" rows={3} />
+
+            <SimpleGrid cols={{ base: 1, md: 2 }} spacing="lg">
+              {/* English */}
+              <Paper withBorder radius="md" p="sm" style={{ background: '#fbfbfd' }}>
+                <Text size="xs" fw={700} mb="xs" tt="uppercase" c="gray.6" style={{ letterSpacing: '0.06em' }}>English</Text>
+                <Stack gap="sm">
+                  <TextInput label="Name" value={name} onChange={(e) => setName(e.target.value)} required placeholder="Department name" />
+                  <Textarea label="Description" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" rows={5} />
+                </Stack>
+              </Paper>
+
+              {/* Amharic */}
+              <Paper withBorder radius="md" p="sm" style={{ background: '#fbfbfd' }}>
+                <Text size="xs" fw={700} mb="xs" tt="uppercase" c="gray.6" style={{ letterSpacing: '0.06em' }}>አማርኛ (Amharic)</Text>
+                <Stack gap="sm">
+                  <TextInput label="ስም (Name)" value={nameAm} onChange={(e) => setNameAm(e.target.value)} placeholder="የመምሪያ ስም" />
+                  <Textarea label="መግለጫ (Description)" value={descriptionAm} onChange={(e) => setDescriptionAm(e.target.value)} placeholder="መግለጫ" rows={5} />
+                </Stack>
+              </Paper>
+            </SimpleGrid>
+
             {formError && <Alert icon={<AlertCircle size={14} />} color="red" variant="light" p="xs">{formError}</Alert>}
             <Group justify="flex-end">
               <Button leftSection={isEditing ? <Check size={14} /> : <Plus size={14} />} onClick={handleSubmit} loading={isCreating || isUpdating}>
@@ -154,7 +175,7 @@ export default function AdminDepartmentsPage() {
               {items.map((item) => (
                 <Table.Tr key={item.id}>
                   <Table.Td>{item.id}</Table.Td>
-                  <Table.Td><Text lineClamp={1} maw={180}>{item.name}</Text></Table.Td>
+                  <Table.Td><Text lineClamp={1} maw={180}>{item.name}{item.nameAm ? ` · ${item.nameAm}` : ''}</Text></Table.Td>
                   <Table.Td>{item.headOfDepartment || '—'}</Table.Td>
                   <Table.Td>{item.email || '—'}</Table.Td>
                   <Table.Td><Badge color={item.isActive ? 'green' : 'gray'} size="sm">{item.isActive ? 'Active' : 'Inactive'}</Badge></Table.Td>

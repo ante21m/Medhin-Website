@@ -8,9 +8,18 @@ import {
 import type { NewsItem } from '@/app/store/api/newsApi';
 import {
   Container, Title, Text, Button, Group, Badge, Loader, Center, Alert, ActionIcon, Table,
-  Stack, TextInput, Textarea, Paper, Collapse,
+  Stack, TextInput, Textarea, Paper, Collapse, Image, Divider, SimpleGrid,
 } from '@mantine/core';
-import { Plus, Trash2, Edit, AlertCircle, X, Check } from 'lucide-react';
+import { Plus, Trash2, Edit, AlertCircle, X, Check, Paperclip } from 'lucide-react';
+import { FileUpload } from '@/app/components/admin/FileUpload';
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003';
+
+function resolveAsset(path?: string) {
+  if (!path) return '';
+  if (path.startsWith('http') || path.startsWith('/images/')) return path;
+  return `${API_URL}/${path}`;
+}
 
 export default function AdminNewsPage() {
   const router = useRouter();
@@ -30,27 +39,41 @@ export default function AdminNewsPage() {
   const [editId, setEditId] = useState<number | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [title, setTitle] = useState('');
+  const [titleAm, setTitleAm] = useState('');
   const [content, setContent] = useState('');
+  const [contentAm, setContentAm] = useState('');
   const [summary, setSummary] = useState('');
+  const [summaryAm, setSummaryAm] = useState('');
   const [author, setAuthor] = useState('');
+  const [image, setImage] = useState<string | undefined>();
+  const [attachment, setAttachment] = useState<string | undefined>();
   const [formError, setFormError] = useState<string | null>(null);
 
   const isEditing = editId !== null;
 
   const resetForm = () => {
-    setEditId(null); setShowForm(false); setTitle(''); setContent(''); setSummary(''); setAuthor(''); setFormError(null);
+    setEditId(null); setShowForm(false); setTitle(''); setTitleAm(''); setContent(''); setContentAm('');
+    setSummary(''); setSummaryAm(''); setAuthor(''); setImage(undefined); setAttachment(undefined); setFormError(null);
   };
 
   const startEdit = (item: NewsItem) => {
-    setEditId(item.id); setTitle(item.title); setContent(item.content || ''); setSummary(item.summary || ''); setAuthor(item.author || ''); setFormError(null); setShowForm(true);
+    setEditId(item.id);
+    setTitle(item.title || ''); setTitleAm(item.titleAm || '');
+    setContent(item.content || ''); setContentAm(item.contentAm || '');
+    setSummary(item.summary || ''); setSummaryAm(item.summaryAm || '');
+    setAuthor(item.author || ''); setImage(item.image || undefined); setAttachment(item.attachment || undefined);
+    setFormError(null); setShowForm(true);
   };
 
   const handleSubmit = async () => {
     setFormError(null);
-    if (!title.trim()) { setFormError('Title is required'); return; }
-    if (!content.trim()) { setFormError('Content is required'); return; }
     try {
-      const payload = { title: title.trim(), content: content.trim(), summary: summary.trim() || undefined, author: author.trim() || undefined };
+      const payload = {
+        title: title.trim() || undefined, titleAm: titleAm.trim() || undefined,
+        content: content.trim() || undefined, contentAm: contentAm.trim() || undefined,
+        summary: summary.trim() || undefined, summaryAm: summaryAm.trim() || undefined,
+        author: author.trim() || undefined, image: image || undefined, attachment: attachment || undefined,
+      };
       if (isEditing) {
         await updateNews({ id: editId, data: payload as any }).unwrap();
       } else {
@@ -102,11 +125,41 @@ export default function AdminNewsPage() {
           </Group>
           <Stack gap="sm">
             <Group grow>
-              <TextInput label="Title" value={title} onChange={(e) => setTitle(e.target.value)} required placeholder="Article title" />
               <TextInput label="Author" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Author name (optional)" />
             </Group>
-            <TextInput label="Summary" value={summary} onChange={(e) => setSummary(e.target.value)} placeholder="Brief summary (optional)" />
-            <Textarea label="Content" value={content} onChange={(e) => setContent(e.target.value)} required placeholder="Full article content..." rows={5} />
+
+            <SimpleGrid cols={{ base: 1, md: 2 }} spacing="lg">
+              {/* English */}
+              <Paper withBorder radius="md" p="sm" style={{ background: '#fbfbfd' }}>
+                <Text size="xs" fw={700} mb="xs" tt="uppercase" c="gray.6" style={{ letterSpacing: '0.06em' }}>English</Text>
+                <Stack gap="sm">
+                  <TextInput label="Title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Article title (optional)" />
+                  <TextInput label="Summary" value={summary} onChange={(e) => setSummary(e.target.value)} placeholder="Brief summary (optional)" />
+                  <Textarea label="Content" value={content} onChange={(e) => setContent(e.target.value)} placeholder="Full article content... (optional)" rows={6} />
+                </Stack>
+              </Paper>
+
+              {/* Amharic */}
+              <Paper withBorder radius="md" p="sm" style={{ background: '#fbfbfd' }}>
+                <Text size="xs" fw={700} mb="xs" tt="uppercase" c="gray.6" style={{ letterSpacing: '0.06em' }}>አማርኛ (Amharic)</Text>
+                <Stack gap="sm">
+                  <TextInput label="አርዕስት (Title)" value={titleAm} onChange={(e) => setTitleAm(e.target.value)} placeholder="የአርዕስት መስክ (አማራጭ)" />
+                  <TextInput label="ማጠቃለያ (Summary)" value={summaryAm} onChange={(e) => setSummaryAm(e.target.value)} placeholder="አጭር ማጠቃለያ (አማራጭ)" />
+                  <Textarea label="ይዘት (Content)" value={contentAm} onChange={(e) => setContentAm(e.target.value)} placeholder="ሙሉ ዜና ይዘት... (አማራጭ)" rows={6} />
+                </Stack>
+              </Paper>
+            </SimpleGrid>
+
+            <Divider label="Media" labelPosition="left" />
+            <div>
+              <Text size="xs" fw={600} mb={6}>Cover Image</Text>
+              <FileUpload value={image} onChange={setImage} accept="image/*" label="Upload Image" />
+            </div>
+            <div>
+              <Text size="xs" fw={600} mb={6}>Attachment</Text>
+              <FileUpload value={attachment} onChange={setAttachment} accept=".pdf,.doc,.docx,.xls,.xlsx,.zip" label="Upload Attachment" />
+            </div>
+
             {formError && <Alert icon={<AlertCircle size={14} />} color="red" variant="light" p="xs">{formError}</Alert>}
             <Group justify="flex-end">
               <Button leftSection={isEditing ? <Check size={14} /> : <Plus size={14} />} onClick={handleSubmit} loading={isCreating || isUpdating}>
@@ -126,7 +179,9 @@ export default function AdminNewsPage() {
             <Table.Thead>
               <Table.Tr>
                 <Table.Th>ID</Table.Th>
+                <Table.Th>Image</Table.Th>
                 <Table.Th>Title</Table.Th>
+                <Table.Th>Attach.</Table.Th>
                 <Table.Th>Author</Table.Th>
                 <Table.Th>Status</Table.Th>
                 <Table.Th>Created</Table.Th>
@@ -137,7 +192,17 @@ export default function AdminNewsPage() {
               {items.map((item) => (
                 <Table.Tr key={item.id}>
                   <Table.Td>{item.id}</Table.Td>
-                  <Table.Td><Text lineClamp={1} maw={220}>{item.title}</Text></Table.Td>
+                  <Table.Td>
+                    {item.image
+                      ? <Image src={resolveAsset(item.image)} alt="" width={44} height={30} radius="sm" fit="cover" />
+                      : <Text c="gray.4">—</Text>}
+                  </Table.Td>
+                  <Table.Td><Text lineClamp={1} maw={200}>{item.title}{item.titleAm ? ` · ${item.titleAm}` : ''}</Text></Table.Td>
+                  <Table.Td>
+                    {item.attachment
+                      ? <Group gap={4}><Paperclip size={13} color="var(--primary)" /><Text size="sm" truncate maw={120} component="a" href={resolveAsset(item.attachment)} target="_blank">{item.attachment.split('/').pop()}</Text></Group>
+                      : '—'}
+                  </Table.Td>
                   <Table.Td>{item.author || '—'}</Table.Td>
                   <Table.Td><Badge color={item.isActive ? 'green' : 'gray'} size="sm">{item.isActive ? 'Active' : 'Inactive'}</Badge></Table.Td>
                   <Table.Td>{new Date(item.createdAt).toLocaleDateString()}</Table.Td>

@@ -6,18 +6,16 @@ import {
   AppShell, NavLink, Group, Title, Button, Box, Text, Stack,
 } from '@mantine/core';
 import {
-  LayoutDashboard, Newspaper, Briefcase, Building2, Image as ImageIcon, FileText, Share2, Stethoscope, ConciergeBell, LogOut, ExternalLink,
+  Newspaper, Briefcase, Building2, Image as ImageIcon, Share2, Stethoscope, ConciergeBell, LogOut, ExternalLink,
 } from 'lucide-react';
 
 const navItems = [
-  { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
   { label: 'News', href: '/admin/news', icon: Newspaper },
   { label: 'Vacancies', href: '/admin/vacancies', icon: Briefcase },
   { label: 'Departments', href: '/admin/departments', icon: Building2 },
   { label: 'Physicians', href: '/admin/physicians', icon: Stethoscope },
   { label: 'Services', href: '/admin/services', icon: ConciergeBell },
   { label: 'Gallery', href: '/admin/gallery', icon: ImageIcon },
-  { label: 'Reports', href: '/admin/reports', icon: FileText },
   { label: 'Social Links', href: '/admin/social', icon: Share2 },
 ];
 

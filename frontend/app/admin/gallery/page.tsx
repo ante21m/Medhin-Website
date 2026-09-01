@@ -9,9 +9,17 @@ import {
 import type { GalleryItem } from '@/app/store/api/galleryApi';
 import {
   Container, Title, Text, Button, Group, Loader, Center, Alert, ActionIcon, Table,
-  Stack, TextInput, Textarea, Paper, Collapse,
+  Stack, TextInput, Textarea, Paper, Collapse, Image, SimpleGrid,
 } from '@mantine/core';
 import { Plus, Trash2, Edit, AlertCircle, X, Check, Database } from 'lucide-react';
+import { FileUpload } from '@/app/components/admin/FileUpload';
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3003';
+
+function resolveAsset(path: string) {
+  if (path.startsWith('http') || path.startsWith('/images/')) return path;
+  return `${API_URL}/${path}`;
+}
 
 export default function AdminGalleryPage() {
   const router = useRouter();
@@ -32,24 +40,27 @@ export default function AdminGalleryPage() {
   const [editId, setEditId] = useState<number | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [title, setTitle] = useState('');
+  const [titleAm, setTitleAm] = useState('');
   const [description, setDescription] = useState('');
+  const [descriptionAm, setDescriptionAm] = useState('');
+  const [image, setImage] = useState<string | undefined>();
   const [formError, setFormError] = useState<string | null>(null);
 
   const isEditing = editId !== null;
 
   const resetForm = () => {
-    setEditId(null); setShowForm(false); setTitle(''); setDescription(''); setFormError(null);
+    setEditId(null); setShowForm(false); setTitle(''); setTitleAm(''); setDescription(''); setDescriptionAm(''); setImage(undefined); setFormError(null);
   };
 
   const startEdit = (item: GalleryItem) => {
-    setEditId(item.id); setTitle(item.title); setDescription(item.description || ''); setFormError(null); setShowForm(true);
+    setEditId(item.id); setTitle(item.title); setTitleAm(item.titleAm || ''); setDescription(item.description || ''); setDescriptionAm(item.descriptionAm || ''); setImage(item.image || undefined); setFormError(null); setShowForm(true);
   };
 
   const handleSubmit = async () => {
     setFormError(null);
-    if (!title.trim()) { setFormError('Title is required'); return; }
+    if (!image) { setFormError('Image is required'); return; }
     try {
-      const payload = { title: title.trim(), description: description.trim() || undefined };
+      const payload = { title: title.trim() || undefined, titleAm: titleAm.trim() || undefined, description: description.trim() || undefined, descriptionAm: descriptionAm.trim() || undefined, image };
       if (isEditing) {
         await updateItem({ id: editId, data: payload as any }).unwrap();
       } else {
@@ -112,8 +123,32 @@ export default function AdminGalleryPage() {
             <Button variant="subtle" color="gray" size="xs" leftSection={<X size={14} />} onClick={resetForm}>Cancel</Button>
           </Group>
           <Stack gap="sm">
-            <TextInput label="Title" value={title} onChange={(e) => setTitle(e.target.value)} required placeholder="Image title" />
-            <Textarea label="Description" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description (optional)" rows={3} />
+            <SimpleGrid cols={{ base: 1, md: 2 }} spacing="lg">
+              {/* English */}
+              <Paper withBorder radius="md" p="sm" style={{ background: '#fbfbfd' }}>
+                <Text size="xs" fw={700} mb="xs" tt="uppercase" c="gray.6" style={{ letterSpacing: '0.06em' }}>English</Text>
+                <Stack gap="sm">
+                  <TextInput label="Title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Image title (optional)" />
+                  <Textarea label="Description" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description (optional)" rows={5} />
+                </Stack>
+              </Paper>
+
+              {/* Amharic */}
+              <Paper withBorder radius="md" p="sm" style={{ background: '#fbfbfd' }}>
+                <Text size="xs" fw={700} mb="xs" tt="uppercase" c="gray.6" style={{ letterSpacing: '0.06em' }}>አማርኛ (Amharic)</Text>
+                <Stack gap="sm">
+                  <TextInput label="ርዕስ (Title)" value={titleAm} onChange={(e) => setTitleAm(e.target.value)} placeholder="የምስል ርዕስ (አማራጭ)" />
+                  <Textarea label="መግለጫ (Description)" value={descriptionAm} onChange={(e) => setDescriptionAm(e.target.value)} placeholder="መግለጫ (አማራጭ)" rows={5} />
+                </Stack>
+              </Paper>
+            </SimpleGrid>
+
+            {/* Image upload */}
+            <div>
+              <Text size="xs" fw={600} mb={6}>Image</Text>
+              <FileUpload value={image} onChange={setImage} accept="image/*" label="Upload Image" />
+            </div>
+
             {formError && <Alert icon={<AlertCircle size={14} />} color="red" variant="light" p="xs">{formError}</Alert>}
             <Group justify="flex-end">
               <Button leftSection={isEditing ? <Check size={14} /> : <Plus size={14} />} onClick={handleSubmit} loading={isCreating || isUpdating}>
@@ -133,8 +168,8 @@ export default function AdminGalleryPage() {
             <Table.Thead>
               <Table.Tr>
                 <Table.Th>ID</Table.Th>
+                <Table.Th>Image</Table.Th>
                 <Table.Th>Title</Table.Th>
-                <Table.Th>Image URL</Table.Th>
                 <Table.Th>Created</Table.Th>
                 <Table.Th>Actions</Table.Th>
               </Table.Tr>
@@ -143,10 +178,12 @@ export default function AdminGalleryPage() {
               {items.map((item) => (
                 <Table.Tr key={item.id}>
                   <Table.Td>{item.id}</Table.Td>
-                  <Table.Td><Text lineClamp={1} maw={200}>{item.title}</Text></Table.Td>
                   <Table.Td>
-                    {item.image ? <Text size="sm" c="blue" truncate maw={200} component="a" href={item.image} target="_blank">{item.image}</Text> : '—'}
+                    {item.image
+                      ? <Image src={resolveAsset(item.image)} alt={item.title} width={60} height={44} radius="sm" fit="cover" />
+                      : '—'}
                   </Table.Td>
+                  <Table.Td><Text lineClamp={1} maw={200}>{item.title}{item.titleAm ? ` · ${item.titleAm}` : ''}</Text></Table.Td>
                   <Table.Td>{new Date(item.createdAt).toLocaleDateString()}</Table.Td>
                   <Table.Td>
                     <Group gap={4}>

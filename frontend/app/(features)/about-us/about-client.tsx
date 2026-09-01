@@ -408,7 +408,7 @@ export default function AboutClient() {
             >
               ✕
             </button>
-            <div style={{ display: "grid", gridTemplateColumns: "280px 1fr", gap: 28, alignItems: "start" }}>
+            <div className="hgrid modalgrid">
               <div style={{ position: "relative", width: "100%", aspectRatio: "3/4", borderRadius: 2, overflow: "hidden", background: "var(--line-soft)" }}>
                 <Image src={(activeLeader.image || "/leadership/placeholder.jpg") + imgVer} alt={lname(activeLeader)} fill sizes="280px" style={{ objectFit: "cover" }} />
               </div>

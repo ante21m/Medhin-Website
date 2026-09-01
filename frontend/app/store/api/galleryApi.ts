@@ -3,16 +3,20 @@ import { baseApi } from './baseApi';
 export interface GalleryItem {
   id: number;
   title: string;
+  titleAm?: string;
   image: string;
   description?: string;
+  descriptionAm?: string;
   order: number;
   createdAt: string;
 }
 
 export interface CreateGalleryRequest {
   title: string;
+  titleAm?: string;
   image: string;
   description?: string;
+  descriptionAm?: string;
   order?: number;
 }
 

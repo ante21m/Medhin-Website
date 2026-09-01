@@ -123,7 +123,7 @@ export default function PhysicianProfile() {
                     </Text>
                   </Group>
                   <Text size="sm" c="gray.7" lh={1.7} style={{ fontStyle: "italic" }}>
-                    {physician.bio}
+                    {locale === "am" && physician.bio_am ? physician.bio_am : physician.bio}
                   </Text>
                 </Paper>
 
