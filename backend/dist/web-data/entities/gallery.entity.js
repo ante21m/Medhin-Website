@@ -14,8 +14,10 @@ const typeorm_1 = require("typeorm");
 let Gallery = class Gallery {
     id;
     title;
+    titleAm;
     image;
     description;
+    descriptionAm;
     order;
     createdAt;
 };
@@ -29,6 +31,10 @@ __decorate([
     __metadata("design:type", String)
 ], Gallery.prototype, "title", void 0);
 __decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Gallery.prototype, "titleAm", void 0);
+__decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Gallery.prototype, "image", void 0);
@@ -36,6 +42,10 @@ __decorate([
     (0, typeorm_1.Column)('text', { nullable: true }),
     __metadata("design:type", String)
 ], Gallery.prototype, "description", void 0);
+__decorate([
+    (0, typeorm_1.Column)('text', { nullable: true }),
+    __metadata("design:type", String)
+], Gallery.prototype, "descriptionAm", void 0);
 __decorate([
     (0, typeorm_1.Column)({ default: 0 }),
     __metadata("design:type", Number)

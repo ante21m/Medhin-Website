@@ -14,7 +14,9 @@ const typeorm_1 = require("typeorm");
 let Department = class Department {
     id;
     name;
+    nameAm;
     description;
+    descriptionAm;
     image;
     headOfDepartment;
     email;
@@ -34,9 +36,17 @@ __decorate([
     __metadata("design:type", String)
 ], Department.prototype, "name", void 0);
 __decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Department.prototype, "nameAm", void 0);
+__decorate([
     (0, typeorm_1.Column)('text', { nullable: true }),
     __metadata("design:type", String)
 ], Department.prototype, "description", void 0);
+__decorate([
+    (0, typeorm_1.Column)('text', { nullable: true }),
+    __metadata("design:type", String)
+], Department.prototype, "descriptionAm", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)

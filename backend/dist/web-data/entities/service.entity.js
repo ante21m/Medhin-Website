@@ -14,8 +14,10 @@ const typeorm_1 = require("typeorm");
 let Service = class Service {
     id;
     name;
+    nameAm;
     icon;
     description;
+    descriptionAm;
     image;
     order;
     isActive;
@@ -34,11 +36,19 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
+], Service.prototype, "nameAm", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
 ], Service.prototype, "icon", void 0);
 __decorate([
     (0, typeorm_1.Column)('text', { nullable: true }),
     __metadata("design:type", String)
 ], Service.prototype, "description", void 0);
+__decorate([
+    (0, typeorm_1.Column)('text', { nullable: true }),
+    __metadata("design:type", String)
+], Service.prototype, "descriptionAm", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)

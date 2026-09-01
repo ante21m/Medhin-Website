@@ -30,7 +30,7 @@ exports.AppModule = AppModule = __decorate([
                 port: Number(process.env.DB_PORT) || 5432,
                 username: process.env.DB_USERNAME || 'postgres',
                 password: process.env.DB_PASSWORD || 'postgres',
-                database: process.env.DB_DATABASE || 'web_business',
+                database: process.env.DB_DATABASE || 'medhin',
                 autoLoadEntities: true,
                 synchronize: false,
                 logging: process.env.DB_LOGGING === 'true' ? ['error', 'warn', 'query'] : ['error', 'warn'],

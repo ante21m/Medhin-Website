@@ -13,11 +13,17 @@ export class Gallery {
   @Column()
   title: string;
 
+  @Column({ nullable: true })
+  titleAm: string;
+
   @Column()
   image: string;
 
   @Column('text', { nullable: true })
   description: string;
+
+  @Column('text', { nullable: true })
+  descriptionAm: string;
 
   @Column({ default: 0 })
   order: number;

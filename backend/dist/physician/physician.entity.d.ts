@@ -10,6 +10,7 @@ export declare class Physician {
     available: boolean;
     availabilityText: string;
     bio: string;
+    bioAm: string;
     experience: string;
     languages: string[];
     education: string[];

@@ -46,6 +46,10 @@ export class CreatePhysicianDto {
   @IsOptional() @IsString()
   bio?: string;
 
+  @ApiPropertyOptional({ example: 'ልምድ ያለው የልብ ሐኪም...', description: 'Amharic bio' })
+  @IsOptional() @IsString()
+  bioAm?: string;
+
   @ApiPropertyOptional({ example: '15+ years', description: 'Experience summary' })
   @IsOptional() @IsString()
   experience?: string;
@@ -123,6 +127,10 @@ export class UpdatePhysicianDto {
   @ApiPropertyOptional({ description: 'Bio' })
   @IsOptional() @IsString()
   bio?: string;
+
+  @ApiPropertyOptional({ description: 'Amharic bio' })
+  @IsOptional() @IsString()
+  bioAm?: string;
 
   @ApiPropertyOptional({ description: 'Experience summary' })
   @IsOptional() @IsString()

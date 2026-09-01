@@ -15,16 +15,25 @@ const class_transformer_1 = require("class-transformer");
 const swagger_1 = require("@nestjs/swagger");
 class CreateGalleryDto {
     title;
+    titleAm;
     image;
     description;
+    descriptionAm;
     order;
 }
 exports.CreateGalleryDto = CreateGalleryDto;
 __decorate([
-    (0, swagger_1.ApiProperty)({ example: 'Office Opening', description: 'Gallery item title' }),
+    (0, swagger_1.ApiPropertyOptional)({ example: 'Office Opening', description: 'Gallery item title' }),
+    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateGalleryDto.prototype, "title", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ example: 'የቢሮ ምርቃት', description: 'Amharic gallery item title' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateGalleryDto.prototype, "titleAm", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
         example: 'uploads/gallery/photo.jpg',
@@ -40,6 +49,12 @@ __decorate([
     __metadata("design:type", String)
 ], CreateGalleryDto.prototype, "description", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Amharic image description' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateGalleryDto.prototype, "descriptionAm", void 0);
+__decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Display order' }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsNumber)(),
@@ -48,8 +63,10 @@ __decorate([
 ], CreateGalleryDto.prototype, "order", void 0);
 class UpdateGalleryDto {
     title;
+    titleAm;
     image;
     description;
+    descriptionAm;
     order;
 }
 exports.UpdateGalleryDto = UpdateGalleryDto;
@@ -59,6 +76,12 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateGalleryDto.prototype, "title", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Amharic gallery item title' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateGalleryDto.prototype, "titleAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Image path' }),
     (0, class_validator_1.IsOptional)(),
@@ -71,6 +94,12 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateGalleryDto.prototype, "description", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Amharic image description' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateGalleryDto.prototype, "descriptionAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Display order' }),
     (0, class_validator_1.IsOptional)(),

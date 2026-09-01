@@ -14,9 +14,13 @@ const typeorm_1 = require("typeorm");
 let News = class News {
     id;
     title;
+    titleAm;
     content;
+    contentAm;
     summary;
+    summaryAm;
     image;
+    attachment;
     author;
     isActive;
     createdAt;
@@ -32,9 +36,17 @@ __decorate([
     __metadata("design:type", String)
 ], News.prototype, "title", void 0);
 __decorate([
-    (0, typeorm_1.Column)('text'),
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], News.prototype, "titleAm", void 0);
+__decorate([
+    (0, typeorm_1.Column)('text', { nullable: true }),
     __metadata("design:type", String)
 ], News.prototype, "content", void 0);
+__decorate([
+    (0, typeorm_1.Column)('text', { nullable: true }),
+    __metadata("design:type", String)
+], News.prototype, "contentAm", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
@@ -42,7 +54,15 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
+], News.prototype, "summaryAm", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
 ], News.prototype, "image", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], News.prototype, "attachment", void 0);
 __decorate([
     (0, typeorm_1.Column)({ default: 'admin' }),
     __metadata("design:type", String)

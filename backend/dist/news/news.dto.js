@@ -15,25 +15,46 @@ const class_transformer_1 = require("class-transformer");
 const swagger_1 = require("@nestjs/swagger");
 class CreateNewsDto {
     title;
+    titleAm;
     content;
+    contentAm;
     summary;
+    summaryAm;
     image;
+    attachment;
     author;
 }
 exports.CreateNewsDto = CreateNewsDto;
 __decorate([
-    (0, swagger_1.ApiProperty)({ example: 'Company Announcement', description: 'News title' }),
+    (0, swagger_1.ApiPropertyOptional)({ example: 'Company Announcement', description: 'News title' }),
+    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateNewsDto.prototype, "title", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({
+    (0, swagger_1.ApiPropertyOptional)({ example: 'የኩባንያ ማስታወቂያ', description: 'News title in Amharic' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateNewsDto.prototype, "titleAm", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({
         example: 'Full news content here...',
         description: 'News content body',
     }),
+    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateNewsDto.prototype, "content", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({
+        example: 'ሙሉ የዜና ይዘት እዚህ...',
+        description: 'News content body in Amharic',
+    }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateNewsDto.prototype, "contentAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
         example: 'Short summary of the news',
@@ -45,6 +66,15 @@ __decorate([
 ], CreateNewsDto.prototype, "summary", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
+        example: 'የዜናው አጭር ማጠቃለያ',
+        description: 'Brief summary in Amharic',
+    }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateNewsDto.prototype, "summaryAm", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({
         example: 'uploads/news/image.jpg',
         description: 'Image path',
     }),
@@ -53,6 +83,15 @@ __decorate([
     __metadata("design:type", String)
 ], CreateNewsDto.prototype, "image", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({
+        example: 'uploads/news/document.pdf',
+        description: 'Attachment path',
+    }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateNewsDto.prototype, "attachment", void 0);
+__decorate([
     (0, swagger_1.ApiPropertyOptional)({ example: 'Admin', description: 'Author name' }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
@@ -60,9 +99,13 @@ __decorate([
 ], CreateNewsDto.prototype, "author", void 0);
 class UpdateNewsDto {
     title;
+    titleAm;
     content;
+    contentAm;
     summary;
+    summaryAm;
     image;
+    attachment;
     author;
     isActive;
 }
@@ -74,11 +117,23 @@ __decorate([
     __metadata("design:type", String)
 ], UpdateNewsDto.prototype, "title", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'News title in Amharic' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateNewsDto.prototype, "titleAm", void 0);
+__decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'News content body' }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateNewsDto.prototype, "content", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'News content body in Amharic' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateNewsDto.prototype, "contentAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Brief summary' }),
     (0, class_validator_1.IsOptional)(),
@@ -86,11 +141,23 @@ __decorate([
     __metadata("design:type", String)
 ], UpdateNewsDto.prototype, "summary", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Brief summary in Amharic' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateNewsDto.prototype, "summaryAm", void 0);
+__decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Image path' }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateNewsDto.prototype, "image", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Attachment path' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateNewsDto.prototype, "attachment", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Author name' }),
     (0, class_validator_1.IsOptional)(),

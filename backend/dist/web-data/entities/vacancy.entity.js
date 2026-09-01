@@ -14,8 +14,11 @@ const typeorm_1 = require("typeorm");
 let Vacancy = class Vacancy {
     id;
     title;
+    titleAm;
     description;
+    descriptionAm;
     requirements;
+    requirementsAm;
     location;
     deadline;
     isActive;
@@ -32,13 +35,25 @@ __decorate([
     __metadata("design:type", String)
 ], Vacancy.prototype, "title", void 0);
 __decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Vacancy.prototype, "titleAm", void 0);
+__decorate([
     (0, typeorm_1.Column)('text'),
     __metadata("design:type", String)
 ], Vacancy.prototype, "description", void 0);
 __decorate([
     (0, typeorm_1.Column)('text', { nullable: true }),
     __metadata("design:type", String)
+], Vacancy.prototype, "descriptionAm", void 0);
+__decorate([
+    (0, typeorm_1.Column)('text', { nullable: true }),
+    __metadata("design:type", String)
 ], Vacancy.prototype, "requirements", void 0);
+__decorate([
+    (0, typeorm_1.Column)('text', { nullable: true }),
+    __metadata("design:type", String)
+], Vacancy.prototype, "requirementsAm", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)

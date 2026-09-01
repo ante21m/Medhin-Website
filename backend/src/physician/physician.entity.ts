@@ -35,6 +35,9 @@ export class Physician {
   @Column('text', { nullable: true })
   bio: string;
 
+  @Column('text', { nullable: true })
+  bioAm: string;
+
   @Column({ nullable: true })
   experience: string;
 

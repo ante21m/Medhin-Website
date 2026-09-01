@@ -15,8 +15,10 @@ const class_transformer_1 = require("class-transformer");
 const swagger_1 = require("@nestjs/swagger");
 class CreateServiceDto {
     name;
+    nameAm;
     icon;
     description;
+    descriptionAm;
     image;
     order;
 }
@@ -26,6 +28,12 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateServiceDto.prototype, "name", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ example: 'የድንገተኛ እንክብካቤ', description: 'Amharic service name' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateServiceDto.prototype, "nameAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ example: 'ambulance', description: 'Icon identifier' }),
     (0, class_validator_1.IsOptional)(),
@@ -38,6 +46,12 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateServiceDto.prototype, "description", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ example: 'የ24/7 የድንገተኛ ሕክምና አገልግሎት...', description: 'Amharic service description' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateServiceDto.prototype, "descriptionAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ example: 'uploads/services/emergency.jpg', description: 'Image path' }),
     (0, class_validator_1.IsOptional)(),
@@ -53,8 +67,10 @@ __decorate([
 ], CreateServiceDto.prototype, "order", void 0);
 class UpdateServiceDto {
     name;
+    nameAm;
     icon;
     description;
+    descriptionAm;
     image;
     order;
     isActive;
@@ -67,6 +83,12 @@ __decorate([
     __metadata("design:type", String)
 ], UpdateServiceDto.prototype, "name", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Amharic service name' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateServiceDto.prototype, "nameAm", void 0);
+__decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Icon identifier' }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
@@ -78,6 +100,12 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateServiceDto.prototype, "description", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ description: 'Amharic service description' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateServiceDto.prototype, "descriptionAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ description: 'Image path' }),
     (0, class_validator_1.IsOptional)(),
