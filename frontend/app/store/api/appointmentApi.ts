@@ -28,6 +28,15 @@ export interface CreateAppointmentDto {
   appointmentTime: string;
 }
 
+export interface UpdateAppointmentDto {
+  patientName?: string;
+  patientPhone?: string;
+  notes?: string;
+  appointmentDate?: string;
+  appointmentTime?: string;
+  status?: string;
+}
+
 export const appointmentApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     createAppointment: builder.mutation<Appointment, CreateAppointmentDto>({
@@ -42,7 +51,27 @@ export const appointmentApi = baseApi.injectEndpoints({
       query: () => '/appointments',
       providesTags: ['Appointment'],
     }),
+    updateAppointment: builder.mutation<Appointment, { id: number; data: UpdateAppointmentDto }>({
+      query: ({ id, data }) => ({
+        url: `/appointments/${id}`,
+        method: 'PUT',
+        body: data,
+      }),
+      invalidatesTags: ['Appointment'],
+    }),
+    deleteAppointment: builder.mutation<void, number>({
+      query: (id) => ({
+        url: `/appointments/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Appointment'],
+    }),
   }),
 });
 
-export const { useCreateAppointmentMutation, useGetAppointmentsQuery } = appointmentApi;
+export const {
+  useCreateAppointmentMutation,
+  useGetAppointmentsQuery,
+  useUpdateAppointmentMutation,
+  useDeleteAppointmentMutation,
+} = appointmentApi;

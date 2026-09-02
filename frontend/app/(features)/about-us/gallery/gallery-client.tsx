@@ -5,10 +5,11 @@ import Image from "next/image";
 import { useLocale } from "@/app/locale-provider";
 import {
   Box, Container, Title, Text, Stack, Badge, Group,
-  SimpleGrid, Center, Overlay, Modal, CloseButton
+  SimpleGrid
 } from "@mantine/core";
-import { X } from "lucide-react";
+import { ZoomIn } from "lucide-react";
 import { imgVer } from "@/lib/imgver";
+import Lightbox from "@/app/components/ui/Lightbox";
 
 const categories = ["All", "Facilities", "Doctors", "Staff", "Equipment"] as const;
 
@@ -85,7 +86,6 @@ export default function GalleryClient() {
   const { t, locale } = useLocale();
   const lang = locale as "en" | "am";
   const [active, setActive] = useState<string>("All");
-  const [opened, setOpened] = useState(false);
   const [selected, setSelected] = useState<{ src: string; title: string } | null>(null);
 
   const images = rawImages.map((img) => ({
@@ -176,7 +176,7 @@ export default function GalleryClient() {
                 transition: "border-color .35s ease, box-shadow .35s ease, transform 0.3s ease",
               }}
               className="group"
-              onClick={() => { setSelected(img); setOpened(true); }}
+              onClick={() => { setSelected(img); }}
               onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.boxShadow = "0 20px 60px rgba(37,99,235,0.12)"; e.currentTarget.style.transform = "scale(1.02)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--primary-100)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.transform = "scale(1)"; }}
             >
@@ -196,6 +196,29 @@ export default function GalleryClient() {
                   style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
                   className="group-hover:scale-110"
                 />
+                <Box
+                  style={{
+                    position: "absolute",
+                    top: 10,
+                    right: 10,
+                    width: 36,
+                    height: 36,
+                    borderRadius: "50%",
+                    background: "rgba(4,14,11,0.65)",
+                    backdropFilter: "blur(4px)",
+                    color: "#fff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    opacity: 0,
+                    transform: "scale(0.8)",
+                    transition: "all 0.3s ease",
+                    pointerEvents: "none",
+                  }}
+                  className="group-hover:opacity-100 group-hover:scale-100"
+                >
+                  <ZoomIn size={16} />
+                </Box>
                 <Box
                   style={{
                     position: "absolute",
@@ -228,48 +251,12 @@ export default function GalleryClient() {
       </Container>
 
       {/* Lightbox */}
-      <Modal
-        opened={opened}
-        onClose={() => setOpened(false)}
-        size="xl"
-        padding={0}
-        withCloseButton={false}
-        centered
-        styles={{ body: { padding: 0 }, content: { background: "transparent", boxShadow: "none" } }}
-      >
-        {selected && (
-          <Box pos="relative">
-            <CloseButton
-              onClick={() => setOpened(false)}
-              style={{
-                position: "absolute", top: 8, right: 8, zIndex: 10,
-                background: "rgba(0,0,0,0.5)", color: "#fff",
-                borderRadius: "50%",
-              }}
-              icon={<X size={18} />}
-            />
-            <Box
-              style={{
-                position: "relative",
-                width: "100%",
-                aspectRatio: "16/10",
-                borderRadius: 12,
-                overflow: "hidden",
-              }}
-            >
-              <Image
-                src={selected.src}
-                alt={selected.title}
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </Box>
-            <Text ta="center" c="white" fw={600} size="sm" mt="sm">
-              {selected.title}
-            </Text>
-          </Box>
-        )}
-      </Modal>
+      <Lightbox
+        open={!!selected}
+        src={selected?.src}
+        caption={selected?.title}
+        onClose={() => setSelected(null)}
+      />
     </Box>
   );
 }

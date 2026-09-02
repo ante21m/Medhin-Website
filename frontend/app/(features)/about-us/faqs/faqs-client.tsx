@@ -3,15 +3,19 @@
 import { useState } from "react";
 import { useLocale } from "@/app/locale-provider";
 import {
-  Box, Container, Title, Text, Stack, Badge, Group, Accordion, ThemeIcon
+  Box, Container, Title, Text, Stack, Badge, Accordion, ThemeIcon
 } from "@mantine/core";
 import { HelpCircle, ChevronDown } from "lucide-react";
+import { useFAQs } from "@/app/hooks/useFAQs";
 
 const FAQ_IDS = Array.from({ length: 8 }, (_, i) => i + 1);
 
 export default function FaqsClient() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const [value, setValue] = useState<string | null>(null);
+  const { faqs, isFromApi } = useFAQs();
+
+  const isAm = locale === "am";
 
   return (
     <Box bg="gray.0" mih="100vh">
@@ -42,10 +46,7 @@ export default function FaqsClient() {
               radius="xl"
               style={{ background: "rgba(255,255,255,0.1)", color: "#fff", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.12)", textTransform: "none" }}
             >
-              <Group gap={6}>
-                <HelpCircle size={14} />
-                FAQ
-              </Group>
+              <HelpCircle size={14} /> FAQ
             </Badge>
             <Title order={1} c="white" ta="center" fw={800} style={{ fontSize: "clamp(28px, 4vw, 38px)" }}>
               {t("faqsPage.title")}
@@ -87,20 +88,35 @@ export default function FaqsClient() {
             },
           }}
         >
-          {FAQ_IDS.map((id) => (
-            <Accordion.Item key={id} value={`q${id}`}>
-              <Accordion.Control icon={
-                <ThemeIcon variant="light" color="blue" size="sm" radius="xl">
-                  <HelpCircle size={14} />
-                </ThemeIcon>
-              }>
-                {t(`faqsPage.q${id}`)}
-              </Accordion.Control>
-              <Accordion.Panel>
-                {t(`faqsPage.a${id}`)}
-              </Accordion.Panel>
-            </Accordion.Item>
-          ))}
+          {isFromApi
+            ? faqs.map((f) => (
+                <Accordion.Item key={f.id} value={`q${f.id}`}>
+                  <Accordion.Control icon={
+                    <ThemeIcon variant="light" color="blue" size="sm" radius="xl">
+                      <HelpCircle size={14} />
+                    </ThemeIcon>
+                  }>
+                    {isAm && f.questionAm ? f.questionAm : f.question}
+                  </Accordion.Control>
+                  <Accordion.Panel>
+                    {isAm && f.answerAm ? f.answerAm : f.answer}
+                  </Accordion.Panel>
+                </Accordion.Item>
+              ))
+            : FAQ_IDS.map((id) => (
+                <Accordion.Item key={id} value={`q${id}`}>
+                  <Accordion.Control icon={
+                    <ThemeIcon variant="light" color="blue" size="sm" radius="xl">
+                      <HelpCircle size={14} />
+                    </ThemeIcon>
+                  }>
+                    {t(`faqsPage.q${id}`)}
+                  </Accordion.Control>
+                  <Accordion.Panel>
+                    {t(`faqsPage.a${id}`)}
+                  </Accordion.Panel>
+                </Accordion.Item>
+              ))}
         </Accordion>
       </Container>
     </Box>

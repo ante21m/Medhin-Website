@@ -53,7 +53,9 @@ export const fallbackLeadership: LeadershipData[] = [
 export interface FaqData {
   id: number;
   question: string;
+  questionAm?: string;
   answer: string;
+  answerAm?: string;
   category?: string;
 }
 

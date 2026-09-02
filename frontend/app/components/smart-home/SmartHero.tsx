@@ -1,30 +1,45 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { imgVer } from "@/lib/imgver";
+import { useSiteSettings, parseJsonSetting } from "@/app/hooks/useSiteSettings";
 
-const slides = [
-  {
-    src: `/images/hospital-hero.jpg${imgVer}`,
-    titleKey: "hero.title",
-    subtitleKey: "hero.subtitle",
-  },
-  {
-    src: `/images/hospital-1.jpg${imgVer}`,
-    titleKey: "typed.line1",
-    subtitleKey: "typed.line2",
-  },
-  {
-    src: `/images/hospital-2.jpg${imgVer}`,
-    titleKey: "typed.line3",
-    subtitleKey: "typed.line4",
-  },
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3003";
+
+export interface HeroSlide {
+  src: string;
+  title?: string;
+  titleAm?: string;
+  subtitle?: string;
+  subtitleAm?: string;
+}
+
+function resolveAsset(path?: string) {
+  if (!path) return "";
+  if (path.startsWith("http") || path.startsWith("/images/")) return path;
+  return `${API_URL}/${path}`;
+}
+
+const defaultSlides: HeroSlide[] = [
+  { src: `/images/hospital-hero.jpg${imgVer}`, title: "Medhin Primary Hospital", titleAm: "መድህን ፕራይማሪ ሆስፒታል", subtitle: "Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.", subtitleAm: "በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።" },
+  { src: `/images/hospital-1.jpg${imgVer}`, title: "Your Health, Our Priority", titleAm: "ጤናዎ ቅድሚያችን ነው", subtitle: "Expert Care, Compassionate Hearts", subtitleAm: "ባለሙያ እንክብካቤ፣ አዛኝ ልቦች" },
+  { src: `/images/hospital-2.jpg${imgVer}`, title: "Advanced Medical Technology", titleAm: "ዘመናዊ የሕክምና ቴክኖሎጂ", subtitle: "24/7 Emergency Services", subtitleAm: "የ24/7 የአደጋ ጊዜ አገልግሎት" },
 ];
 
 const SLIDE_MS = 5500;
 
 export default function SmartHero() {
+  const { settings } = useSiteSettings("home");
+
+  const apiSlides = parseJsonSetting<HeroSlide[]>(settings.hero_slides, []);
+  const slides: HeroSlide[] =
+    apiSlides.length > 0
+      ? apiSlides.map((s) => ({
+          ...s,
+          src: resolveAsset(s.src) + (s.src.includes("?") ? "" : imgVer),
+        }))
+      : defaultSlides;
+
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [loaded, setLoaded] = useState<boolean[]>(
@@ -34,6 +49,14 @@ export default function SmartHero() {
     new Array(slides.length).fill(0.5)
   );
   const startX = useRef<number | null>(null);
+
+  /* Reset per-slide state when the slide list changes (admin edits) */
+  useEffect(() => {
+    setCurrent(0);
+    setLoaded(new Array(slides.length).fill(false));
+    setBrightness(new Array(slides.length).fill(0.5));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [settings.hero_slides]);
 
   useEffect(() => {
     slides.forEach((slide, index) => {
@@ -64,16 +87,29 @@ export default function SmartHero() {
           return c;
         });
       };
+      img.onerror = () => {
+        setLoaded((prev) => {
+          const c = [...prev];
+          c[index] = true;
+          return c;
+        });
+      };
     });
-  }, []);
+  }, [settings.hero_slides]);
+
+  useEffect(() => {
+    if (slides.length === 0) return;
+    if (current >= slides.length) setCurrent(0);
+  }, [slides.length, current]);
 
   useEffect(() => {
     if (paused) return;
+    if (slides.length === 0) return;
     const id = setInterval(() => {
       setCurrent((p) => (p + 1) % slides.length);
     }, SLIDE_MS);
     return () => clearInterval(id);
-  }, [paused]);
+  }, [paused, slides.length]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     startX.current = e.touches[0].clientX;
@@ -97,6 +133,8 @@ export default function SmartHero() {
     if (b > 0.5) return 0.55;
     return 0.45;
   };
+
+  if (slides.length === 0) return null;
 
   return (
     <section

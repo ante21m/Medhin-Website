@@ -3,7 +3,9 @@ import { baseApi } from './baseApi';
 export interface Faq {
   id: number;
   question: string;
+  questionAm?: string;
   answer: string;
+  answerAm?: string;
   category?: string;
   order: number;
   isActive: boolean;
@@ -12,7 +14,9 @@ export interface Faq {
 
 export interface CreateFaqRequest {
   question: string;
+  questionAm?: string;
   answer: string;
+  answerAm?: string;
   category?: string;
   order?: number;
 }

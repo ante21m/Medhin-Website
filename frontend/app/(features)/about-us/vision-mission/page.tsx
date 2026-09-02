@@ -1,11 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { useLocale } from "@/app/locale-provider";
+import Lightbox from "@/app/components/ui/Lightbox";
 import "../about-us.css";
 
 export default function VisionMission() {
   const { t } = useLocale();
+  const [preview, setPreview] = useState(false);
 
   return (
     <section className="vision-mission">
@@ -26,7 +29,7 @@ export default function VisionMission() {
         </div>
 
         {/* RIGHT: IMAGE */}
-        <div className="vision-mission-image fade-right">
+        <div className="vision-mission-image fade-right" style={{ cursor: "zoom-in" }} onClick={() => setPreview(true)}>
           <Image
             src="/images/clinic.jpg"
             alt="Clinic Vision and Mission"
@@ -37,6 +40,14 @@ export default function VisionMission() {
           />
         </div>
       </div>
+
+      {/* IMAGE LIGHTBOX */}
+      <Lightbox
+        open={preview}
+        src="/images/clinic.jpg"
+        caption={t("about.visionMission")}
+        onClose={() => setPreview(false)}
+      />
     </section>
   );
 }
