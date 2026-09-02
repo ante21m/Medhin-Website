@@ -5,7 +5,6 @@ export interface Physician {
   image: string;
   rating: number;
   reviews: number;
-
   name_am?: string;
   specialty_am?: string;
   available?: boolean;
