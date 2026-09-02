@@ -53,7 +53,6 @@ export class NewsController {
   update(@Param('id') id: string, @Body() dto: UpdateNewsDto) {
     return this.newsService.update(+id, dto);
   }
-
   @Delete(':id')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
