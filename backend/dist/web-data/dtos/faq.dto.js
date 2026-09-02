@@ -15,7 +15,9 @@ const class_transformer_1 = require("class-transformer");
 const swagger_1 = require("@nestjs/swagger");
 class CreateFaqDto {
     question;
+    questionAm;
     answer;
+    answerAm;
     category;
     order;
 }
@@ -26,10 +28,22 @@ __decorate([
     __metadata("design:type", String)
 ], CreateFaqDto.prototype, "question", void 0);
 __decorate([
+    (0, swagger_1.ApiPropertyOptional)({ example: 'የሆስፒታሉ የጠያቂዎች ሰዓት መቼ ነው?' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateFaqDto.prototype, "questionAm", void 0);
+__decorate([
     (0, swagger_1.ApiProperty)({ example: 'We are open 24/7 for emergencies...' }),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateFaqDto.prototype, "answer", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({ example: 'የመደበኛ የጠያቂዎች ሰዓት...' }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateFaqDto.prototype, "answerAm", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({ example: 'General' }),
     (0, class_validator_1.IsOptional)(),
@@ -45,7 +59,9 @@ __decorate([
 ], CreateFaqDto.prototype, "order", void 0);
 class UpdateFaqDto {
     question;
+    questionAm;
     answer;
+    answerAm;
     category;
     order;
     isActive;
@@ -60,7 +76,17 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
+], UpdateFaqDto.prototype, "questionAm", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
 ], UpdateFaqDto.prototype, "answer", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateFaqDto.prototype, "answerAm", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),

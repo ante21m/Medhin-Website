@@ -7,9 +7,19 @@ export class CreateFaqDto {
   @IsString()
   question: string;
 
+  @ApiPropertyOptional({ example: 'የሆስፒታሉ የጠያቂዎች ሰዓት መቼ ነው?' })
+  @IsOptional()
+  @IsString()
+  questionAm?: string;
+
   @ApiProperty({ example: 'We are open 24/7 for emergencies...' })
   @IsString()
   answer: string;
+
+  @ApiPropertyOptional({ example: 'የመደበኛ የጠያቂዎች ሰዓት...' })
+  @IsOptional()
+  @IsString()
+  answerAm?: string;
 
   @ApiPropertyOptional({ example: 'General' })
   @IsOptional()
@@ -25,7 +35,9 @@ export class CreateFaqDto {
 
 export class UpdateFaqDto {
   @IsOptional() @IsString() question?: string;
+  @IsOptional() @IsString() questionAm?: string;
   @IsOptional() @IsString() answer?: string;
+  @IsOptional() @IsString() answerAm?: string;
   @IsOptional() @IsString() category?: string;
   @IsOptional() @IsNumber() @Transform(({ value }) => Number(value)) order?: number;
   @IsOptional() @IsBoolean() @Transform(({ value }) => value === 'true' || value === true) isActive?: boolean;

@@ -14,7 +14,9 @@ const typeorm_1 = require("typeorm");
 let Faq = class Faq {
     id;
     question;
+    questionAm;
     answer;
+    answerAm;
     category;
     order;
     isActive;
@@ -31,9 +33,17 @@ __decorate([
     __metadata("design:type", String)
 ], Faq.prototype, "question", void 0);
 __decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Faq.prototype, "questionAm", void 0);
+__decorate([
     (0, typeorm_1.Column)('text'),
     __metadata("design:type", String)
 ], Faq.prototype, "answer", void 0);
+__decorate([
+    (0, typeorm_1.Column)('text', { nullable: true }),
+    __metadata("design:type", String)
+], Faq.prototype, "answerAm", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
