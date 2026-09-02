@@ -8,8 +8,14 @@ export class Faq {
   @Column()
   question: string;
 
+  @Column({ nullable: true })
+  questionAm: string;
+
   @Column('text')
   answer: string;
+
+  @Column('text', { nullable: true })
+  answerAm: string;
 
   @Column({ nullable: true })
   category: string;
