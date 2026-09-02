@@ -227,6 +227,26 @@
   --tw-outline-style: none;
   outline-style: none;
 }
+.group-hover\:scale-100 {
+  &:is(:where(.group):hover *) {
+    @media (hover: hover) {
+      --tw-scale-x: 100%;
+      --tw-scale-y: 100%;
+      --tw-scale-z: 100%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
+}
+.group-hover\:scale-105 {
+  &:is(:where(.group):hover *) {
+    @media (hover: hover) {
+      --tw-scale-x: 105%;
+      --tw-scale-y: 105%;
+      --tw-scale-z: 105%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
+}
 .group-hover\:scale-110 {
   &:is(:where(.group):hover *) {
     @media (hover: hover) {
@@ -2958,6 +2978,112 @@ html[lang="am"] body {
 @media (min-width: 1025px) {
   .nav-panel {
     display: none !important;
+  }
+}
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(4, 14, 11, 0.92);
+  backdrop-filter: blur(8px);
+  animation: lightboxFadeIn 0.28s ease;
+  touch-action: none;
+}
+.lightbox-overlay--closing {
+  animation: lightboxFadeOut 0.26s ease forwards;
+}
+.lightbox-close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 10002;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.lightbox-close:hover {
+  background: var(--primary);
+  transform: rotate(90deg);
+  box-shadow: 0 0 0 6px rgba(11, 93, 82, 0.25);
+}
+.lightbox-figure {
+  margin: 0;
+  max-width: min(92vw, 1200px);
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: lightboxZoomIn 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lightbox-figure--closing {
+  animation: lightboxZoomOut 0.26s ease forwards;
+}
+.lightbox-img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(86vh - 46px);
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+}
+.lightbox-caption {
+  margin-top: 14px;
+  padding: 8px 18px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  text-align: center;
+  max-width: 92vw;
+}
+@keyframes lightboxFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes lightboxFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes lightboxZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes lightboxZoomOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
   }
 }
 @property --tw-rotate-x {

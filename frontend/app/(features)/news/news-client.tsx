@@ -9,7 +9,8 @@ import {
   Box, Container, Title, Text, Stack, Group,
   SimpleGrid, Card, Center, Loader, Modal, CloseButton
 } from "@mantine/core";
-import { Calendar, ArrowRight, User } from "lucide-react";
+import { Calendar, ArrowRight, User, ZoomIn } from "lucide-react";
+import Lightbox from "@/app/components/ui/Lightbox";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3003";
 
@@ -32,6 +33,7 @@ export default function NewsClient() {
   const { t, locale } = useLocale();
   const { data: articles, isLoading } = useGetNewsQuery();
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [preview, setPreview] = useState<{ src: string; alt: string } | null>(null);
 
   const visible = articles?.filter((a) => a.isActive) ?? [];
 
@@ -99,7 +101,10 @@ export default function NewsClient() {
               className="group"
             >
               {/* Image */}
-              <Box style={{ position: "relative", height: 200, overflow: "hidden" }}>
+              <Box
+                style={{ position: "relative", height: 200, overflow: "hidden", cursor: "zoom-in" }}
+                onClick={() => setPreview({ src: resolveAsset(article.image) || "/images/hospital-hero.jpg", alt: article.title })}
+              >
                 <Image
                   src={resolveAsset(article.image) || "/images/hospital-hero.jpg"}
                   alt={article.title}
@@ -108,6 +113,29 @@ export default function NewsClient() {
                   style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
                   className="group-hover:scale-110"
                 />
+                <Box
+                  style={{
+                    position: "absolute",
+                    top: 10,
+                    right: 10,
+                    width: 36,
+                    height: 36,
+                    borderRadius: "50%",
+                    background: "rgba(4,14,11,0.65)",
+                    backdropFilter: "blur(4px)",
+                    color: "#fff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    opacity: 0,
+                    transform: "scale(0.8)",
+                    transition: "all 0.3s ease",
+                    pointerEvents: "none",
+                  }}
+                  className="group-hover:opacity-100 group-hover:scale-100"
+                >
+                  <ZoomIn size={16} />
+                </Box>
               </Box>
 
               {/* Content */}
@@ -184,6 +212,14 @@ export default function NewsClient() {
           </Box>
         </Modal.Content>
       </Modal.Root>
+
+      {/* Image Lightbox */}
+      <Lightbox
+        open={!!preview}
+        src={preview?.src}
+        caption={preview?.alt}
+        onClose={() => setPreview(null)}
+      />
     </Box>
   );
 }

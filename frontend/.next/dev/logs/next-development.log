@@ -1,189 +1,48 @@
-[00:00:26.518] Server  LOG      ✓ Ready in 23s
-[00:01:23.732] Server  LOG      ○ Compiling / ...
-[00:01:40.020] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:07.035] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-abebe-kebede.jpg?v=0d6258dd" "received" null
-[00:02:07.048] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-asrese-mamo.jpg?v=0d6258dd" "received" null
-[00:02:07.050] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-samuel-addis.jpg?v=0d6258dd" "received" null
-[00:02:07.051] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-aderajew-getahun.jpg?v=0d6258dd" "received" null
-[00:02:07.056] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-anley-aragaw.jpg?v=0d6258dd" "received" null
-[00:02:17.808] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:02:46.988] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/clinic-poster.jpg?v=0d6258dd" "received" null
-[00:02:47.969] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/slide1.jpg?v=0d6258dd" "received" null
-[00:02:47.978] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/slide2.jpg?v=0d6258dd" "received" null
-[00:24:43.324] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/clinic-poster.jpg?v=0d6258dd" "received" null
-[00:24:46.341] Server  LOG      ○ Compiling /_not-found ...
-[00:24:47.427] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/slide1.jpg?v=0d6258dd" "received" null
-[00:24:47.429] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/slide2.jpg?v=0d6258dd" "received" null
-[00:24:47.793] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:24:54.241] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:24:54.477] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-abebe-kebede.jpg?v=0d6258dd" "received" null
-[00:24:54.694] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-asrese-mamo.jpg?v=0d6258dd" "received" null
-[00:24:54.700] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-samuel-addis.jpg?v=0d6258dd" "received" null
-[00:24:54.707] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-aderajew-getahun.jpg?v=0d6258dd" "received" null
-[00:24:54.843] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-anley-aragaw.jpg?v=0d6258dd" "received" null
-[00:27:05.543] Server  LOG      ○ Compiling /admin ...
-[00:27:15.429] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:27:22.642] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:31:42.570] Browser ERROR   called `injectEndpoints` to override already-existing endpointName getNews without specifying `overrideExisting: true`
-[00:31:42.570] Browser ERROR   called `injectEndpoints` to override already-existing endpointName getNewsById without specifying `overrideExisting: true`
-[00:31:42.570] Browser ERROR   called `injectEndpoints` to override already-existing endpointName createNews without specifying `overrideExisting: true`
-[00:31:42.570] Browser ERROR   called `injectEndpoints` to override already-existing endpointName updateNews without specifying `overrideExisting: true`
-[00:31:42.570] Browser ERROR   called `injectEndpoints` to override already-existing endpointName deleteNews without specifying `overrideExisting: true`
-[00:31:42.579] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\get-source-map-from-file.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:42.589] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\middleware-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:42.597] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:42.601] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:42.613] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:42.620] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\get-source-map-from-file.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:42.624] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\middleware-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:42.630] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:42.632] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:42.634] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:44.010] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\get-source-map-from-file.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:44.011] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\middleware-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:44.012] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:44.013] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:44.013] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:44.015] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\get-source-map-from-file.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:44.016] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\middleware-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:44.017] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:44.018] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:44.018] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:31:44.524] Browser ERROR   called `injectEndpoints` to override already-existing endpointName getNews without specifying `overrideExisting: true`
-[00:31:44.524] Browser ERROR   called `injectEndpoints` to override already-existing endpointName getNewsById without specifying `overrideExisting: true`
-[00:31:44.524] Browser ERROR   called `injectEndpoints` to override already-existing endpointName createNews without specifying `overrideExisting: true`
-[00:31:44.524] Browser ERROR   called `injectEndpoints` to override already-existing endpointName updateNews without specifying `overrideExisting: true`
-[00:31:44.524] Browser ERROR   called `injectEndpoints` to override already-existing endpointName deleteNews without specifying `overrideExisting: true`
-[00:33:27.971] Server  WARN     ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-[00:33:30.279] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:40:25.635] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:48:12.892] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:48:16.571] Server  LOG      ○ Compiling /_not-found ...
-[00:48:21.920] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:54:08.404] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:54:26.196] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:54:30.835] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:55:15.779] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:58:34.180] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:58:47.715] Server  LOG      ○ Compiling /admin/physicians ...
-[01:00:22.788] Server  LOG      ○ Compiling /admin/departments ...
-[01:00:29.526] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:00:40.335] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[01:11:28.537] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:11:32.481] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[01:11:41.862] Server  LOG      ○ Compiling /admin/physicians ...
-[01:11:48.162] Server  LOG      ○ Compiling /_not-found ...
-[01:14:28.881] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\get-source-map-from-file.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:14:28.883] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\middleware-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:14:28.884] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:14:28.884] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:14:28.885] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:14:28.890] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\get-source-map-from-file.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:14:28.890] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\middleware-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:14:28.891] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:14:28.892] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:14:28.892] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:14:29.525] Browser ERROR   called `injectEndpoints` to override already-existing endpointName getNews without specifying `overrideExisting: true`
-[01:14:29.525] Browser ERROR   called `injectEndpoints` to override already-existing endpointName getNewsById without specifying `overrideExisting: true`
-[01:14:29.525] Browser ERROR   called `injectEndpoints` to override already-existing endpointName createNews without specifying `overrideExisting: true`
-[01:14:29.525] Browser ERROR   called `injectEndpoints` to override already-existing endpointName updateNews without specifying `overrideExisting: true`
-[01:14:29.525] Browser ERROR   called `injectEndpoints` to override already-existing endpointName deleteNews without specifying `overrideExisting: true`
-[01:19:32.965] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[01:19:32.965] Browser ERROR   uncaughtError: ReferenceError: SimpleGrid is not defined
-[01:19:36.387] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[01:19:39.896] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:20:13.090] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:20:35.972] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:20:41.149] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:24:34.502] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[01:33:38.587] Browser ERROR   called `injectEndpoints` to override already-existing endpointName getVacancies without specifying `overrideExisting: true`
-[01:33:38.587] Browser ERROR   called `injectEndpoints` to override already-existing endpointName getVacancyById without specifying `overrideExisting: true`
-[01:33:38.587] Browser ERROR   called `injectEndpoints` to override already-existing endpointName createVacancy without specifying `overrideExisting: true`
-[01:33:38.587] Browser ERROR   called `injectEndpoints` to override already-existing endpointName updateVacancy without specifying `overrideExisting: true`
-[01:33:38.587] Browser ERROR   called `injectEndpoints` to override already-existing endpointName deleteVacancy without specifying `overrideExisting: true`
-[01:33:38.592] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\get-source-map-from-file.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:33:38.593] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\middleware-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:33:38.593] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:33:38.594] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:33:38.595] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:33:38.598] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\get-source-map-from-file.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:33:38.599] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\middleware-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:33:38.603] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\dev\hot-reloader-webpack.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:33:38.605] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:33:38.608] Server  ERROR   D:\medhin-webui\frontend\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:33:51.416] Server  ERROR    ⨯ ./app/store/api/physicianApi.ts
-Error:   × Expected '{', got 'interface'
-   ╭─[D:\medhin-webui\frontend\app\store\api\physicianApi.ts:3:1]
- 1 │ import { baseApi } from './baseApi';
- 2 │ 
- 3 │ export interface Physician {
-   ·        ─────────
- 4 │   id: number;
- 5 │   name: string;
- 5 │   nameAm?: string;
-   ╰────
-
-Caused by:
-    Syntax Error
-
-Import trace for requested module:
-./app/store/api/physicianApi.ts
-./app/admin/physicians/page.tsx
-[01:33:51.442] Browser ERROR   ./app/store/api/physicianApi.ts
-Error:   × Expected '{', got 'interface'
-   ╭─[D:\medhin-webui\frontend\app\store\api\physicianApi.ts:3:1]
- 1 │ import { baseApi } from './baseApi';
- 2 │ 
- 3 │ export interface Physician {
-   ·        ─────────
- 4 │   id: number;
- 5 │   name: string;
- 5 │   nameAm?: string;
-   ╰────
-
-Caused by:
-    Syntax Error
-
-Import trace for requested module:
-./app/store/api/physicianApi.ts
-./app/admin/physicians/page.tsx
-[01:33:59.521] Browser ERROR   ./app/store/api/physicianApi.ts
-Error:   × Expected '{', got 'interface'
-   ╭─[D:\medhin-webui\frontend\app\store\api\physicianApi.ts:3:1]
- 1 │ import { baseApi } from './baseApi';
- 2 │ 
- 3 │ export interface Physician {
-   ·        ─────────
- 4 │   id: number;
- 5 │   name: string;
- 5 │   nameAm?: string;
-   ╰────
-
-Caused by:
-    Syntax Error
-
-Import trace for requested module:
-./app/store/api/physicianApi.ts
-./app/admin/physicians/page.tsx
-[01:40:49.173] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:41:01.597] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[01:42:02.162] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:47:59.296] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:48:06.448] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:51:39.338] Server  LOG      ○ Compiling /_not-found ...
-[01:51:45.261] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:51:46.988] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:59:38.901] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:01:29.946] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:05:33.479] Server  LOG      ○ Compiling /admin ...
-[02:05:54.219] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:06:01.573] Server  LOG      ○ Compiling / ...
-[02:06:22.744] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:06:23.459] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[02:06:28.570] Server  LOG      ○ Compiling /admin/login ...
-[02:15:17.613] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:22:37.673] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[02:22:43.062] Server  LOG      ○ Compiling /admin/vacancies ...
-[02:23:29.643] Server  LOG      ○ Compiling /admin/gallery ...
-[02:24:09.075] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:24:13.159] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:00:02.703] Server  LOG      ✓ Ready in 2.4s
+[00:00:05.846] Server  LOG      ○ Compiling /about-us ...
+[00:00:07.349] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:08.223] Browser WARN    SerializableStateInvariantMiddleware took 60ms, which is more than the warning threshold of 32ms. 
+If your state or actions are very large, you may want to disable the middleware as it might cause too much of a slowdown in development mode. See https://redux-toolkit.js.org/api/getDefaultMiddleware for instructions.
+It is disabled in production builds, so you don't need to worry about that.
+[00:00:46.555] Browser WARN    Image with src "/images/physicians/dr-melkamu-adamu.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:46.555] Browser WARN    Image with src "/images/physicians/dr-juhar-muhammed.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:46.555] Browser WARN    Image with src "/images/physicians/doctor-2.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:46.555] Browser WARN    Image with src "/images/physicians/doctor-3.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:46.555] Browser WARN    Image with src "/images/physicians/dr-alelign-dessie.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:50.658] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-abebe-kebede.jpg?v=0d6258dd" "received" null
+[00:00:50.681] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-asrese-mamo.jpg?v=0d6258dd" "received" null
+[00:00:50.691] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-samuel-addis.jpg?v=0d6258dd" "received" null
+[00:00:50.709] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-aderajew-getahun.jpg?v=0d6258dd" "received" null
+[00:00:51.679] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-anley-aragaw.jpg?v=0d6258dd" "received" null
+[00:00:52.213] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-abebe-kebede.jpg?v=0d6258dd" "received" null
+[00:00:52.276] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-asrese-mamo.jpg?v=0d6258dd" "received" null
+[00:00:52.384] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-samuel-addis.jpg?v=0d6258dd" "received" null
+[00:00:52.549] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-aderajew-getahun.jpg?v=0d6258dd" "received" null
+[00:00:53.252] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:53.602] Browser WARN    Image with src "/images/physicians/dr-abebe-kebede.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:53.602] Browser WARN    Image with src "/images/physicians/dr-asrese-mamo.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:53.602] Browser WARN    Image with src "/images/physicians/dr-samuel-addis.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:53.602] Browser WARN    Image with src "/images/physicians/dr-aderajew-getahun.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:53.602] Browser WARN    Image with src "/images/physicians/dr-melkamu-adamu.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:53.602] Browser WARN    Image with src "/images/physicians/dr-juhar-muhammed.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:53.602] Browser WARN    Image with src "/images/physicians/doctor-2.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:53.602] Browser WARN    Image with src "/images/physicians/doctor-3.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:53.602] Browser WARN    Image with src "/images/physicians/dr-alelign-dessie.jpg?v=0d6258dd" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:53.602] Browser WARN    Image with src "/images/physicians/doctor-3.jpg?v=0d6258dd" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:00:53.621] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-anley-aragaw.jpg?v=0d6258dd" "received" null
+[00:01:07.791] Server  LOG      ○ Compiling / ...
+[00:01:10.283] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:01:10.339] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-abebe-kebede.jpg?v=0d6258dd" "received" null
+[00:01:10.341] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-asrese-mamo.jpg?v=0d6258dd" "received" null
+[00:01:10.345] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-samuel-addis.jpg?v=0d6258dd" "received" null
+[00:01:10.348] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-aderajew-getahun.jpg?v=0d6258dd" "received" null
+[00:01:26.622] Server  ERROR    ⨯ "The requested resource isn't a valid image for" "/images/physicians/dr-anley-aragaw.jpg?v=0d6258dd" "received" null
+[00:01:32.257] Server  LOG      ○ Compiling /admin ...
+[00:01:34.780] Server  WARN     ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:01:35.444] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:38.535] Server  LOG      ○ Compiling /admin/news ...
+[00:01:39.674] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:12:16.038] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:50.285] Server  LOG      ○ Compiling /admin/appointments ...
+[00:23:54.180] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior

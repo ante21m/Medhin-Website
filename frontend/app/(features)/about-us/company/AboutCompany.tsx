@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useLocale } from "@/app/locale-provider";
 import { imgVer } from "@/lib/imgver";
+import Lightbox from "@/app/components/ui/Lightbox";
 import "../../../../app/(features)/about-us/about-us.css";
 
 /* =========================
@@ -62,6 +63,8 @@ export default function AboutCompany() {
   const [activeLeader, setActiveLeader] = useState<Leader | null>(null);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [aboutPreview, setAboutPreview] = useState(false);
+  const [leaderPreview, setLeaderPreview] = useState<Leader | null>(null);
 
   /* =========================
      AUTOPLAY CAROUSEL
@@ -118,7 +121,7 @@ export default function AboutCompany() {
           </div>
 
           {/* IMAGE */}
-          <div className="about-company-image fade-right">
+          <div className="about-company-image fade-right" style={{ cursor: "zoom-in" }} onClick={() => setAboutPreview(true)}>
             <Image
               src={"/images/clinic.jpg" + imgVer}
               alt="Medhin Primary Hospital"
@@ -158,7 +161,7 @@ export default function AboutCompany() {
               >
                 <div className="leader-card">
                   {/* SMART LEADER IMAGE */}
-                  <div className="physician-image">
+                  <div className="physician-image" style={{ cursor: "zoom-in" }} onClick={(e) => { e.stopPropagation(); setLeaderPreview(leader); }}>
                     <Image
                       src={leader.image + imgVer}
                       alt={t(leader.nameKey)}
@@ -264,6 +267,20 @@ export default function AboutCompany() {
           </div>
         </div>
       )}
+
+      {/* IMAGE LIGHTBOXES */}
+      <Lightbox
+        open={aboutPreview}
+        src={"/images/clinic.jpg" + imgVer}
+        caption={t("about.title")}
+        onClose={() => setAboutPreview(false)}
+      />
+      <Lightbox
+        open={!!leaderPreview}
+        src={leaderPreview ? leaderPreview.image + imgVer : undefined}
+        caption={leaderPreview ? t(leaderPreview.nameKey) : undefined}
+        onClose={() => setLeaderPreview(null)}
+      />
     </>
   );
 }

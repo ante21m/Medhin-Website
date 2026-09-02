@@ -113,6 +113,18 @@
       "namedRegex": "^/admin(?:/)?$"
     },
     {
+      "page": "/admin/about",
+      "regex": "^/admin/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/about(?:/)?$"
+    },
+    {
+      "page": "/admin/appointments",
+      "regex": "^/admin/appointments(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/appointments(?:/)?$"
+    },
+    {
       "page": "/admin/departments",
       "regex": "^/admin/departments(?:/)?$",
       "routeKeys": {},
@@ -123,6 +135,12 @@
       "regex": "^/admin/gallery(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/admin/gallery(?:/)?$"
+    },
+    {
+      "page": "/admin/home",
+      "regex": "^/admin/home(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/home(?:/)?$"
     },
     {
       "page": "/admin/login",

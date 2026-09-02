@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { physicians } from "@/app/data/about.config";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,13 +16,15 @@ import {
 import {
   GraduationCap, Award, Stethoscope, Activity, Star, Clock,
   Users, Languages, ArrowLeft, Calendar, MapPin, Phone,
-  CircleCheck, BookOpen
+  CircleCheck, BookOpen, ZoomIn
 } from "lucide-react";
+import Lightbox from "@/app/components/ui/Lightbox";
 
 export default function PhysicianProfile() {
   const { t, locale } = useLocale();
   const params = useParams<{ id: string }>();
   const { physician } = usePhysicianById(params.id);
+  const [preview, setPreview] = useState(false);
 
   if (!physician) return notFound();
 
@@ -63,7 +66,9 @@ export default function PhysicianProfile() {
                 style={{
                   background: "linear-gradient(135deg, #1d4ed8, var(--primary))",
                   overflow: "hidden",
+                  cursor: "zoom-in",
                 }}
+                onClick={() => setPreview(true)}
               >
                 <Box
                   pos="absolute"
@@ -454,6 +459,14 @@ export default function PhysicianProfile() {
           </Grid.Col>
         </Grid>
       </Box>
+
+      {/* IMAGE LIGHTBOX */}
+      <Lightbox
+        open={preview}
+        src={physician.image + imgVer}
+        caption={fullName}
+        onClose={() => setPreview(false)}
+      />
     </Box>
   );
 }

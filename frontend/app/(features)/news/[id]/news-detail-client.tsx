@@ -7,7 +7,8 @@ import Link from "next/link";
 import { useLocale } from "@/app/locale-provider";
 import { useGetNewsQuery } from "@/app/store/api/newsApi";
 import { Box, Container, Title, Text, Stack, Group, Divider, ActionIcon, Tooltip, Popover, Center, Loader } from "@mantine/core";
-import { Calendar, User, ArrowLeft, ArrowRight, Share2, Clock, Check, Link2, Paperclip } from "lucide-react";
+import { Calendar, User, ArrowLeft, ArrowRight, Share2, Clock, Check, Link2, Paperclip, ZoomIn } from "lucide-react";
+import Lightbox from "@/app/components/ui/Lightbox";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3003";
 
@@ -70,6 +71,7 @@ export default function NewsDetailClient() {
   const { data: articles, isLoading } = useGetNewsQuery();
   const [copied, setCopied] = useState(false);
   const [shareOpened, setShareOpened] = useState(false);
+  const [preview, setPreview] = useState<string | null>(null);
 
   const handleShare = useCallback(async () => {
     const url = window.location.href;
@@ -114,8 +116,24 @@ export default function NewsDetailClient() {
   return (
     <Box bg="gray.0" mih="100vh">
       {/* Hero Banner */}
-      <Box style={{ position: "relative", height: 280, overflow: "hidden" }}>
+      <Box
+        style={{ position: "relative", height: 280, overflow: "hidden", cursor: "zoom-in" }}
+        onClick={() => setPreview(resolveAsset(article.image) || "/images/hospital-hero.jpg")}
+      >
         <Image src={resolveAsset(article.image) || "/images/hospital-hero.jpg"} alt={article.title} fill style={{ objectFit: "cover" }} priority />
+        <Box
+          style={{
+            position: "absolute", top: 12, right: 12, zIndex: 5,
+            width: 40, height: 40, borderRadius: "50%",
+            background: "rgba(4,14,11,0.65)", backdropFilter: "blur(4px)",
+            color: "#fff", display: "flex", alignItems: "center", justifyContent: "center",
+            transition: "background 0.2s ease",
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = "var(--primary)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(4,14,11,0.65)"; }}
+        >
+          <ZoomIn size={18} />
+        </Box>
         <Box
           style={{
             position: "absolute", inset: 0,
@@ -281,6 +299,14 @@ export default function NewsDetailClient() {
           </Stack>
         </Group>
       </Container>
+
+      {/* Image Lightbox */}
+      <Lightbox
+        open={!!preview}
+        src={preview || undefined}
+        caption={artTitle}
+        onClose={() => setPreview(null)}
+      />
     </Box>
   );
 }

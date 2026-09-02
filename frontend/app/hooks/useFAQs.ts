@@ -8,7 +8,9 @@ function mapFaq(item: Faq): FaqData {
   return {
     id: item.id,
     question: item.question,
+    questionAm: item.questionAm,
     answer: item.answer,
+    answerAm: item.answerAm,
     category: item.category,
   };
 }
