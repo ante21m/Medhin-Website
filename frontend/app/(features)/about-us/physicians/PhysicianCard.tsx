@@ -56,11 +56,6 @@ export default function PhysicianCard({ physician }: { physician: Physician }) {
         {specialty}
       </p>
 
-      {/* RATING */}
-      <div style={{ display: "flex", alignItems: "center", gap: 5, fontSize: ".82rem", color: "var(--ink-soft)", justifyContent: "center" }}>
-        <span style={{ color: "#f59e0b" }}>★★★★★</span> {physician.rating.toFixed(1)}
-      </div>
-
       {/* BOOK APPOINTMENT */}
       <button className="book-btn mt-3" onClick={() => setOpen(true)}>
         {t("nav.book")}
