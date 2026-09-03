@@ -7,7 +7,7 @@ export default function JsonLd() {
       "Medhin Primary Hospital provides quality healthcare services in Woldia, Ethiopia. Expert doctors, modern diagnostics, 24/7 emergency care, and patient-centered treatment.",
     url: "https://medhinprimaryhospital.com",
     telephone: "+251-911316088",
-    email: "info@medhinprimaryhospital.com",
+    email: "info@medhinhospital.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Near Lal Hotel",

@@ -130,7 +130,7 @@ export default function Footer() {
               </div>
               <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                 <FaEnvelope style={{ color: "#7FD9C4", flexShrink: 0 }} size={14} />
-                <span style={{ fontSize: "0.86rem", color: "rgba(255,255,255,0.55)" }}>info@medhinprimaryhospital.com</span>
+                <span style={{ fontSize: "0.86rem", color: "rgba(255,255,255,0.55)" }}>info@medhinhospital.com</span>
               </div>
             </div>
             <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", height: 140 }}>

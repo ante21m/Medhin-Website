@@ -10,8 +10,8 @@ export default function TopBar() {
           <a href="tel:0334314795" style={{ display: "flex", alignItems: "center", gap: 7, fontSize: "0.78rem", color: "var(--on-deep-soft)", textDecoration: "none", fontFamily: "var(--font-mono)" }}>
             <FaPhone size={10} style={{ color: "#7FD9C4" }} /> 033 431 4795
           </a>
-          <a href="mailto:info@medhinprimaryhospital.com" style={{ display: "flex", alignItems: "center", gap: 7, fontSize: "0.78rem", color: "var(--on-deep-soft)", textDecoration: "none", fontFamily: "var(--font-mono)" }}>
-            <FaEnvelope size={10} style={{ color: "#7FD9C4" }} /> info@medhinprimaryhospital.com
+          <a href="mailto:info@medhinhospital.com" style={{ display: "flex", alignItems: "center", gap: 7, fontSize: "0.78rem", color: "var(--on-deep-soft)", textDecoration: "none", fontFamily: "var(--font-mono)" }}>
+            <FaEnvelope size={10} style={{ color: "#7FD9C4" }} /> info@medhinhospital.com
           </a>
         </div>
         <div style={{ fontSize: "0.76rem", color: "var(--on-deep-soft)", fontFamily: "var(--font-mono)", display: "flex", alignItems: "center", gap: 7 }}>

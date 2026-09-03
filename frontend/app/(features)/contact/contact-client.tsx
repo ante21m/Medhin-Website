@@ -14,7 +14,7 @@ const contactInfo = [
   { icon: MapPin, labelKey: "contactPage.office", descKey: "contactPage.address", isHours: false as const, phone: null as string | null, email: null as string | null },
   { icon: Clock, labelKey: "contactPage.hours", descKey: null, isHours: true as const, phone: null, email: null },
   { icon: Phone, labelKey: "footer.phoneLabel", descKey: null, isHours: false, phone: "+251 9XX XXX XXX", email: null },
-  { icon: Mail, labelKey: "footer.emailLabel", descKey: null, isHours: false, phone: null, email: "info@medhinprimaryhospital.com" },
+  { icon: Mail, labelKey: "footer.emailLabel", descKey: null, isHours: false, phone: null, email: "info@medhinhospital.com" },
 ];
 
 export default function ContactClient() {
