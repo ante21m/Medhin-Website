@@ -155,7 +155,7 @@ export default function ContactClient() {
 
                 <Box style={{ borderRadius: 3, overflow: "hidden", height: 200, border: "1px solid #f3f4f6" }} mb="md">
                   <iframe
-                    title={locale === "am" ? "መድህን ፕራይማሪ ሆስፒታል አድራሻ" : "Medhin Primary Hospital Location"}
+                    title={locale === "am" ? "መድህን ፕራይመሪ ሆስፒታል አድራሻ" : "Medhin Primary Hospital Location"}
                     src={embedMapUrl}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
@@ -245,7 +245,7 @@ export default function ContactClient() {
           </Title>
 
           <Text size="sm" mb="xl" maw={460} mx="auto" lh={1.6} style={{ color: "rgba(255,255,255,0.62)" }}>
-            {locale === "am" ? "በወልድያ ከተማ በሚገኘው የመድህን ፕራይማሪ ሆስፒታል እንጠብቅዎታለን" : "We look forward to welcoming you at Medhin Primary Hospital in Woldia"}
+            {locale === "am" ? "በወልድያ ከተማ በሚገኘው የመድህን ፕራይመሪ ሆስፒታል እንጠብቅዎታለን" : "We look forward to welcoming you at Medhin Primary Hospital in Woldia"}
           </Text>
 
           <Box

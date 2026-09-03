@@ -82,7 +82,7 @@ export default function Navbar() {
               onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.8)"}
               onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.5)"}
             >
-              {locale === "am" ? "ፕራይማሪ ሆስፒታል" : "Primary Hospital"}
+              {locale === "am" ? "ፕራይመሪ ሆስፒታል" : "Primary Hospital"}
             </div>
           </div>
         </Link>

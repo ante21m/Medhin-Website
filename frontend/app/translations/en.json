@@ -261,8 +261,8 @@
    "awards": "Awards",
 
    "kassaw": {
-     "name": "Dr Kassaw",
-     "role": "Medical Director",
+     "name": "Dr. Kassaw Alemayehu",
+     "role": "CEO & Medical Director",
      "bio": "Dr Kassaw provides strategic leadership and ensures clinical excellence across all departments of the clinic.",
      "experience": "Over 15 years of medical leadership and clinical practice in specialized healthcare.",
      "certificates": "MD Degree | Healthcare Leadership Certification | Clinical Governance Training",
@@ -270,8 +270,8 @@
    },
 
    "hana": {
-     "name": "Dr. Hana Alem",
-     "role": "Chief Physician",
+     "name": "Dr. Hana Tesfaye",
+     "role": "Chief of Medical Services",
      "bio": "Dr. Hana Alem oversees clinical services and maintains the highest standards of patient care.",
      "experience": "More than 12 years of experience in internal medicine and hospital management.",
      "certificates": "MD Degree | Internal Medicine Specialization",
@@ -279,8 +279,8 @@
    },
 
    "samuel": {
-     "name": "Mr. Samuel Bekele",
-     "role": "Operations Manager",
+     "name": "Samuel Bekele",
+     "role": "Chief Operations Officer",
      "bio": "Mr. Samuel Bekele manages daily operations and supports efficient and patient-centered healthcare delivery.",
      "experience": "10+ years experience in healthcare operations and administration.",
      "certificates": "MBA | Healthcare Operations Certification",
@@ -556,11 +556,11 @@
     "deptUltrasoundDesc": "Women's health services including prenatal and postnatal care.",
     "deptCtScan": "CT Scan",
     "deptCtScanDesc": "High-resolution CT scan for fast and accurate diagnostic imaging.",
-    "partner1": "Addis Ababa City Administration",
-    "partner2": "Federal Ministry of Urban Development",
-    "partner3": "Ethiopian Construction Authority",
-    "partner4": "Commercial Bank of Ethiopia",
-    "partner5": "Awash International Bank"
+    "partner1": "Woldia University",
+    "partner2": "North Wollo Health Bureau",
+    "partner3": "Ethiopian Medical Association",
+    "partner4": "WHO Ethiopia",
+    "partner5": "UNICEF Ethiopia"
   },
 
   "whyChooseUs": {
@@ -613,10 +613,10 @@
   },
 
   "askAI": {
-    "healthAssistant": "Health Assistant",
+    "healthAssistant": "Chatbot",
     "headerTitle": "How can we help you today?",
     "headerSub": "Ask questions, check symptoms, or get health tips.",
-    "tabAsk": "Ask AI",
+    "tabAsk": "Chatbot",
     "tabSymptom": "Symptom Guide",
     "tabTips": "Health Tips",
     "popularQuestions": "Popular Questions",
@@ -649,7 +649,7 @@
 
   "aboutPage": {
     "heroTitle": "About Medhin Primary Hospital",
-    "heroSubtitle": "Providing quality healthcare with compassion and expertise since 2000.",
+    "heroSubtitle": "Providing quality healthcare with compassion and expertise since 2024 G.C.",
     "commitmentTitle": "Our Commitment",
     "commitmentP1": "At Medhin Primary Hospital, we are committed to providing exceptional medical care with a patient-centered approach. Our team of experienced specialists and healthcare professionals work tirelessly to ensure the well-being of every patient who walks through our doors.",
     "commitmentP2": "We combine modern medical technology with compassionate care to deliver the best possible outcomes. Our continuous investment in advanced equipment and staff training ensures that our patients receive treatment that meets international standards.",
@@ -657,7 +657,7 @@
     "compassionateTeam": "Compassionate Team",
     "qualityStandards": "Quality Standards",
     "isoCertified": "ISO Certified",
-    "years25": "25+ Years",
+    "years25": "2+ Years",
     "specialists50": "50+ Specialists",
     "leadershipSubtitle": "Meet our dedicated leadership team committed to healthcare excellence",
     "viewAllDoctors": "View All Doctors",

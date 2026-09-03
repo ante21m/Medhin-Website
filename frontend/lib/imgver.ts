@@ -1,2 +1,2 @@
 // Auto-generated — do not edit manually
-export const imgVer = "?v=d56f0220";
+export const imgVer = "?v=0d6258dd";

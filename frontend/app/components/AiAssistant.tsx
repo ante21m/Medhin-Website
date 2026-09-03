@@ -86,7 +86,7 @@ const staticIntents: Record<string, { keys: string[]; tKey: string; links?: { la
     tKey: "ai.greeting",
   },
   about: {
-    keys: ["mama hospital", "dr kassaw", "medhin primary hospital", "hospital", "clinic", "about", "tell me", "who are you", "ማማ ሆስፒታል", "ዶር ካሳው", "መድህን ፕራይማሪ ሆስፒታል", "ክሊኒክ", "ሆስፒታል", "ስለ", "ንገረኝ", "ስለምን ማወቅ ይፈልጋሉ"],
+    keys: ["mama hospital", "dr kassaw", "medhin primary hospital", "hospital", "clinic", "about", "tell me", "who are you", "ማማ ሆስፒታል", "ዶር ካሳው", "መድህን ፕራይመሪ ሆስፒታል", "ክሊኒክ", "ሆስፒታል", "ስለ", "ንገረኝ", "ስለምን ማወቅ ይፈልጋሉ"],
     tKey: "ai.about",
     links: [
       { labelKey: "ai.lServices", href: "/services" },
