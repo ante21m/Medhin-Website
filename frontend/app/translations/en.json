@@ -26,7 +26,7 @@
     "faqsDesc": "Find answers to common questions.",
      "title": "Medhin Primary Hospital",
     "intro": "Medhin Primary Hospital is a patient-centered healthcare institution committed to delivering high-quality medical services through modern technology and ethical practice.",
-    "history": "Founded in 2015, Medhin Primary Hospital began with a clear vision: to provide accessible, high-quality healthcare services to the community.",
+    "history": "Founded in 2024, Medhin Primary Hospital began with a clear vision: to provide accessible, high-quality healthcare services to the community.",
     "today": "Today, the clinic is recognized as a trusted and leading specialized healthcare provider, dedicated to continuous improvement and community well-being."
   },
 "vision": {
@@ -477,9 +477,9 @@
     "statDeptsSub": "Specialized care",
     "statDoctors": "12+ Specialists",
     "statDoctorsSub": "Expert team",
-    "statPatients": "15,000+",
+    "statPatients": "100K+",
     "statPatientsSub": "Patients treated",
-    "statYears": "10+ Years",
+    "statYears": "2+ Years",
     "statYearsSub": "Established",
     "exploreTitle": "Explore Our Departments",
     "exploreSub": "Each department is equipped with modern technology and staffed by dedicated specialists.",
@@ -566,7 +566,7 @@
   "whyChooseUs": {
     "title": "Why Choose Medhin Hospital?",
     "i1Title": "Trusted by Thousands",
-    "i1Desc": "Trusted by 100,000+ patients in the Woldia region since 2015",
+    "i1Desc": "Trusted by 100,000+ patients in the Woldia region since 2024",
     "i2Title": "Modern Diagnostics",
     "i2Desc": "State-of-the-art diagnostics: CT Scan, Digital X-Ray, Ultrasound & ECG",
     "i3Title": "Expert Specialists",

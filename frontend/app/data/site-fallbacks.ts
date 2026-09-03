@@ -103,7 +103,7 @@ interface SiteSettingsData {
 }
 
 export const fallbackSiteSettings: SiteSettingsData = {
-  home_stats_experience: "25",
+  home_stats_experience: "2",
   home_stats_experience_suffix: "+",
   home_stats_doctors: "50",
   home_stats_doctors_suffix: "+",
