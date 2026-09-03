@@ -32,4 +32,20 @@ export const services = [
     id: "ecg",
     icon: "heart",
   },
+  {
+    id: "cardiology",
+    icon: "heart",
+  },
+  {
+    id: "neurology",
+    icon: "brain",
+  },
+  {
+    id: "orthopedics",
+    icon: "bone",
+  },
+  {
+    id: "pediatrics",
+    icon: "baby",
+  },
 ];

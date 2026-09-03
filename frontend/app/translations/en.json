@@ -84,7 +84,7 @@
   "heroSubtitle": "Advanced medical care delivered with modern technology and a team of dedicated specialists — all in one place.",
   "stat24h": "24/7 Service",
   "stat24hSub": "Always ready",
-  "statServices": "8+ Services",
+  "statServices": "12+ Services",
   "statServicesSub": "Full coverage",
   "statExperts": "Expert Team",
   "statExpertsSub": "Certified",
@@ -188,6 +188,58 @@
     "items": [
       "Heart monitoring",
       "Heartbeat analysis"
+    ]
+  },
+
+  "cardiology": {
+    "title": "Cardiology",
+    "description": "Expert diagnosis and treatment of heart conditions using advanced cardiac technology and experienced cardiologists.",
+    "items": [
+      "ECG & Echocardiography",
+      "Holter Monitoring",
+      "Stress Testing",
+      "Cardiac CT",
+      "Heart Failure Management",
+      "Hypertension Care"
+    ]
+  },
+
+  "neurology": {
+    "title": "Neurology",
+    "description": "Comprehensive neurological care for disorders of the brain, spine, and nervous system with advanced diagnostic tools.",
+    "items": [
+      "EEG & EMG",
+      "Brain CT/MRI",
+      "Stroke Management",
+      "Epilepsy Care",
+      "Migraine Treatment",
+      "Neuropathy Evaluation"
+    ]
+  },
+
+  "orthopedics": {
+    "title": "Orthopedics",
+    "description": "Specialized treatment for bones, joints, and muscles using modern surgical and rehabilitation techniques.",
+    "items": [
+      "Fracture Treatment",
+      "Joint Injections",
+      "Sports Medicine",
+      "Arthroscopy",
+      "Spine Care",
+      "Rehabilitation"
+    ]
+  },
+
+  "pediatrics": {
+    "title": "Pediatrics",
+    "description": "Compassionate healthcare for infants, children, and adolescents in a safe and caring environment.",
+    "items": [
+      "Well-Child Checkups",
+      "Vaccinations",
+      "Growth Monitoring",
+      "Pediatric Nutrition",
+      "Common Illness Care",
+      "Developmental Screening"
     ]
   }
 },

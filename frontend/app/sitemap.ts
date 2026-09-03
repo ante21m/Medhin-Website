@@ -30,6 +30,10 @@ const fallbackServiceIds = [
   "ultrasound",
   "ct-scan",
   "ecg",
+  "cardiology",
+  "neurology",
+  "orthopedics",
+  "pediatrics",
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

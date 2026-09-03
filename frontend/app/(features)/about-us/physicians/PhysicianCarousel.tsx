@@ -38,26 +38,18 @@ export default function PhysicianCarousel() {
     return () => el.removeEventListener("scroll", handler);
   }, []);
 
- const startAuto = () => {
-  stopAuto();
-  if (document.querySelector(".modal-backdrop")) return;
+  const startAuto = () => {
+    stopAuto();
+    if (document.querySelector(".modal-backdrop")) return;
 
-  autoRef.current = setInterval(() => {
-    if (!sliderRef.current) return;
-
-    const card = sliderRef.current.querySelector(".slide");
-    if (!card) return;
-
-    const cardWidth = card.clientWidth;
-
-    sliderRef.current.scrollBy({
-      left: cardWidth,
-      behavior: "smooth",
-    });
-  }, 3000);
-};
-
-
+    autoRef.current = setInterval(() => {
+      if (!sliderRef.current) return;
+      const card = sliderRef.current.querySelector(".slide");
+      if (!card) return;
+      const cardWidth = card.clientWidth;
+      sliderRef.current.scrollBy({ left: cardWidth, behavior: "smooth" });
+    }, 3000);
+  };
 
   const stopAuto = () => {
     if (autoRef.current) clearInterval(autoRef.current);
@@ -65,22 +57,22 @@ export default function PhysicianCarousel() {
 
   return (
     <>
-      {/* DEPARTMENT TABS */}
-      <div className="department-tabs">
+      {/* DEPARTMENT FILTER */}
+      <div className="physicians-filter">
         {departments.map(d => (
           <button
             key={d}
-            className={dept === d ? "active" : ""}
+            className={`bk-chip${dept === d ? " active" : ""}`}
             onClick={() => setDept(d)}
           >
             {d === "All" ? "All" : t(`departments.${d.toLowerCase()}`)}
           </button>
         ))}
       </div>
- 
+
       {/* CAROUSEL */}
       <div
-        className="carousel"
+        className="carousel physicians-carousel"
         ref={sliderRef}
         onMouseEnter={stopAuto}
         onMouseLeave={startAuto}

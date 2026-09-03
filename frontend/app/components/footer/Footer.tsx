@@ -23,10 +23,10 @@ const socialLinks = [
 ];
 
 const services = [
-  { labelKey: "footer.serviceCardiology", href: "/departments/cardiology" },
-  { labelKey: "footer.serviceNeurology", href: "/departments/neurology" },
-  { labelKey: "footer.serviceOrthopedics", href: "/departments/orthopedics" },
-  { labelKey: "footer.servicePediatrics", href: "/departments/pediatrics" },
+  { labelKey: "footer.serviceCardiology", href: "/services/cardiology" },
+  { labelKey: "footer.serviceNeurology", href: "/services/neurology" },
+  { labelKey: "footer.serviceOrthopedics", href: "/services/orthopedics" },
+  { labelKey: "footer.servicePediatrics", href: "/services/pediatrics" },
   { labelKey: "footer.serviceEmergency", href: "/services/emergency" },
   { labelKey: "footer.serviceLaboratory", href: "/services/laboratory" },
 ];

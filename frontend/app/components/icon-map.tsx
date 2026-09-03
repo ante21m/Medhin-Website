@@ -9,6 +9,7 @@ import {
   Radar,
   Brain,
   HeartPulse,
+  Bone,
 } from "lucide-react";
 
 export const iconMap: Record<string, ReactNode> = {
@@ -20,4 +21,5 @@ export const iconMap: Record<string, ReactNode> = {
   radar: <Radar size={32} />,
   brain: <Brain size={32} />,
   heart: <HeartPulse size={32} />,
+  bone: <Bone size={32} />,
 };
