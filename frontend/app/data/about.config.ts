@@ -20,7 +20,6 @@ export interface Physician {
   experience_years?: number;
   patients_count?: string;
 }
-
 export const physicians: Physician[] = [
   {
     id: "1",
