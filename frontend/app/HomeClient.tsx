@@ -55,7 +55,7 @@ export default function HomePage() {
   const partners = parseJsonSetting<string[]>(settings.home_partners, []).map((p) => p);
 
   const stats = [
-    { end: parseInt(settings.home_stats_experience || "25"), suffix: settings.home_stats_experience_suffix || "+", label: t("homePage.statsExperience"), icon: "🏥", color: "var(--primary)" },
+    { end: parseInt(settings.home_stats_experience || "2"), suffix: settings.home_stats_experience_suffix || "+", label: t("homePage.statsExperience"), icon: "🏥", color: "var(--primary)" },
     { end: parseInt(settings.home_stats_doctors || "50"), suffix: settings.home_stats_doctors_suffix || "+", label: t("homePage.statsDoctors"), icon: "👨‍⚕️", color: "#0B5D52" },
     { end: parseInt(settings.home_stats_patients || "100"), suffix: settings.home_stats_patients_suffix || "K+", label: t("homePage.statsPatients"), icon: "❤️", color: "var(--urgent)" },
     { end: parseInt(settings.home_stats_departments || "12"), suffix: settings.home_stats_departments_suffix || "+", label: t("homePage.statsDepartments"), icon: "🩺", color: "var(--accent)" },

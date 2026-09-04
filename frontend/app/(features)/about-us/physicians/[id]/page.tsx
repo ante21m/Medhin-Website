@@ -14,7 +14,7 @@ import {
   Avatar, Flex, Box, Space, Center
 } from "@mantine/core";
 import {
-  GraduationCap, Award, Stethoscope, Activity, Star, Clock,
+  GraduationCap, Award, Stethoscope, Activity, Clock,
   Users, Languages, ArrowLeft, Calendar, MapPin, Phone,
   CircleCheck, BookOpen, ZoomIn
 } from "lucide-react";
@@ -109,12 +109,6 @@ export default function PhysicianProfile() {
                   <Title order={2} style={{ fontSize: 28, fontWeight: 800 }}>{fullName}</Title>
                   <Group gap="xs" mt={4}>
                     <Text c="blue.6" fw={600} size="md">{specialtyName}</Text>
-                    <Text c="gray.3" size="sm">•</Text>
-                    <Group gap={4}>
-                      <Star size={14} color="#f59e0b" fill="#f59e0b" />
-                      <Text fw={700} size="sm">{physician.rating.toFixed(1)}</Text>
-                      <Text c="gray.5" size="xs">({physician.reviews} {t("ratings.reviews")})</Text>
-                    </Group>
                   </Group>
                 </div>
 
@@ -159,17 +153,6 @@ export default function PhysicianProfile() {
                     </Group>
                   </Paper>
                   )}
-                  <Paper p="sm" radius="md" withBorder style={{ borderColor: "#fef3c7" }} bg="#fffbeb">
-                    <Group gap="sm">
-                      <ThemeIcon variant="light" color="yellow" size="lg" radius="md">
-                        <Star size={18} />
-                      </ThemeIcon>
-                      <div>
-                        <Text fw={800} size="lg" c="yellow.8">{physician.rating.toFixed(1)}</Text>
-                        <Text size="xs" c="yellow.6" fw={500}>{t("profile.avgRating")}</Text>
-                      </div>
-                    </Group>
-                  </Paper>
                   {physician.languages && (
                     <Paper p="sm" radius="md" withBorder style={{ borderColor: "#f3e8ff" }} bg="#faf5ff">
                       <Group gap="sm">
