@@ -5,7 +5,7 @@ import { SiteSetting } from '../entities/site-settings.entity';
 import { CreateSiteSettingDto, UpdateSiteSettingDto } from '../dtos/site-settings.dto';
 
 const defaultSettings = [
-  { key: 'home_stats_experience', value: '25', group: 'home' },
+  { key: 'home_stats_experience', value: '2', group: 'home' },
   { key: 'home_stats_experience_suffix', value: '+', group: 'home' },
   { key: 'home_stats_doctors', value: '50', group: 'home' },
   { key: 'home_stats_doctors_suffix', value: '+', group: 'home' },
@@ -14,7 +14,7 @@ const defaultSettings = [
   { key: 'home_stats_departments', value: '12', group: 'home' },
   { key: 'home_stats_departments_suffix', value: '+', group: 'home' },
   { key: 'hero_slides', value: JSON.stringify([
-    { src: '/images/hospital-hero.jpg', title: 'Medhin Primary Hospital', titleAm: 'መድህን ፕራይማሪ ሆስፒታል', subtitle: 'Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.', subtitleAm: 'በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።' },
+    { src: '/images/hospital-hero.jpg', title: 'Medhin Primary Hospital', titleAm: 'መድህን ፕራይመሪ ሆስፒታል', subtitle: 'Quality healthcare in Woldia — expert doctors, modern diagnostics, and compassionate care.', subtitleAm: 'በወልዲያ የላቀ የጤና አገልግሎት — ባለሙያ ሐኪሞች፣ ዘመናዊ ምርምር እና ልቡና ያለው እንክብካቤ።' },
     { src: '/images/hospital-1.jpg', title: 'Your Health, Our Priority', titleAm: 'ጤናዎ ቅድሚያችን ነው', subtitle: 'Expert Care, Compassionate Hearts', subtitleAm: 'ባለሙያ እንክብካቤ፣ አዛኝ ልቦች' },
     { src: '/images/hospital-2.jpg', title: 'Advanced Medical Technology', titleAm: 'ዘመናዊ የሕክምና ቴክኖሎጂ', subtitle: '24/7 Emergency Services', subtitleAm: 'የ24/7 የአደጋ ጊዜ አገልግሎት' },
   ]), group: 'home' },
@@ -24,7 +24,7 @@ const defaultSettings = [
     { id: 'laboratory', icon: 'FaFlask', color: '#8b5cf6' },
     { id: 'xray', icon: 'FaXRay', color: '#f97316' },
     { id: 'surgical', icon: 'FaCut', color: 'var(--primary)' },
-    { id: 'ecg', icon: 'FaHeartbeat', color: '#7FD9C4' },
+    { id: 'ecg', icon: 'FaHeartbeat', color: '#8FD5F0' },
     { id: 'delivery', icon: 'FaBaby', color: '#ec4899' },
     { id: 'ultrasound', icon: 'FaDesktop', color: '#06b6d4' },
     { id: 'ct-scan', icon: 'FaBrain', color: '#14b8a6' },

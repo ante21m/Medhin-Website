@@ -3,11 +3,11 @@ import { Transform } from 'class-transformer';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class CreateLeadershipDto {
-  @ApiProperty({ example: 'Dr. Kassaw Alemayehu' })
+  @ApiProperty({ example: 'Dr. Alelign Dessie' })
   @IsString()
   name: string;
 
-  @ApiPropertyOptional({ example: 'ዶ/ር ቃሳው አለማየሁ' })
+  @ApiPropertyOptional({ example: 'ዶ/ር አለልኝ ደሴ' })
   @IsOptional()
   @IsString()
   nameAm?: string;
