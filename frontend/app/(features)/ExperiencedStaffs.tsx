@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useLocale } from "@/app/locale-provider";
 import { imgVer } from "@/lib/imgver";
+import { physicianImageUrl, physicianImageFallback } from "@/lib/physician-image";
 import { physicians } from "@/app/data/about.config";
 
 export default function ExperiencedStaffs() {
@@ -33,10 +34,11 @@ export default function ExperiencedStaffs() {
               {/* Image */}
               <div className="relative h-[320px] rounded-2xl overflow-hidden">
                 <Image
-                  src={doc.image + imgVer}
+                  src={physicianImageUrl(doc.image) + imgVer}
                   alt={name}
                   fill
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  onError={physicianImageFallback}
                 />
               </div>
 

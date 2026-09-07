@@ -6,6 +6,7 @@ interface LightboxProps {
   open: boolean;
   src?: string;
   caption?: string;
+  fallbackSrc?: string;
   onClose: () => void;
 }
 
@@ -15,7 +16,7 @@ interface LightboxProps {
    - Smooth fade/zoom open & close animations
    - Mobile friendly: responsive sizing, body scroll lock
 */
-export default function Lightbox({ open, src, caption, onClose }: LightboxProps) {
+export default function Lightbox({ open, src, caption, fallbackSrc, onClose }: LightboxProps) {
   const [closing, setClosing] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const onCloseRef = useRef(onClose);
@@ -66,7 +67,15 @@ export default function Lightbox({ open, src, caption, onClose }: LightboxProps)
           className={`lightbox-figure${closing ? " lightbox-figure--closing" : ""}`}
           onClick={(e) => e.stopPropagation()}
         >
-          <img src={src} alt={caption || "Image"} className="lightbox-img" />
+          <img
+            src={src}
+            alt={caption || "Image"}
+            className="lightbox-img"
+            onError={(e) => {
+              const img = e.currentTarget;
+              if (fallbackSrc && img.src !== fallbackSrc) img.src = fallbackSrc;
+            }}
+          />
           {caption && <figcaption className="lightbox-caption">{caption}</figcaption>}
         </figure>
       )}

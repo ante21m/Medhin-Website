@@ -40,7 +40,7 @@ export default function JsonLd() {
     ],
     founder: {
       "@type": "Person",
-      name: "Dr. Kassaw Aragie",
+      name: "Dr. Alelign Dessie",
     },
     sameAs: [
       "https://facebook.com/medhinprimaryhospital",

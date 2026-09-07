@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useLocale } from "@/app/locale-provider";
 import { useRouter } from "next/navigation";
 import { imgVer } from "@/lib/imgver";
+import { physicianImageUrl, physicianImageFallback, PHYSICIAN_PLACEHOLDER } from "@/lib/physician-image";
 import { usePhysicians } from "@/app/hooks/usePhysicians";
 import { FaArrowRight, FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -73,28 +74,29 @@ export default function HomePhysicians() {
         key={doc.id}
         className="group"
         style={{ background: "#fff", border: "1px solid var(--line)", overflow: "hidden", transition: "border-color .3s ease, box-shadow .3s ease" }}
-        onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.boxShadow = "0 18px 42px rgba(6,47,42,0.12)"; }}
+        onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--primary)"; e.currentTarget.style.boxShadow = "0 18px 42px rgba(8,43,69,0.12)"; }}
         onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--line)"; e.currentTarget.style.boxShadow = "none"; }}
       >
         <button
-          onClick={() => setLightbox({ src: doc.image + imgVer, name })}
+          onClick={() => setLightbox({ src: physicianImageUrl(doc.image) + imgVer, name })}
           aria-label={name}
           style={{ display: "block", width: "100%", padding: 0, border: "none", background: "transparent", cursor: "zoom-in" }}
         >
           <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden", background: "linear-gradient(135deg, var(--primary-50), var(--primary-100))" }}>
             {doc.image ? (
               <Image
-                src={doc.image + imgVer}
+                src={physicianImageUrl(doc.image) + imgVer}
                 alt={name}
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 style={{ objectFit: "cover", transition: "transform .5s ease" }}
                 className="group-hover:scale-105"
+                onError={physicianImageFallback}
               />
             ) : (
               <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                 <div style={{ width: 72, height: 72, borderRadius: "50%", background: "var(--bg-deep)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ color: "#7FD9C4", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 26 }}>
+                  <span style={{ color: "#8FD5F0", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 26 }}>
                     {initials(name || doc.name)}
                   </span>
                 </div>
@@ -139,7 +141,7 @@ export default function HomePhysicians() {
     color: "var(--primary)",
     border: "1px solid var(--line)",
     borderRadius: "50%",
-    boxShadow: "0 6px 20px rgba(6,47,42,0.15)",
+    boxShadow: "0 6px 20px rgba(8,43,69,0.15)",
     cursor: "pointer",
     zIndex: 5,
     transition: "background .25s ease, color .25s ease",
@@ -235,6 +237,7 @@ export default function HomePhysicians() {
           <img
             src={lightbox.src}
             alt={lightbox.name}
+            onError={(e) => { const el = e.currentTarget; if (el.src !== PHYSICIAN_PLACEHOLDER) el.src = PHYSICIAN_PLACEHOLDER; }}
             style={{ maxWidth: "90vw", maxHeight: "85vh", objectFit: "contain", borderRadius: 8, boxShadow: "0 30px 80px rgba(0,0,0,0.5)" }}
           />
         </div>

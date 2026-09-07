@@ -17,6 +17,7 @@ import { usePhysicians } from "@/app/hooks/usePhysicians";
 import { useCreateAppointmentMutation } from "@/app/store/api/appointmentApi";
 import type { Physician } from "@/app/data/about.config";
 import { imgVer } from "@/lib/imgver";
+import { physicianImageUrl, physicianImageFallback } from "@/lib/physician-image";
 
 function generateTimeSlots(): string[] {
   const slots: string[] = [];
@@ -97,7 +98,7 @@ export default function AppointmentClient() {
     <Paper radius={3} withBorder p="lg" style={{ position: "sticky", top: 100, borderTop: "4px solid var(--primary)", borderColor: "var(--primary-100)", background: "linear-gradient(180deg, var(--primary-50) 0%, #fff 40%)" }}>
       <Stack align="center" gap="xs" mb="md">
         <Box pos="relative" style={{ width: 100, height: 100, borderRadius: "50%", overflow: "hidden", border: "3px solid #fff", boxShadow: "0 4px 20px rgba(37,99,235,0.15)" }}>
-          <Image src={selectedDoctor.image + imgVer} alt={selectedDoctor.name} fill style={{ objectFit: "cover" }} />
+          <Image src={physicianImageUrl(selectedDoctor.image) + imgVer} alt={selectedDoctor.name} fill style={{ objectFit: "cover" }} onError={physicianImageFallback} />
         </Box>
         <Text fw={800} size="lg" ta="center" style={{ lineHeight: 1.3 }}>{doctorName}</Text>
         <Badge variant="light" color="blue" size="lg" radius="xl">{specialtyName}</Badge>
@@ -151,20 +152,18 @@ export default function AppointmentClient() {
             pos="absolute"
             style={{
               inset: 0,
-              background: "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+              background: "radial-gradient(ellipse at 18% 28%, rgba(20,109,165,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(143,213,240,0.07) 0%, transparent 50%)",
             }}
           />
           <Box className="bykm-grid-overlay" />
           <Container size="sm" pos="relative">
             <Stack align="center" gap={6}>
               <div className="bykm-kicker-line">
-                <span className="bykm-kicker-dash" />
                 <span className="bykm-kicker">{locale === "am" ? "ተጠናቅቋል" : "Confirmed"}</span>
               </div>
               <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(26px, 4vw, 38px)", marginTop: 12 }}>
                 {t("appointment.successTitle")}
               </Title>
-              <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 14 }} />
             </Stack>
           </Container>
         </Box>
@@ -203,7 +202,7 @@ export default function AppointmentClient() {
           style={{
             inset: 0,
             background:
-              "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+              "radial-gradient(ellipse at 18% 28%, rgba(20,109,165,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(143,213,240,0.07) 0%, transparent 50%)",
           }}
         />
         <Box className="bykm-grid-overlay" />
@@ -213,15 +212,12 @@ export default function AppointmentClient() {
         <Container size={1300} pos="relative">
           <Stack align="center" gap={6}>
             <div className="bykm-kicker-line">
-              <span className="bykm-kicker-dash" />
               <span className="bykm-kicker">{locale === "am" ? "ቀጠሮ" : "Appointment"}</span>
             </div>
 
             <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(30px, 4.5vw, 44px)", marginTop: 14 }}>
               {locale === "am" ? "ቀጠሮ ያስይዙ" : "Book an Appointment"}
             </Title>
-
-            <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 16 }} />
 
             <Text size="md" ta="center" maw={520} lh={1.65} style={{ color: "rgba(255,255,255,0.62)" }}>
               {locale === "am" ? "ሐኪም ይምረጡ፣ ቀን እና ሰዓት ይምረጡ፣ ስምዎን ያስገቡ" : "Pick a doctor, choose date & time, enter your details"}
@@ -235,7 +231,7 @@ export default function AppointmentClient() {
               { n: "03", label: t("appointment.yourDetails") },
             ].map((s) => (
               <Flex key={s.n} gap="md" align="center" p="sm" px="md" className="bykm-stat-chip">
-                <Text ff="var(--font-mono), monospace" fw={700} size="lg" c="#7FD9C4">{s.n}</Text>
+                <Text ff="var(--font-mono), monospace" fw={700} size="lg" c="#8FD5F0">{s.n}</Text>
                 <Text c="white" fw={600} size="sm">{s.label}</Text>
               </Flex>
             ))}
@@ -272,7 +268,7 @@ export default function AppointmentClient() {
                     >
                       <Group gap="md" wrap="nowrap">
                         <Box pos="relative" style={{ width: 64, height: 64, borderRadius: "50%", overflow: "hidden", flexShrink: 0 }} bg="gray.1">
-                          <Image src={doc.image + imgVer} alt={doc.name} fill style={{ objectFit: "cover" }} />
+                          <Image src={physicianImageUrl(doc.image) + imgVer} alt={doc.name} fill style={{ objectFit: "cover" }} onError={physicianImageFallback} />
                         </Box>
                         <Box style={{ flex: 1, minWidth: 0 }}>
                           <Text fw={700} size="sm" truncate>{doc.name}</Text>

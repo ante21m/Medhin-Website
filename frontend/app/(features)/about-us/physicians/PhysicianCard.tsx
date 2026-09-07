@@ -6,6 +6,8 @@ import { useState } from "react";
 import { Physician } from "@/app/data/about.config";
 import { useLocale } from "@/app/locale-provider";
 import { imgVer } from "@/lib/imgver";
+import { resolveAssetUrl } from "@/lib/asset-url";
+import { physicianImageUrl, physicianImageFallback, PHYSICIAN_PLACEHOLDER } from "@/lib/physician-image";
 import AppointmentModal from "@/app/components/AppointmentModal";
 import Lightbox from "@/app/components/ui/Lightbox";
 import { ArrowRight } from "lucide-react";
@@ -23,11 +25,12 @@ export default function PhysicianCard({ physician }: { physician: Physician }) {
       {/* IMAGE */}
       <div className="physician-card-image" onClick={() => setPreview(true)}>
         <Image
-          src={physician.image + imgVer}
+          src={physicianImageUrl(physician.image) + imgVer}
           alt={physician.name}
           fill
           sizes="(max-width: 600px) 85vw, (max-width: 1024px) 45vw, 280px"
           className="physician-card-img"
+          onError={physicianImageFallback}
         />
         {physician.available !== undefined && (
           <span className={`physician-avail ${physician.available ? "is-avail" : "is-busy"}`}>
@@ -61,8 +64,9 @@ export default function PhysicianCard({ physician }: { physician: Physician }) {
       {/* IMAGE LIGHTBOX */}
       <Lightbox
         open={preview}
-        src={physician.image + imgVer}
+        src={resolveAssetUrl(physician.image) + imgVer}
         caption={name}
+        fallbackSrc={PHYSICIAN_PLACEHOLDER}
         onClose={() => setPreview(false)}
       />
     </div>

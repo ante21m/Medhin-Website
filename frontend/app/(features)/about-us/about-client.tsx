@@ -5,9 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "@/app/locale-provider";
 import { imgVer } from "@/lib/imgver";
+import { resolveAssetUrl } from "@/lib/asset-url";
+import { physicianImageFallback, PHYSICIAN_PLACEHOLDER } from "@/lib/physician-image";
 import { usePhysicians } from "@/app/hooks/usePhysicians";
 import { useLeadership } from "@/app/hooks/useLeadership";
-import PhysicianCard from "./physicians/PhysicianCard";
+import MedhinTeamCard from "./physicians/MedhinTeamCard";
 import { FaHeartbeat } from "react-icons/fa";
 import { ArrowRight } from "lucide-react";
 import "./about-us.css";
@@ -15,7 +17,7 @@ import "./about-us.css";
 /* =========================================================
    BYKM-STYLE DESIGN TOKENS (adapted to Medhin palette)
 ========================================================= */
-const MINT = "#7FD9C4"; // signature accent on dark sections
+const MINT = "#8FD5F0"; // signature accent on dark sections
 
 /* Local bilingual copy for strings not in the translation files */
 const copy = {
@@ -111,10 +113,7 @@ function Reveal({ children }: { children: ReactNode }) {
 /* Mono eyebrow label with accent dash */
 function Eyebrow({ children, color = MINT }: { children: ReactNode; color?: string }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-      <span style={{ width: 28, height: 1, background: color }} />
-      <span className="bk-eyebrow" style={{ color }}>{children}</span>
-    </div>
+    <span className="bk-eyebrow" style={{ color }}>{children}</span>
   );
 }
 
@@ -132,7 +131,6 @@ export default function AboutClient() {
 
   /* Physicians */
   const [physDept, setPhysDept] = useState("All");
-  const [physAuto, setPhysAuto] = useState(true);
   const departments = ["All", ...new Set(docs.map((p) => p.specialty))];
   const filteredDocs = physDept === "All" ? docs : docs.filter((p) => p.specialty === physDept);
 
@@ -154,18 +152,6 @@ export default function AboutClient() {
     return () => document.removeEventListener("keydown", onEsc);
   }, [activeLeader]);
 
-  useEffect(() => {
-    if (!physAuto || physDept !== "All") return;
-    const el = document.querySelector(".phys-carousel-track") as HTMLElement;
-    if (!el) return;
-    const timer = setInterval(() => {
-      const card = el.querySelector(".phys-slide") as HTMLElement;
-      if (!card) return;
-      el.scrollBy({ left: card.offsetWidth + 20, behavior: "smooth" });
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [physAuto, physDept]);
-
   const lname = (l: { name: string; nameAm?: string }) => (locale === "am" && l.nameAm ? l.nameAm : l.name);
   const lrole = (l: { role: string; roleAm?: string }) => (locale === "am" && l.roleAm ? l.roleAm : l.role);
 
@@ -174,8 +160,8 @@ export default function AboutClient() {
       {/* ══════════════ HERO ══════════════ */}
       <Reveal>
         <section className="bk-deep" style={{ padding: "96px 24px 84px" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.55) 0%, transparent 65%)" }} />
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 18% 28%, rgba(20,109,165,0.55) 0%, transparent 65%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 82% 72%, rgba(143,213,240,0.07) 0%, transparent 50%)" }} />
           <div className="bk-grid-overlay" />
           <div className="bk-geo" style={{ width: 380, height: 380, top: -90, right: -90, transform: "rotate(12deg)", opacity: 0.5 }} />
           <div className="bk-geo" style={{ width: 210, height: 210, bottom: 30, right: "32%", transform: "rotate(45deg)", opacity: 0.3 }} />
@@ -184,11 +170,10 @@ export default function AboutClient() {
               <div>
                 <Eyebrow>{c.eyebrow}</Eyebrow>
                 <h1 className="bk-display" style={{ fontSize: "clamp(2.4rem, 4.8vw, 3.8rem)", fontWeight: 600, lineHeight: 1.08, margin: "18px 0 0" }}>
-                  <span style={{ background: "linear-gradient(90deg, #ffffff 35%, rgba(127,217,196,0.85))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
+                  <span style={{ background: "linear-gradient(90deg, #ffffff 35%, rgba(143,213,240,0.85))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>
                     {t("aboutPage.heroTitle")}
                   </span>
                 </h1>
-                <div style={{ width: 64, height: 4, background: MINT, marginTop: 32 }} />
               </div>
               <div style={{ paddingTop: 10 }}>
                 <div className="bk-glass-card">
@@ -215,7 +200,6 @@ export default function AboutClient() {
               {[t("about.intro"), t("about.history"), t("about.today")].map((text, i) => (
                 <div key={i} className="bk-card">
                   <div className="bk-numbadge"><span>{String(i + 1).padStart(2, "0")}</span></div>
-                  <div style={{ width: 40, height: 3, background: "var(--primary-900)", marginBottom: 16 }} />
                   <h3 className="bk-display" style={{ fontSize: "1.25rem", fontWeight: 600, color: "var(--ink)", marginBottom: 12 }}>{c.cards[i].title}</h3>
                   <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: 1.75, color: "var(--ink-soft)" }}>{text}</p>
                 </div>
@@ -228,14 +212,14 @@ export default function AboutClient() {
       {/* ══════════════ MISSION & VISION ══════════════ */}
       <Reveal>
         <section className="bk-deep" style={{ padding: "90px 24px" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 22% 38%, rgba(11,93,82,0.45) 0%, transparent 60%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 22% 38%, rgba(20,109,165,0.45) 0%, transparent 60%)" }} />
           <div className="bk-grid-overlay" style={{ backgroundSize: "60px 60px" }} />
           <div className="bk-geo" style={{ width: 220, height: 220, top: 40, right: -40, transform: "rotate(12deg)", opacity: 0.35 }} />
           <div style={{ maxWidth: 1240, margin: "0 auto", position: "relative", zIndex: 10 }}>
             <Eyebrow>{c.vmLabel}</Eyebrow>
             <div className="bk-vm-grid" style={{ marginTop: 26 }}>
               {/* Mission */}
-              <div style={{ background: "linear-gradient(135deg, rgba(11,93,82,0.30), rgba(6,47,42,0.70))", border: "1px solid rgba(127,217,196,0.22)", padding: "38px 34px" }}>
+              <div style={{ background: "linear-gradient(135deg, rgba(20,109,165,0.30), rgba(8,43,69,0.70))", border: "1px solid rgba(143,213,240,0.22)", padding: "38px 34px" }}>
                 <span className="bk-eyebrow" style={{ color: MINT, fontSize: "0.66rem" }}>{c.missionKicker}</span>
                 <h2 className="bk-display" style={{ fontSize: "clamp(1.5rem, 2.4vw, 2rem)", fontWeight: 600, color: "#fff", margin: "14px 0 12px" }}>
                   {t("mission.title")}
@@ -247,7 +231,7 @@ export default function AboutClient() {
                   {c.values.map((v, i) => (
                     <div key={i} className="bk-mini-card">
                       <div style={{ position: "relative", zIndex: 1 }}>
-                        <div style={{ width: 42, height: 42, borderRadius: 999, background: "linear-gradient(135deg, #0B5D52, #062F2A)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.05rem", marginBottom: 14, boxShadow: "0 8px 20px rgba(11,93,82,0.35)" }}>
+                        <div style={{ width: 42, height: 42, borderRadius: 999, background: "linear-gradient(135deg, #146DA5, #0B4A7C)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.05rem", marginBottom: 14, boxShadow: "0 8px 20px rgba(20,109,165,0.35)" }}>
                           {v.icon}
                         </div>
                         <h3 className="bk-display" style={{ fontSize: "0.98rem", fontWeight: 600, color: "#fff", marginBottom: 6 }}>{v.title}</h3>
@@ -259,7 +243,7 @@ export default function AboutClient() {
                 </div>
               </div>
               {/* Vision */}
-              <div style={{ background: "rgba(6,47,42,0.6)", border: "1px solid rgba(255,255,255,0.1)", padding: "30px 28px" }}>
+              <div style={{ background: "rgba(8,43,69,0.6)", border: "1px solid rgba(255,255,255,0.1)", padding: "30px 28px" }}>
                 <span className="bk-eyebrow" style={{ color: MINT, fontSize: "0.66rem" }}>{c.visionKicker}</span>
                 <h2 className="bk-display" style={{ fontSize: "1.4rem", fontWeight: 600, color: "#fff", margin: "12px 0 10px" }}>
                   {t("vision.title")}
@@ -294,7 +278,6 @@ export default function AboutClient() {
               {c.timeline.map((item, i) => (
                 <div key={i} className="bk-card">
                   <div className="bk-numbadge"><span>{String(i + 1).padStart(2, "0")}</span></div>
-                  <div style={{ width: 40, height: 3, background: "var(--primary-900)", marginBottom: 16 }} />
                   <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--primary)", marginBottom: 8, fontWeight: 600 }}>
                     {item.year}
                   </div>
@@ -309,7 +292,7 @@ export default function AboutClient() {
 
       {/* ══════════════ COMMITMENT BANNER ══════════════ */}
       <Reveal>
-        <section style={{ background: "linear-gradient(90deg, #0B5D52, #0E2622)", color: "#fff", padding: "72px 24px" }}>
+        <section style={{ background: "linear-gradient(90deg, #146DA5, #0A3A62)", color: "#fff", padding: "72px 24px" }}>
           <div style={{ maxWidth: 1240, margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 36 }}>
             <div style={{ maxWidth: 720 }}>
               <Eyebrow>{c.promiseLabel}</Eyebrow>
@@ -324,7 +307,7 @@ export default function AboutClient() {
               </p>
             </div>
             <div style={{ flexShrink: 0 }}>
-              <div style={{ width: 96, height: 96, borderRadius: 999, background: "linear-gradient(135deg, #0E8371, #062F2A)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}>
+              <div style={{ width: 96, height: 96, borderRadius: 999, background: "linear-gradient(135deg, #1585C9, #0B4A7C)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}>
                 <FaHeartbeat size={40} color="#fff" />
               </div>
             </div>
@@ -335,7 +318,7 @@ export default function AboutClient() {
       {/* ══════════════ LEADERSHIP ══════════════ */}
       <Reveal>
         <section className="bk-deep" style={{ padding: "96px 24px" }}>
-          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 30% 30%, rgba(11,93,82,0.4) 0%, transparent 65%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 30% 30%, rgba(20,109,165,0.4) 0%, transparent 65%)" }} />
           <div className="bk-grid-overlay" style={{ backgroundSize: "60px 60px" }} />
           <div className="bk-geo" style={{ width: 250, height: 250, top: -70, right: -30, transform: "rotate(12deg)", opacity: 0.3 }} />
           <div style={{ maxWidth: 1240, margin: "0 auto", position: "relative", zIndex: 10 }}>
@@ -366,7 +349,7 @@ export default function AboutClient() {
                       onMouseLeave={(e) => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}
                     >
                       <div style={{ position: "relative", width: "100%", aspectRatio: "3/4", overflow: "hidden", background: "var(--line-soft)" }}>
-                        <Image src={(leader.image || "/leadership/placeholder.jpg") + imgVer} alt={lname(leader)} fill sizes="296px" style={{ objectFit: "cover", transition: "transform .5s ease" }} />
+                        <Image src={(resolveAssetUrl(leader.image) || PHYSICIAN_PLACEHOLDER) + imgVer} alt={lname(leader)} fill sizes="296px" style={{ objectFit: "cover", transition: "transform .5s ease" }} onError={physicianImageFallback} />
                       </div>
                       <div style={{ padding: "22px 18px 20px", textAlign: "center" }}>
                         <h3 style={{ fontSize: "1.02rem", fontWeight: 700, color: "var(--ink)", margin: "0 0 6px" }}>{lname(leader)}</h3>
@@ -401,16 +384,16 @@ export default function AboutClient() {
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              style={{ position: "absolute", top: 16, right: 16, width: 40, height: 40, borderRadius: 999, border: "none", background: "rgba(6,47,42,0.85)", color: "#fff", fontSize: 18, cursor: "pointer", display: "grid", placeItems: "center", zIndex: 10, transition: "background .2s" }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(6,47,42,1)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(6,47,42,0.85)"; }}
+              style={{ position: "absolute", top: 16, right: 16, width: 40, height: 40, borderRadius: 999, border: "none", background: "rgba(8,43,69,0.85)", color: "#fff", fontSize: 18, cursor: "pointer", display: "grid", placeItems: "center", zIndex: 10, transition: "background .2s" }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(8,43,69,1)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(8,43,69,0.85)"; }}
               onClick={() => setActiveLeader(null)}
             >
               ✕
             </button>
             <div className="hgrid modalgrid">
               <div style={{ position: "relative", width: "100%", aspectRatio: "3/4", borderRadius: 2, overflow: "hidden", background: "var(--line-soft)" }}>
-                <Image src={(activeLeader.image || "/leadership/placeholder.jpg") + imgVer} alt={lname(activeLeader)} fill sizes="280px" style={{ objectFit: "cover" }} />
+                <Image src={(resolveAssetUrl(activeLeader.image) || PHYSICIAN_PLACEHOLDER) + imgVer} alt={lname(activeLeader)} fill sizes="280px" style={{ objectFit: "cover" }} onError={physicianImageFallback} />
               </div>
               <div>
                 <h3 className="bk-display" style={{ fontSize: "1.35rem", fontWeight: 600, color: "var(--ink)", margin: "0 0 6px" }}>{lname(activeLeader)}</h3>
@@ -449,43 +432,33 @@ export default function AboutClient() {
         </div>
       )}
 
-      {/* ══════════════ PHYSICIANS ══════════════ */}
+      {/* ══════════════ PHYSICIANS (Medhin team style) ══════════════ */}
       <Reveal>
-        <section style={{ padding: "96px 24px", background: "#fff" }}>
+        <section className="medhin-team">
           <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: 34 }}>
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <Eyebrow color="var(--primary)">{c.staffLabel}</Eyebrow>
-              </div>
-              <h2 className="bk-display" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 600, color: "var(--ink)", margin: "14px 0 0" }}>
-                {t("staff.title")}
-              </h2>
+            <div className="medhin-team-head">
+              <span className="medhin-team-eyebrow">{c.staffLabel}</span>
+              <h2 className="medhin-team-title">{t("staff.title")}</h2>
+              <p className="medhin-team-sub">{t("staff.subtitle")}</p>
             </div>
 
-            <div style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap", marginBottom: 32 }}>
+            <div className="medhin-team-filters">
               {departments.map((d) => (
-                <button key={d} onClick={() => setPhysDept(d)} className={`bk-chip${physDept === d ? " active" : ""}`}>
+                <button key={d} onClick={() => setPhysDept(d)} className={`medhin-team-filter${physDept === d ? " active" : ""}`}>
                   {d === "All" ? "All" : t(`departments.${d.toLowerCase()}`)}
                 </button>
               ))}
             </div>
 
-            <div
-              className="phys-carousel-track"
-              style={{ display: "flex", gap: 20, overflowX: "auto", scrollBehavior: "smooth", padding: "8px 4px 16px", scrollbarWidth: "none" } as React.CSSProperties}
-              onMouseEnter={() => setPhysAuto(false)}
-              onMouseLeave={() => setPhysAuto(true)}
-            >
+            <div className="medhin-team-grid">
               {filteredDocs.slice(0, 10).map((p) => (
-                <div key={p.id} className="phys-slide" style={{ minWidth: 260, maxWidth: 260, flexShrink: 0 }}>
-                  <PhysicianCard physician={p} />
-                </div>
+                <MedhinTeamCard key={p.id} physician={p} />
               ))}
             </div>
 
-            <div style={{ textAlign: "center", marginTop: 28 }}>
-              <Link href="/about-us/physicians" className="bk-outline-btn">
-                {t("aboutPage.viewAllDoctors")} <ArrowRight size={13} />
+            <div className="medhin-team-more">
+              <Link href="/about-us/physicians">
+                {t("aboutPage.viewAllDoctors")} <ArrowRight size={14} />
               </Link>
             </div>
           </div>
@@ -494,7 +467,7 @@ export default function AboutClient() {
 
       {/* ══════════════ CTA ══════════════ */}
       <Reveal>
-        <section style={{ background: "linear-gradient(90deg, #0B5D52, #0E2622)", color: "#fff", padding: "84px 24px", textAlign: "center" }}>
+        <section style={{ background: "linear-gradient(90deg, #146DA5, #0A3A62)", color: "#fff", padding: "84px 24px", textAlign: "center" }}>
           <div style={{ maxWidth: 640, margin: "0 auto" }}>
             <h2 className="bk-display" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 600, margin: "0 0 14px" }}>
               {t("aboutPage.ctaTitle")}

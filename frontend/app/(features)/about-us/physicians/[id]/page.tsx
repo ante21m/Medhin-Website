@@ -7,6 +7,8 @@ import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 import { useLocale } from "@/app/locale-provider";
 import { imgVer } from "@/lib/imgver";
+import { resolveAssetUrl } from "@/lib/asset-url";
+import { physicianImageUrl, physicianImageFallback, PHYSICIAN_PLACEHOLDER } from "@/lib/physician-image";
 import { usePhysicianById } from "@/app/hooks/usePhysicians";
 import {
   Paper, Table, Badge, Group, Stack, Text, Title, Grid,
@@ -39,7 +41,7 @@ export default function PhysicianProfile() {
 
   return (
     <Box bg="gray.0" mih="100vh">
-      <Box h={6} style={{ background: "linear-gradient(90deg, var(--primary), #1d4ed8, var(--primary))" }} />
+      <Box h={6} style={{ background: "linear-gradient(90deg, var(--primary), #0F5A86, var(--primary))" }} />
 
       <Box maw={1120} mx="auto" px="md" py="lg">
         {/* BACK LINK */}
@@ -64,7 +66,7 @@ export default function PhysicianProfile() {
                 pos="relative"
                 h={{ base: 300, md: 380 }}
                 style={{
-                  background: "linear-gradient(135deg, #1d4ed8, var(--primary))",
+                  background: "linear-gradient(135deg, #0F5A86, var(--primary))",
                   overflow: "hidden",
                   cursor: "zoom-in",
                 }}
@@ -80,12 +82,13 @@ export default function PhysicianProfile() {
                 <Box pos="absolute" style={{ bottom: -32, right: -32, width: 160, height: 160, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
                 <Box pos="absolute" style={{ top: -32, left: -32, width: 128, height: 128, borderRadius: "50%", background: "rgba(255,255,255,0.05)" }} />
                 <Image
-                  src={physician.image + imgVer}
+                  src={physicianImageUrl(physician.image) + imgVer}
                   alt={physician.name}
                   fill
                   style={{ objectFit: "cover", objectPosition: "top", transition: "transform 0.6s" }}
                   className="hover:scale-105"
                   priority
+                  onError={physicianImageFallback}
                 />
                 {physician.available !== undefined && (
                   <Badge
@@ -174,7 +177,7 @@ export default function PhysicianProfile() {
                   c="white"
                   style={{
                     display: "inline-flex", alignItems: "center", gap: 10,
-                    background: "linear-gradient(135deg, var(--primary), #1d4ed8)",
+                    background: "linear-gradient(135deg, var(--primary), #0F5A86)",
                     padding: "10px 24px", borderRadius: 10, fontWeight: 700, fontSize: 14,
                     textDecoration: "none", boxShadow: "0 4px 14px rgba(37,99,235,0.3)",
                     alignSelf: "flex-start",
@@ -430,7 +433,7 @@ export default function PhysicianProfile() {
                 c="white"
                 style={{
                   display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
-                  background: "linear-gradient(135deg, var(--primary), #1d4ed8)",
+                  background: "linear-gradient(135deg, var(--primary), #0F5A86)",
                   padding: "14px 24px", borderRadius: 10, fontWeight: 700, fontSize: 14,
                   textDecoration: "none", boxShadow: "0 4px 14px rgba(37,99,235,0.3)",
                 }}
@@ -446,8 +449,9 @@ export default function PhysicianProfile() {
       {/* IMAGE LIGHTBOX */}
       <Lightbox
         open={preview}
-        src={physician.image + imgVer}
+        src={resolveAssetUrl(physician.image) + imgVer}
         caption={fullName}
+        fallbackSrc={PHYSICIAN_PLACEHOLDER}
         onClose={() => setPreview(false)}
       />
     </Box>

@@ -68,7 +68,7 @@ export default function AdminLoginPage() {
       <Container size="xs" py={120}>
         <Paper withBorder shadow="md" p="xl" radius="lg">
           <Stack align="center" gap="lg">
-            <Box style={{ width: 56, height: 56, borderRadius: 16, background: '#1d4ed8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Box style={{ width: 56, height: 56, borderRadius: 16, background: '#0F5A86', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {isRegister ? <UserPlus size={24} color="#fff" /> : <LogIn size={24} color="#fff" />}
             </Box>
             <Title order={2} fw={700}>{isRegister ? 'Create Account' : 'Admin Login'}</Title>

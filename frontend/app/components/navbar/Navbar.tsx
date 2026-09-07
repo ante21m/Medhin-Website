@@ -50,7 +50,7 @@ export default function Navbar() {
         position: "sticky",
         top: 0,
         zIndex: 100,
-        background: scrolled ? "#062F2A" : "#062F2A",
+        background: scrolled ? "#0B4A7C" : "#0B4A7C",
         boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.35)" : "none",
         borderBottom: "1px solid rgba(255,255,255,0.08)",
         transition: "box-shadow 0.35s ease",
@@ -157,7 +157,7 @@ export default function Navbar() {
           })}
         </ul>
         <div style={{ padding: "0 24px 26px" }}>
-          <Link href="/appointment" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 9, padding: "13px 20px", borderRadius: 4, background: "linear-gradient(135deg, #0E8371, #0B5D52)", color: "#fff", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none" }}>
+          <Link href="/appointment" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 9, padding: "13px 20px", borderRadius: 4, background: "linear-gradient(135deg, #1585C9, #146DA5)", color: "#fff", fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none" }}>
             <FaCalendarCheck size={13} /> {t("nav.book")}
           </Link>
         </div>

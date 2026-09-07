@@ -29,7 +29,7 @@ const defaultDepartments = [
   { id: "laboratory", icon: "FaFlask", color: "#8b5cf6" },
   { id: "xray", icon: "FaXRay", color: "#f97316" },
   { id: "surgical", icon: "FaCut", color: "var(--primary)" },
-  { id: "ecg", icon: "FaHeartbeat", color: "#7FD9C4" },
+  { id: "ecg", icon: "FaHeartbeat", color: "#8FD5F0" },
   { id: "delivery", icon: "FaBaby", color: "#ec4899" },
   { id: "ultrasound", icon: "FaDesktop", color: "#06b6d4" },
   { id: "ct-scan", icon: "FaBrain", color: "#14b8a6" },
@@ -56,7 +56,7 @@ export default function HomePage() {
 
   const stats = [
     { end: parseInt(settings.home_stats_experience || "2"), suffix: settings.home_stats_experience_suffix || "+", label: t("homePage.statsExperience"), icon: "🏥", color: "var(--primary)" },
-    { end: parseInt(settings.home_stats_doctors || "50"), suffix: settings.home_stats_doctors_suffix || "+", label: t("homePage.statsDoctors"), icon: "👨‍⚕️", color: "#0B5D52" },
+    { end: parseInt(settings.home_stats_doctors || "50"), suffix: settings.home_stats_doctors_suffix || "+", label: t("homePage.statsDoctors"), icon: "👨‍⚕️", color: "#146DA5" },
     { end: parseInt(settings.home_stats_patients || "100"), suffix: settings.home_stats_patients_suffix || "K+", label: t("homePage.statsPatients"), icon: "❤️", color: "var(--urgent)" },
     { end: parseInt(settings.home_stats_departments || "12"), suffix: settings.home_stats_departments_suffix || "+", label: t("homePage.statsDepartments"), icon: "🩺", color: "var(--accent)" },
   ];
@@ -166,7 +166,7 @@ export default function HomePage() {
         <div className="m-pattern-dots--light" style={{ position: "absolute", inset: 0, opacity: 0.5 }} />
         <div className="m-blob" style={{ width: 360, height: 360, top: -120, left: "50%", transform: "translateX(-50%)", background: "var(--primary-700)", opacity: 0.5 }} />
         <div className="m-container" style={{ maxWidth: 620, position: "relative", zIndex: 1 }}>
-          <svg className="m-vital" viewBox="0 0 300 34" style={{ maxWidth: 220, margin: "0 auto 22px", color: "#7FD9C4" }} aria-hidden="true">
+          <svg className="m-vital" viewBox="0 0 300 34" style={{ maxWidth: 220, margin: "0 auto 22px", color: "#8FD5F0" }} aria-hidden="true">
             <path d="M0 17 H100 L115 3 L131 31 L147 5 L159 17 H300" stroke="currentColor" strokeWidth="2.5" />
           </svg>
           <h2 className="m-h2" style={{ marginBottom: 14 }}>{t("homePage.ctaReady")}</h2>

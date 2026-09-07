@@ -17,12 +17,12 @@
 }
 
 .lang-toggle {
-  border: 1px solid #2563eb;
+  border: 1px solid #146DA5;
   padding: 0.4rem 1rem;
   border-radius: 20px;
   cursor: pointer;
   background: #fff;
-  color: #2563eb;
+  color: #146DA5;
 }
 
 /* =========================
@@ -45,7 +45,7 @@
 }
 
 .department-tabs button.active {
-  background: #2563eb;
+  background: #146DA5;
   color: white;
 }
 
@@ -150,7 +150,7 @@
   padding: 10px;
   border-radius: 8px;
   background: #e0f2fe;
-  color: #2563eb;
+  color: #146DA5;
   font-size: .84rem;
   font-weight: 600;
   transition: .2s;
@@ -161,7 +161,7 @@
 }
 
 .book-btn:hover {
-  background: #2563eb;
+  background: #146DA5;
   color: #fff;
   text-decoration: none;
 }
@@ -362,7 +362,7 @@
 .leader-card p {
   margin-top: 6px;
   margin-bottom: 18px;
-  color: #2563eb;
+  color: #146DA5;
   font-weight: 600;
   font-size: 14px;
 }
@@ -373,7 +373,7 @@
   margin-bottom: 22px;
   font-size: 13px;
   font-weight: 600;
-  color: #2563eb;
+  color: #146DA5;
   text-decoration: none;
   position: relative;
 }
@@ -385,7 +385,7 @@
   bottom: -3px;
   width: 0;
   height: 2px;
-  background: #2563eb;
+  background: #146DA5;
   transition: width 0.25s ease;
 }
 
@@ -514,7 +514,7 @@
   transform: scale(0.9) rotate(-3deg);
 }
 .lang-toggle:hover {
-  background: #2563eb;
+  background: #146DA5;
   color: #ffffff;
 }
 /* =========================
@@ -644,7 +644,7 @@
 .vm-block h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: #2563eb;
+  color: #146DA5;
 }
 
 .vm-block p {
@@ -684,7 +684,7 @@
 .bk-deep {
   position: relative;
   overflow: hidden;
-  background: #071511;
+  background: var(--bg-deep);
 }
 
 .bk-grid-overlay {
@@ -692,15 +692,15 @@
   inset: 0;
   opacity: 0.03;
   background-image:
-    linear-gradient(rgba(127,217,196,1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(127,217,196,1) 1px, transparent 1px);
+    linear-gradient(rgba(143,213,240,1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143,213,240,1) 1px, transparent 1px);
   background-size: 80px 80px;
   pointer-events: none;
 }
 
 .bk-geo {
   position: absolute;
-  border: 1px solid rgba(127,217,196,0.16);
+  border: 1px solid rgba(143,213,240,0.16);
   border-radius: 2px;
   pointer-events: none;
 }
@@ -742,7 +742,7 @@
   left: 0;
   width: 3px;
   height: 100%;
-  background: linear-gradient(180deg, rgba(127,217,196,0.7), transparent);
+  background: linear-gradient(180deg, rgba(143,213,240,0.7), transparent);
 }
 
 /* Numbered card (skew badge + top accent border) */
@@ -756,7 +756,7 @@
 }
 .bk-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(14,38,34,0.15);
+  box-shadow: 0 20px 40px rgba(7,32,47,0.15);
 }
 .bk-numbadge {
   position: absolute;
@@ -764,7 +764,7 @@
   right: 0;
   width: 64px;
   height: 64px;
-  background: #062F2A;
+  background: #0B4A7C;
   transform: translate(16px, -50%) skewX(-30deg);
   display: flex;
   align-items: center;
@@ -772,7 +772,7 @@
 }
 .bk-numbadge span {
   transform: skewX(30deg);
-  color: #7FD9C4;
+  color: #8FD5F0;
   font-family: var(--font-mono);
   font-weight: 600;
   font-size: 1.05rem;
@@ -816,7 +816,7 @@
 }
 .bk-mini-card:hover {
   background: rgba(255,255,255,0.09);
-  border-color: rgba(127,217,196,0.35);
+  border-color: rgba(143,213,240,0.35);
 }
 
 /* Leadership carousel */
@@ -829,7 +829,7 @@
   background: #fff;
   border-radius: 3px;
   overflow: hidden;
-  border-top: 3px solid #7FD9C4;
+  border-top: 3px solid #8FD5F0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -841,7 +841,7 @@
   align-items: center;
   gap: 10px;
   padding: 15px 34px;
-  background: linear-gradient(135deg, #084A42, #062F2A);
+  background: linear-gradient(135deg, #0F5A86, #0B4A7C);
   color: #fff;
   font-family: var(--font-mono), monospace;
   font-weight: 600;
@@ -861,11 +861,11 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0E8371, #0B5D52);
+  background: linear-gradient(135deg, #1585C9, #146DA5);
   transition: left 0.3s ease;
 }
 .bk-btn:hover::before { left: 0; }
-.bk-btn:hover { box-shadow: 0 12px 30px rgba(11,93,82,0.35); color: #fff; }
+.bk-btn:hover { box-shadow: 0 12px 30px rgba(20,109,165,0.35); color: #fff; }
 .bk-btn > * { position: relative; z-index: 1; }
 
 .bk-btn-ghost {
@@ -925,9 +925,9 @@
 }
 .bk-chip:hover { border-color: var(--primary); color: var(--primary); }
 .bk-chip.active {
-  background: #062F2A;
-  border-color: #062F2A;
-  color: #7FD9C4;
+  background: #0B4A7C;
+  border-color: #0B4A7C;
+  color: #8FD5F0;
 }
 
 /* =========================
@@ -1005,11 +1005,11 @@
   width: 100%;
   padding: 6px 4px 20px;
   scrollbar-width: 9;
-  scrollbar-color: rgba(11,93,82,0.4) transparent;
+  scrollbar-color: rgba(20,109,165,0.4) transparent;
 }
 .physicians-carousel::-webkit-scrollbar { height: 9px; }
 .physicians-carousel::-webkit-scrollbar-thumb {
-  background: rgba(11,93,82,0.35);
+  background: rgba(20,109,165,0.35);
   border-radius: 999px;
 }
 .physicians-carousel::-webkit-scrollbar-track { background: transparent; }
@@ -1031,8 +1031,8 @@
 }
 .physician-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 50px rgba(11,93,82,0.16);
-  border-color: rgba(11,93,82,0.35);
+  box-shadow: 0 24px 50px rgba(20,109,165,0.16);
+  border-color: rgba(20,109,165,0.35);
 }
 
 .physician-card-image {
@@ -1066,14 +1066,14 @@
   color: #fff;
   backdrop-filter: blur(6px);
 }
-.physician-avail.is-avail { background: rgba(11,93,82,0.85); }
+.physician-avail.is-avail { background: rgba(20,109,165,0.85); }
 .physician-avail.is-busy { background: rgba(217,119,6,0.85); }
 .physician-avail-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #7FD9C4;
-  box-shadow: 0 0 0 3px rgba(127,217,196,0.25);
+  background: #8FD5F0;
+  box-shadow: 0 0 0 3px rgba(143,213,240,0.25);
 }
 .is-busy .physician-avail-dot { background: #fbbf24; box-shadow: 0 0 0 3px rgba(251,191,36,0.25); }
 
@@ -1130,7 +1130,7 @@
   margin: auto 0 0;
   padding: 12px 14px;
   border-radius: 2px;
-  background: linear-gradient(135deg, var(--primary), #0B5D52);
+  background: linear-gradient(135deg, var(--primary), #146DA5);
   color: #fff;
   font-family: var(--font-mono), monospace;
   font-size: 0.7rem;
@@ -1142,9 +1142,9 @@
   transition: box-shadow 0.25s ease, transform 0.1s ease;
 }
 .physician-card .book-btn:hover {
-  background: linear-gradient(135deg, #0E8371, #062F2A);
+  background: linear-gradient(135deg, #1585C9, #0B4A7C);
   color: #fff;
-  box-shadow: 0 12px 30px rgba(11,93,82,0.35);
+  box-shadow: 0 12px 30px rgba(20,109,165,0.35);
 }
 
 /* RESPONSIVE — CAROUSEL SLIDE WIDTHS */
@@ -1160,4 +1160,202 @@
   .physicians-carousel { gap: 16px; }
   .physicians-hero { padding: 72px 20px 60px; }
   .physicians-list-section { padding: 64px 20px 76px; }
+}
+/* =========================
+   MEDHIN TEAM (soft clinical style)
+   Distinct from the sharp BYKM/Dr Kassaw look.
+========================= */
+.medhin-team {
+  padding: 96px 24px;
+  background: #F2F7FB;
+}
+.medhin-team-head {
+  text-align: center;
+  margin-bottom: 38px;
+}
+.medhin-team-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 20px;
+  border-radius: 999px;
+  background: #E1EFF8;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.medhin-team-title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 16px 0 10px;
+}
+.medhin-team-sub {
+  color: var(--ink-soft);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.medhin-team-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 0 0 38px;
+}
+.medhin-team-filter {
+  padding: 9px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(20,109,165,0.25);
+  background: #fff;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.medhin-team-filter:hover {
+  border-color: var(--primary);
+  background: #E1EFF8;
+}
+.medhin-team-filter.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(20,109,165,0.25);
+}
+
+.medhin-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  gap: 24px;
+}
+
+.medhin-team-card {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 14px 14px 18px;
+  box-shadow: 0 12px 32px rgba(7,32,47,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.medhin-team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px rgba(20,109,165,0.16);
+}
+.medhin-team-photo {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #E1EFF8;
+  cursor: zoom-in;
+}
+.medhin-team-img {
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+.medhin-team-card:hover .medhin-team-img { transform: scale(1.05); }
+.medhin-team-status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  backdrop-filter: blur(6px);
+}
+.medhin-team-status.on { background: rgba(20,109,165,0.9); }
+.medhin-team-status.off { background: rgba(217,119,6,0.9); }
+.medhin-team-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.medhin-team-info {
+  text-align: left;
+  padding: 16px 6px 4px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.medhin-team-info h3 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+.medhin-team-specialty {
+  margin: 0 0 12px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.84rem;
+}
+.medhin-team-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-decoration: none;
+  width: fit-content;
+}
+.medhin-team-link:hover { text-decoration: underline; }
+.medhin-team-book {
+  margin-top: auto;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #146DA5, #0F5A86);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.25s ease;
+}
+.medhin-team-book:hover {
+  box-shadow: 0 12px 26px rgba(20,109,165,0.35);
+  transform: translateY(-1px);
+}
+
+.medhin-team-more {
+  text-align: center;
+  margin-top: 42px;
+}
+.medhin-team-more a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.medhin-team-more a:hover {
+  background: #0F5A86;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 560px) {
+  .medhin-team { padding: 64px 20px; }
+  .medhin-team-grid { gap: 16px; }
 }

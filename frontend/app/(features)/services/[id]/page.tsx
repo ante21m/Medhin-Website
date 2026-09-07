@@ -13,7 +13,7 @@ import {
   ArrowLeft, ArrowRight, CheckCircle, Clock, ShieldCheck
 } from "lucide-react";
 
-const unified = { c: "blue" as const, from: "var(--primary)", to: "#1d4ed8" };
+const unified = { c: "blue" as const, from: "var(--primary)", to: "#0F5A86" };
 
 export default function ServiceDetailPage() {
   const { id } = useParams<{ id: string }>();

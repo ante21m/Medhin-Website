@@ -252,8 +252,8 @@
   },
 
   "staff": {
-    "title": "Experienced Medical Staff",
-    "subtitle": "Our highly qualified doctors provide world-class healthcare with compassion and expertise."
+    "title": "Our Team at Medhin",
+    "subtitle": "The Medhin Primary Hospital team of qualified doctors provides compassionate, patient-centered care in Woldia."
   },
 
   "ratings": {
@@ -312,10 +312,10 @@
    "certificates": "Certificates",
    "awards": "Awards",
 
-   "kassaw": {
-     "name": "Dr. Kassaw Alemayehu",
+   "alelign": {
+     "name": "Dr. Alelign Dessie",
      "role": "CEO & Medical Director",
-     "bio": "Dr Kassaw provides strategic leadership and ensures clinical excellence across all departments of the clinic.",
+     "bio": "Dr. Alelign provides strategic leadership and ensures clinical excellence across all departments of Medhin Primary Hospital.",
      "experience": "Over 15 years of medical leadership and clinical practice in specialized healthcare.",
      "certificates": "MD Degree | Healthcare Leadership Certification | Clinical Governance Training",
      "awards": "Best Medical Director Award 2020 | Excellence in Healthcare Leadership 2022"
@@ -608,6 +608,19 @@
     "deptUltrasoundDesc": "Women's health services including prenatal and postnatal care.",
     "deptCtScan": "CT Scan",
     "deptCtScanDesc": "High-resolution CT scan for fast and accurate diagnostic imaging.",
+    "deptCardiology": "Cardiology",
+    "deptNeurology": "Neurology",
+    "deptInternalMedicine": "Internal Medicine",
+    "deptGastroenterology": "Gastroenterology",
+    "deptOrthopedics": "Orthopedics",
+    "deptDermatology": "Dermatology",
+    "deptRadiology": "Radiology",
+    "deptPediatrics": "Pediatrics",
+    "deptGynecology": "Gynecology",
+    "deptMaternity": "Maternity",
+    "deptGeneral": "General",
+    "deptMaxillofacial": "Oral & Maxillofacial",
+    "deptMaxillofacialDesc": "Specialized surgical care for the face, jaw, and oral cavity.",
     "partner1": "Woldia University",
     "partner2": "North Wollo Health Bureau",
     "partner3": "Ethiopian Medical Association",

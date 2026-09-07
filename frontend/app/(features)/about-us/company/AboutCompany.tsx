@@ -27,13 +27,13 @@ type Leader = {
 const leadership: Leader[] = [
   {
     id: 1,
-    image: "/leadership/dr-kassaw.jpg",
-    nameKey: "leadership.kassaw.name",
-    roleKey: "leadership.kassaw.role",
-    bioKey: "leadership.kassaw.bio",
-    experienceKey: "leadership.kassaw.experience",
-    certificatesKey: "leadership.kassaw.certificates",
-    awardsKey: "leadership.kassaw.awards",
+    image: "/images/physicians/dr-alelign-dessie.jpg",
+    nameKey: "leadership.alelign.name",
+    roleKey: "leadership.alelign.role",
+    bioKey: "leadership.alelign.bio",
+    experienceKey: "leadership.alelign.experience",
+    certificatesKey: "leadership.alelign.certificates",
+    awardsKey: "leadership.alelign.awards",
   },
   {
     id: 2,

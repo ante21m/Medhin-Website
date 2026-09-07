@@ -68,7 +68,7 @@
 
 .step-item.done::after,
 .step-item.active::after {
-  background: #2563eb;
+  background: #146DA5;
 }
 
 .step-circle {
@@ -87,13 +87,13 @@
 }
 
 .step-item.active .step-circle {
-  background: #2563eb;
+  background: #146DA5;
   color: white;
   box-shadow: 0 4px 12px rgba(37,99,235, 0.3);
 }
 
 .step-item.done .step-circle {
-  background: #2563eb;
+  background: #146DA5;
   color: white;
 }
 
@@ -106,12 +106,12 @@
 }
 
 .step-item.active .step-label {
-  color: #2563eb;
+  color: #146DA5;
   display: block;
 }
 
 .step-item.done .step-label {
-  color: #2563eb;
+  color: #146DA5;
   display: block;
 }
 
@@ -178,14 +178,14 @@
 }
 
 .specialty-tabs button:hover {
-  border-color: #2563eb;
-  color: #2563eb;
+  border-color: #146DA5;
+  color: #146DA5;
 }
 
 .specialty-tabs button.active {
-  background: #2563eb;
+  background: #146DA5;
   color: white;
-  border-color: #2563eb;
+  border-color: #146DA5;
 }
 
 /* =========================
@@ -215,7 +215,7 @@
 }
 
 .doctor-card.selected {
-  border-color: #2563eb;
+  border-color: #146DA5;
   box-shadow: 0 8px 24px rgba(37,99,235, 0.15);
 }
 
@@ -242,7 +242,7 @@
 
 .doc-specialty {
   font-size: 12px;
-  color: #2563eb;
+  color: #146DA5;
   font-weight: 600;
   margin-bottom: 6px;
 }
@@ -267,7 +267,7 @@
 
 .availability-badge.available {
   background: #eff6ff;
-  color: #2563eb;
+  color: #146DA5;
 }
 
 .availability-badge.unavailable {
@@ -282,7 +282,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #2563eb;
+  background: #146DA5;
   color: white;
   display: flex;
   align-items: center;
@@ -335,7 +335,7 @@
 }
 
 .date-input:focus {
-  border-color: #2563eb;
+  border-color: #146DA5;
   box-shadow: 0 0 0 3px rgba(37,99,235, 0.15);
 }
 
@@ -372,14 +372,14 @@
 }
 
 .time-slot:hover {
-  border-color: #2563eb;
-  color: #2563eb;
+  border-color: #146DA5;
+  color: #146DA5;
 }
 
 .time-slot.active {
-  background: #2563eb;
+  background: #146DA5;
   color: white;
-  border-color: #2563eb;
+  border-color: #146DA5;
 }
 
 /* =========================
@@ -417,7 +417,7 @@
 
 .details-form .form-group input:focus,
 .details-form .form-group textarea:focus {
-  border-color: #2563eb;
+  border-color: #146DA5;
   box-shadow: 0 0 0 3px rgba(37,99,235, 0.12);
 }
 
@@ -509,12 +509,12 @@
 }
 
 .step-btn.primary {
-  background: #2563eb;
+  background: #146DA5;
   color: white;
 }
 
 .step-btn.primary:hover {
-  background: #1d4ed8;
+  background: #0F5A86;
 }
 
 .step-btn.primary:disabled {
@@ -529,8 +529,8 @@
 }
 
 .step-btn.secondary:hover {
-  border-color: #2563eb;
-  color: #2563eb;
+  border-color: #146DA5;
+  color: #146DA5;
 }
 
 /* =========================
@@ -542,7 +542,7 @@
   height: 72px;
   border-radius: 50%;
   background: #eff6ff;
-  color: #2563eb;
+  color: #146DA5;
   font-size: 36px;
   font-weight: 700;
   display: flex;
@@ -565,7 +565,7 @@
   font-size: 16px;
   font-weight: 700;
   color: #ffffff;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  background: linear-gradient(135deg, #146DA5, #0F5A86);
   border: none;
   border-radius: 12px;
   cursor: pointer;

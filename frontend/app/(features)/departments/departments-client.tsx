@@ -53,7 +53,7 @@ export default function DepartmentsClient() {
           style={{
             inset: 0,
             background:
-              "radial-gradient(ellipse at 18% 28%, rgba(11,93,82,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(127,217,196,0.07) 0%, transparent 50%)",
+              "radial-gradient(ellipse at 18% 28%, rgba(20,109,165,0.5) 0%, transparent 65%), radial-gradient(ellipse at 82% 72%, rgba(143,213,240,0.07) 0%, transparent 50%)",
           }}
         />
         <Box className="bykm-grid-overlay" />
@@ -63,15 +63,12 @@ export default function DepartmentsClient() {
         <Container size={1300} pos="relative">
           <Stack align="center" gap={6} mb={48}>
             <div className="bykm-kicker-line">
-              <span className="bykm-kicker-dash" />
               <span className="bykm-kicker">{t("nav.departments")}</span>
             </div>
 
             <Title order={1} c="white" ta="center" lh={1.12} fw={600} className="bykm-display" style={{ fontSize: "clamp(30px, 4.5vw, 46px)", marginTop: 14 }}>
               {t("departments.pageTitle")}
             </Title>
-
-            <div style={{ width: 64, height: 3, background: "#7FD9C4", marginTop: 16 }} />
 
             <Text size="md" ta="center" maw={560} lh={1.65} style={{ color: "rgba(255,255,255,0.62)" }}>
               {t("departments.heroSubtitle")}
@@ -86,7 +83,7 @@ export default function DepartmentsClient() {
               { icon: <CalendarCheck size={18} />, label: t("departments.statYears"), sub: t("departments.statYearsSub") },
             ].map((s) => (
               <Flex key={s.label} gap="md" align="center" p="sm" px="md" className="bykm-stat-chip">
-                <Box c="#7FD9C4" style={{ flexShrink: 0 }}>{s.icon}</Box>
+                <Box c="#8FD5F0" style={{ flexShrink: 0 }}>{s.icon}</Box>
                 <Box>
                   <Text c="white" fw={700} size="sm" lh={1.2}>{s.label}</Text>
                   <Text c="white" size="xs" style={{ opacity: 0.5 }}>{s.sub}</Text>
@@ -163,9 +160,7 @@ export default function DepartmentsClient() {
 
         <Container size="sm" ta="center" pos="relative">
           <div className="bykm-kicker-line">
-            <span className="bykm-kicker-dash" />
             <span className="bykm-kicker">{t("departments.ctaBadge")}</span>
-            <span className="bykm-kicker-dash" />
           </div>
 
           <Title order={3} c="white" fw={600} mt={14} mb={10} className="bykm-display" style={{ fontSize: "clamp(24px, 3vw, 32px)" }}>

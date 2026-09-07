@@ -12,7 +12,7 @@ const services = [
   { key: "ultrasound", icon: <FaDesktop size={20} />, color: "#06b6d4", bg: "#ecfeff" },
   { key: "ct-scan", icon: <FaBrain size={20} />, color: "#14b8a6", bg: "#f0fdfa" },
   { key: "surgical", icon: <FaCut size={20} />, color: "var(--primary)", bg: "var(--primary-50)" },
-  { key: "ecg", icon: <FaHeartbeat size={20} />, color: "#7FD9C4", bg: "var(--primary-100)" },
+  { key: "ecg", icon: <FaHeartbeat size={20} />, color: "#8FD5F0", bg: "var(--primary-100)" },
 ];
 
 const taglines = [
