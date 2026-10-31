@@ -36,7 +36,7 @@ export default function AdminLoginPage() {
     e.preventDefault();
     setFieldError('');
 
-    if (username.length < 3) {
+    if (username.trim().length < 3) {
       setFieldError('Username must be at least 3 characters');
       return;
     }
@@ -51,9 +51,9 @@ export default function AdminLoginPage() {
 
     try {
       if (isRegister) {
-        await register({ username, password }).unwrap();
+        await register({ username: username.trim(), password }).unwrap();
       } else {
-        await login({ username, password }).unwrap();
+        await login({ username: username.trim(), password }).unwrap();
       }
       router.push('/admin');
     } catch {
@@ -91,6 +91,10 @@ export default function AdminLoginPage() {
                 placeholder="e.g. admin"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                autoCapitalize="none"
+                autoComplete="username"
+                autoCorrect="off"
+                spellCheck={false}
                 required
               />
               <PasswordInput

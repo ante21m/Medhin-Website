@@ -7,7 +7,7 @@ import {
 } from '@mantine/core';
 import {
   Newspaper, Briefcase, Building2, Image as ImageIcon, Share2, Stethoscope, ConciergeBell, LogOut, ExternalLink,
-  Home as HomeIcon, Users, Calendar,
+  Home as HomeIcon, Users, Calendar, UserCog,
 } from 'lucide-react';
 
 const navItems = [
@@ -21,6 +21,7 @@ const navItems = [
   { label: 'Social Links', href: '/admin/social', icon: Share2 },
   { label: 'Home Page', href: '/admin/home', icon: HomeIcon },
   { label: 'About Page', href: '/admin/about', icon: Users },
+  { label: 'Users', href: '/admin/users', icon: UserCog },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
