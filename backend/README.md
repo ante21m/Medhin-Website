@@ -96,3 +96,34 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## Users Management
+
+The backend exposes a protected CRUD API for managing users at `/users` (JWT required via `Authorization: Bearer <token>`):
+
+| Method | Endpoint | Description |
+| ------ | -------- | ----------- |
+| GET | `/users` | List all users (name, email, phone, username, role) |
+| GET | `/users/:id` | Get a single user |
+| POST | `/users` | Create a user (name, email, phone, username, password, role) |
+| PUT | `/users/:id` | Update a user (password optional; leave empty to keep current) |
+| DELETE | `/users/:id` | Delete a user (the last remaining admin cannot be deleted) |
+
+### Default user
+
+On startup the server automatically seeds a default admin user (only if the username is not taken):
+
+- **Username:** `admin`
+- **Password:** `admin123`
+
+> ⚠️ Change the default admin password after the first login.
+
+The new columns `name`, `email`, `phone` are added to the `users` table automatically on startup (`ALTER TABLE ... ADD COLUMN IF NOT EXISTS`).
+
+The default admin credentials are configured in `backend/.env`:
+
+```env
+DEFAULT_ADMIN_USERNAME=admin
+DEFAULT_ADMIN_PASSWORD=admin123
+```
+

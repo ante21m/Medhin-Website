@@ -8,6 +8,7 @@ import { NewsModule } from './news/news.module';
 import { WebDataModule } from './web-data/web-data.module';
 import { PhysicianModule } from './physician/physician.module';
 import { UploadModule } from './upload/upload.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { UploadModule } from './upload/upload.module';
     WebDataModule,
     PhysicianModule,
     UploadModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

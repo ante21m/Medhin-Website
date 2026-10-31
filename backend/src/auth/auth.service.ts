@@ -4,7 +4,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, ILike } from 'typeorm';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { User } from './user.entity';
@@ -20,14 +20,14 @@ export class AuthService {
 
   async register(dto: RegisterDto) {
     const existing = await this.userRepository.findOne({
-      where: { username: dto.username },
+      where: { username: ILike(dto.username.trim()) },
     });
     if (existing) {
       throw new ConflictException('Username already exists');
     }
     const hashedPassword = await bcrypt.hash(dto.password, 10);
     const user = this.userRepository.create({
-      username: dto.username,
+      username: dto.username.trim(),
       password: hashedPassword,
     });
     await this.userRepository.save(user);
@@ -36,7 +36,7 @@ export class AuthService {
 
   async login(dto: LoginDto) {
     const user = await this.userRepository.findOne({
-      where: { username: dto.username },
+      where: { username: ILike(dto.username.trim()) },
     });
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');
